@@ -1,0 +1,36 @@
+# Ignore Visual Studio files
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Ignore user-specific files and settings
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore build and output directories
+obj/
+
+# Ignore NuGet package directory
+packages/
+
+# Ignore Resharper files
+_ReSharper*/
+
+# Ignore project-specific files
+*.csproj.user
+
+# Ignore Windows image file caches and folders
+Thumbs.db
+ehthumbs.db/
+
+# Ignore folder configuration file
+Desktop.ini
+
+# Ignore Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Ignore Visual Studio Code directories
+.vscode/
