@@ -58,7 +58,9 @@ namespace MovieTicketApp
 
         private void lbl_SignUp_Click(object sender, EventArgs e)
         {
-
+            frm_SignUp signUpForm = new frm_SignUp();
+            signUpForm.Show();
+            this.Hide();
         }
     }
 }
