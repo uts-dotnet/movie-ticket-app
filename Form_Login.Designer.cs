@@ -76,6 +76,7 @@
             btn_Login.TabIndex = 3;
             btn_Login.Text = "Login";
             btn_Login.UseVisualStyleBackColor = true;
+            btn_Login.Click += btn_Login_Click;
             // 
             // btn_SignUp
             // 
@@ -98,6 +99,7 @@
             // 
             txt_Password.Location = new Point(271, 238);
             txt_Password.Name = "txt_Password";
+            txt_Password.PasswordChar = '*';
             txt_Password.Size = new Size(281, 23);
             txt_Password.TabIndex = 6;
             // 
