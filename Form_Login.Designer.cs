@@ -131,6 +131,7 @@
             // 
             // frm_Login
             // 
+            AcceptButton = btn_Login;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
@@ -144,6 +145,7 @@
             Controls.Add(lbl_Password);
             Controls.Add(lbl_Username);
             Name = "frm_Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login | DOTNET Cinemas";
             ResumeLayout(false);
             PerformLayout();

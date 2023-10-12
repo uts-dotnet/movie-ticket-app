@@ -31,17 +31,17 @@
             lbl_Title_SignUp = new Label();
             lbl_Become_Member = new Label();
             lbl_Username = new Label();
-            txt_Username = new TextBox();
             lbl_Password = new Label();
-            txt_Password = new TextBox();
             lbl_Min_Password_Length = new Label();
             lbl_LastName = new Label();
-            txt_LastName = new TextBox();
             btn_SignUp = new Button();
             lbl_FirstName = new Label();
-            txt_FirstName = new TextBox();
             lbl_Already_Member = new Label();
             lbl_LogIn = new Label();
+            txt_FirstName = new TextBox();
+            txt_LastName = new TextBox();
+            txt_UserName = new TextBox();
+            txt_Password = new TextBox();
             SuspendLayout();
             // 
             // lbl_Title_SignUp
@@ -59,7 +59,7 @@
             // 
             lbl_Become_Member.AutoSize = true;
             lbl_Become_Member.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Become_Member.Location = new Point(312, 97);
+            lbl_Become_Member.Location = new Point(312, 91);
             lbl_Become_Member.Name = "lbl_Become_Member";
             lbl_Become_Member.Size = new Size(173, 25);
             lbl_Become_Member.TabIndex = 1;
@@ -69,41 +69,26 @@
             // 
             lbl_Username.AutoSize = true;
             lbl_Username.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Username.Location = new Point(471, 162);
+            lbl_Username.Location = new Point(471, 152);
             lbl_Username.Name = "lbl_Username";
             lbl_Username.Size = new Size(78, 20);
             lbl_Username.TabIndex = 2;
             lbl_Username.Text = "Username";
             // 
-            // txt_Username
-            // 
-            txt_Username.Location = new Point(471, 191);
-            txt_Username.Name = "txt_Username";
-            txt_Username.Size = new Size(263, 23);
-            txt_Username.TabIndex = 3;
-            // 
             // lbl_Password
             // 
             lbl_Password.AutoSize = true;
             lbl_Password.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Password.Location = new Point(474, 231);
+            lbl_Password.Location = new Point(474, 221);
             lbl_Password.Name = "lbl_Password";
             lbl_Password.Size = new Size(73, 20);
             lbl_Password.TabIndex = 4;
             lbl_Password.Text = "Password";
             // 
-            // txt_Password
-            // 
-            txt_Password.Location = new Point(471, 259);
-            txt_Password.Name = "txt_Password";
-            txt_Password.PasswordChar = '*';
-            txt_Password.Size = new Size(263, 23);
-            txt_Password.TabIndex = 5;
-            // 
             // lbl_Min_Password_Length
             // 
             lbl_Min_Password_Length.AutoSize = true;
-            lbl_Min_Password_Length.Location = new Point(475, 287);
+            lbl_Min_Password_Length.Location = new Point(475, 279);
             lbl_Min_Password_Length.Name = "lbl_Min_Password_Length";
             lbl_Min_Password_Length.Size = new Size(140, 15);
             lbl_Min_Password_Length.TabIndex = 6;
@@ -113,18 +98,11 @@
             // 
             lbl_LastName.AutoSize = true;
             lbl_LastName.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_LastName.Location = new Point(69, 231);
+            lbl_LastName.Location = new Point(69, 221);
             lbl_LastName.Name = "lbl_LastName";
             lbl_LastName.Size = new Size(77, 20);
             lbl_LastName.TabIndex = 8;
             lbl_LastName.Text = "Last name";
-            // 
-            // txt_LastName
-            // 
-            txt_LastName.Location = new Point(68, 259);
-            txt_LastName.Name = "txt_LastName";
-            txt_LastName.Size = new Size(261, 23);
-            txt_LastName.TabIndex = 10;
             // 
             // btn_SignUp
             // 
@@ -143,24 +121,17 @@
             // 
             lbl_FirstName.AutoSize = true;
             lbl_FirstName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_FirstName.Location = new Point(69, 162);
+            lbl_FirstName.Location = new Point(69, 152);
             lbl_FirstName.Name = "lbl_FirstName";
             lbl_FirstName.Size = new Size(85, 21);
             lbl_FirstName.TabIndex = 12;
             lbl_FirstName.Text = "First name";
             // 
-            // txt_FirstName
-            // 
-            txt_FirstName.Location = new Point(69, 191);
-            txt_FirstName.Name = "txt_FirstName";
-            txt_FirstName.Size = new Size(260, 23);
-            txt_FirstName.TabIndex = 13;
-            // 
             // lbl_Already_Member
             // 
             lbl_Already_Member.AutoSize = true;
             lbl_Already_Member.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_Already_Member.Location = new Point(294, 329);
+            lbl_Already_Member.Location = new Point(294, 324);
             lbl_Already_Member.Name = "lbl_Already_Member";
             lbl_Already_Member.Size = new Size(139, 20);
             lbl_Already_Member.TabIndex = 14;
@@ -172,33 +143,63 @@
             lbl_LogIn.Cursor = Cursors.Hand;
             lbl_LogIn.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             lbl_LogIn.ForeColor = Color.Firebrick;
-            lbl_LogIn.Location = new Point(450, 329);
+            lbl_LogIn.Location = new Point(450, 324);
             lbl_LogIn.Name = "lbl_LogIn";
             lbl_LogIn.Size = new Size(60, 20);
             lbl_LogIn.TabIndex = 15;
             lbl_LogIn.Text = "LOG IN";
             lbl_LogIn.Click += lbl_LogIn_Click;
             // 
+            // txt_FirstName
+            // 
+            txt_FirstName.Location = new Point(69, 181);
+            txt_FirstName.Name = "txt_FirstName";
+            txt_FirstName.Size = new Size(260, 23);
+            txt_FirstName.TabIndex = 16;
+            // 
+            // txt_LastName
+            // 
+            txt_LastName.Location = new Point(69, 250);
+            txt_LastName.Name = "txt_LastName";
+            txt_LastName.Size = new Size(260, 23);
+            txt_LastName.TabIndex = 17;
+            // 
+            // txt_UserName
+            // 
+            txt_UserName.Location = new Point(471, 181);
+            txt_UserName.Name = "txt_UserName";
+            txt_UserName.Size = new Size(260, 23);
+            txt_UserName.TabIndex = 18;
+            // 
+            // txt_Password
+            // 
+            txt_Password.Location = new Point(471, 250);
+            txt_Password.Name = "txt_Password";
+            txt_Password.Size = new Size(260, 23);
+            txt_Password.TabIndex = 19;
+            // 
             // frm_SignUp
             // 
+            AcceptButton = btn_SignUp;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(txt_Password);
+            Controls.Add(txt_UserName);
+            Controls.Add(txt_LastName);
+            Controls.Add(txt_FirstName);
             Controls.Add(lbl_LogIn);
             Controls.Add(lbl_Already_Member);
-            Controls.Add(txt_FirstName);
             Controls.Add(lbl_FirstName);
             Controls.Add(btn_SignUp);
-            Controls.Add(txt_LastName);
             Controls.Add(lbl_LastName);
             Controls.Add(lbl_Min_Password_Length);
-            Controls.Add(txt_Password);
             Controls.Add(lbl_Password);
-            Controls.Add(txt_Username);
             Controls.Add(lbl_Username);
             Controls.Add(lbl_Become_Member);
             Controls.Add(lbl_Title_SignUp);
             Name = "frm_SignUp";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Sign Up | DOTNET Cinemas";
             ResumeLayout(false);
             PerformLayout();
@@ -208,17 +209,17 @@
 
         private Label lbl_Title_SignUp;
         private Label lbl_Become_Member;
-        private Label lbl_Username;
-        private TextBox txt_Username;
-        private Label lbl_Password;
-        private TextBox txt_Password;
-        private Label lbl_Min_Password_Length;
-        private Label lbl_LastName;
-        private TextBox txt_LastName;
-        private Button btn_SignUp;
         private Label lbl_FirstName;
-        private TextBox txt_FirstName;
+        private Label lbl_LastName;
+        private Label lbl_Username;
+        private Label lbl_Password;
+        private Label lbl_Min_Password_Length;
+        private Button btn_SignUp;
         private Label lbl_Already_Member;
         private Label lbl_LogIn;
+        private TextBox txt_FirstName;
+        private TextBox txt_LastName;
+        private TextBox txt_UserName;
+        private TextBox txt_Password;
     }
 }
