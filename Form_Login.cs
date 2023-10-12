@@ -12,6 +12,11 @@ namespace MovieTicketApp
             InitializeComponent();
         }
 
+        private void frm_Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Close(); // if the form is not closed it'll cause a conflict between Visual Studio and the executable file
+        }
+
         private void btn_Login_Click(object sender, EventArgs e)
         {
             string enteredUsername = txt_Username.Text;
