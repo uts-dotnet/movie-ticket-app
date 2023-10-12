@@ -55,5 +55,10 @@ namespace MovieTicketApp
                 return false;
             }
         }
+
+        private void lbl_SignUp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
