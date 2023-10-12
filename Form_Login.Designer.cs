@@ -28,44 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label_Username = new Label();
-            label_Password = new Label();
-            label_Login_Title = new Label();
+            lbl_Username = new Label();
+            lbl_Password = new Label();
+            lbl_Login_Title = new Label();
             btn_Login = new Button();
             btn_SignUp = new Button();
             txt_Username = new TextBox();
             txt_Password = new TextBox();
             SuspendLayout();
             // 
-            // label_Username
+            // lbl_Username
             // 
-            label_Username.AutoSize = true;
-            label_Username.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label_Username.Location = new Point(131, 174);
-            label_Username.Name = "label_Username";
-            label_Username.Size = new Size(106, 30);
-            label_Username.TabIndex = 0;
-            label_Username.Text = "Username";
+            lbl_Username.AutoSize = true;
+            lbl_Username.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_Username.Location = new Point(131, 174);
+            lbl_Username.Name = "lbl_Username";
+            lbl_Username.Size = new Size(106, 30);
+            lbl_Username.TabIndex = 0;
+            lbl_Username.Text = "Username";
             // 
-            // label_Password
+            // lbl_Password
             // 
-            label_Password.AutoSize = true;
-            label_Password.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label_Password.Location = new Point(131, 233);
-            label_Password.Name = "label_Password";
-            label_Password.Size = new Size(99, 30);
-            label_Password.TabIndex = 1;
-            label_Password.Text = "Password";
+            lbl_Password.AutoSize = true;
+            lbl_Password.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_Password.Location = new Point(131, 233);
+            lbl_Password.Name = "lbl_Password";
+            lbl_Password.Size = new Size(99, 30);
+            lbl_Password.TabIndex = 1;
+            lbl_Password.Text = "Password";
             // 
-            // label_Login_Title
+            // lbl_Login_Title
             // 
-            label_Login_Title.AutoSize = true;
-            label_Login_Title.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label_Login_Title.Location = new Point(269, 68);
-            label_Login_Title.Name = "label_Login_Title";
-            label_Login_Title.Size = new Size(255, 40);
-            label_Login_Title.TabIndex = 2;
-            label_Login_Title.Text = "DOTNET Cinemas";
+            lbl_Login_Title.AutoSize = true;
+            lbl_Login_Title.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Login_Title.Location = new Point(269, 68);
+            lbl_Login_Title.Name = "lbl_Login_Title";
+            lbl_Login_Title.Size = new Size(255, 40);
+            lbl_Login_Title.TabIndex = 2;
+            lbl_Login_Title.Text = "DOTNET Cinemas";
             // 
             // btn_Login
             // 
@@ -110,9 +110,9 @@
             Controls.Add(txt_Username);
             Controls.Add(btn_SignUp);
             Controls.Add(btn_Login);
-            Controls.Add(label_Login_Title);
-            Controls.Add(label_Password);
-            Controls.Add(label_Username);
+            Controls.Add(lbl_Login_Title);
+            Controls.Add(lbl_Password);
+            Controls.Add(lbl_Username);
             Name = "frm_Login";
             Text = "Login";
             ResumeLayout(false);
@@ -121,9 +121,9 @@
 
         #endregion
 
-        private Label label_Login_Title;
-        private Label label_Username;
-        private Label label_Password;
+        private Label lbl_Login_Title;
+        private Label lbl_Username;
+        private Label lbl_Password;
         private TextBox txt_Username;
         private TextBox txt_Password;
         private Button btn_Login;
