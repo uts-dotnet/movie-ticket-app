@@ -19,8 +19,8 @@ namespace MovieTicketApp
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            string enteredUsername = txt_Username.Text;
-            string enteredPassword = txt_Password.Text;
+            string enteredUsername = txt_Username.Text.Trim();
+            string enteredPassword = txt_Password.Text.Trim();
 
             if (ValidateCredentials(enteredUsername, enteredPassword))
             {
