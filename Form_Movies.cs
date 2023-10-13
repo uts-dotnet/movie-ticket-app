@@ -51,11 +51,15 @@ namespace MovieTicketApp
                     string genre = data[2];
                     int hours = Convert.ToInt32(data[3]);
                     int minutes = Convert.ToInt32(data[4]);
-                    string description = data[5].Trim('"'); // remove the double quotes from the description
-                    string poster = data[6];
+                    int year = Convert.ToInt32(data[5]);
+                    int month = Convert.ToInt32(data[6]);
+                    int day = Convert.ToInt32(data[7]);
+                    string description = data[8].Trim('"'); // remove the double quotes from the description
+                    string poster = data[9];
 
                     Duration duration = new Duration(hours, minutes);
-                    Movie movie = new Movie(id, title, genre, duration, description, poster);
+                    DateTime releasedate = new DateTime(year, month, day);
+                    Movie movie = new Movie(id, title, genre, duration, releasedate, description, poster);
 
                     movies.Add(movie);
                 }
@@ -77,6 +81,7 @@ namespace MovieTicketApp
 
                 lbl_Movie_Title.Text = selectedMovie.Title;
                 lbl_Movie_Duration_Genre.Text = $"{selectedMovie.Duration}, {selectedMovie.Genre}";
+                lbl_Movie_Release_Date.Text = $"Released on {selectedMovie.ReleaseDate.ToString("dd MMM yyyy")}";
                 txt_Movie_Description.Text = selectedMovie.Description;
 
                 string moviePoster = selectedMovie.Poster;

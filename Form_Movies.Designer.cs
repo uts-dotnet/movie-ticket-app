@@ -34,6 +34,7 @@
             lbl_Movie_Title = new Label();
             lbl_Movie_Duration_Genre = new Label();
             txt_Movie_Description = new TextBox();
+            lbl_Movie_Release_Date = new Label();
             ((System.ComponentModel.ISupportInitialize)picbox_Movie_Poster).BeginInit();
             SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             // 
             lbl_Movie_Duration_Genre.AutoSize = true;
             lbl_Movie_Duration_Genre.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_Movie_Duration_Genre.Location = new Point(445, 143);
+            lbl_Movie_Duration_Genre.Location = new Point(445, 177);
             lbl_Movie_Duration_Genre.Name = "lbl_Movie_Duration_Genre";
             lbl_Movie_Duration_Genre.Size = new Size(100, 17);
             lbl_Movie_Duration_Genre.TabIndex = 7;
@@ -94,18 +95,29 @@
             txt_Movie_Description.BackColor = SystemColors.Control;
             txt_Movie_Description.BorderStyle = BorderStyle.None;
             txt_Movie_Description.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_Movie_Description.Location = new Point(446, 174);
+            txt_Movie_Description.Location = new Point(445, 209);
             txt_Movie_Description.Multiline = true;
             txt_Movie_Description.Name = "txt_Movie_Description";
-            txt_Movie_Description.Size = new Size(312, 52);
+            txt_Movie_Description.Size = new Size(312, 104);
             txt_Movie_Description.TabIndex = 8;
             txt_Movie_Description.Text = "Description";
+            // 
+            // lbl_Movie_Release_Date
+            // 
+            lbl_Movie_Release_Date.AutoSize = true;
+            lbl_Movie_Release_Date.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_Movie_Release_Date.Location = new Point(445, 144);
+            lbl_Movie_Release_Date.Name = "lbl_Movie_Release_Date";
+            lbl_Movie_Release_Date.Size = new Size(191, 17);
+            lbl_Movie_Release_Date.TabIndex = 9;
+            lbl_Movie_Release_Date.Text = "Released on (Day, Month, Year)";
             // 
             // frm_Movies
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lbl_Movie_Release_Date);
             Controls.Add(txt_Movie_Description);
             Controls.Add(lbl_Movie_Duration_Genre);
             Controls.Add(lbl_Movie_Title);
@@ -128,5 +140,6 @@
         private Label lbl_Movie_Title;
         private Label lbl_Movie_Duration_Genre;
         private TextBox txt_Movie_Description;
+        private Label lbl_Movie_Release_Date;
     }
 }
