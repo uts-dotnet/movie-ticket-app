@@ -1,0 +1,4 @@
+id,title,genre,hours,minutes,image
+40001,Expand4bles,Action,1,43,
+40002,Barbie,Adventure,1,54,".\\movie-posters\\barbie.jpg"
+40003,Saw X,Horror,1,58,

@@ -30,6 +30,8 @@
         {
             listbox_Movies = new ListBox();
             lbl_Title_Login = new Label();
+            picbox_Movie_Image = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picbox_Movie_Image).BeginInit();
             SuspendLayout();
             // 
             // listbox_Movies
@@ -53,16 +55,26 @@
             lbl_Title_Login.TabIndex = 3;
             lbl_Title_Login.Text = "Now Showing";
             // 
+            // picbox_Movie_Image
+            // 
+            picbox_Movie_Image.Location = new Point(284, 113);
+            picbox_Movie_Image.Name = "picbox_Movie_Image";
+            picbox_Movie_Image.Size = new Size(135, 135);
+            picbox_Movie_Image.TabIndex = 4;
+            picbox_Movie_Image.TabStop = false;
+            // 
             // frm_Movies
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(picbox_Movie_Image);
             Controls.Add(lbl_Title_Login);
             Controls.Add(listbox_Movies);
             Name = "frm_Movies";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form_Movies";
+            ((System.ComponentModel.ISupportInitialize)picbox_Movie_Image).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -71,5 +83,6 @@
 
         private ListBox listbox_Movies;
         private Label lbl_Title_Login;
+        private PictureBox picbox_Movie_Image;
     }
 }
