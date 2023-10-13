@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -50,9 +51,10 @@ namespace MovieTicketApp
                     string genre = data[2];
                     int hours = Convert.ToInt32(data[3]);
                     int minutes = Convert.ToInt32(data[4]);
+                    string posterPath = data[5];
 
                     Duration duration = new Duration(hours, minutes);
-                    Movie movie = new Movie(id, title, genre, duration);
+                    Movie movie = new Movie(id, title, genre, duration, posterPath);
 
                     movies.Add(movie);
                 }
@@ -63,6 +65,27 @@ namespace MovieTicketApp
             }
 
             return movies;
+        }
+
+        private void listbox_Movies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listbox_Movies.SelectedIndex >= 0)
+            {
+                Movie selectedMovie = (Movie)listbox_Movies.SelectedItem;
+                string moviePosterPath = selectedMovie.PosterPath;
+                string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, moviePosterPath);
+
+                try
+                {
+                    picbox_Movie_Poster.Image = Image.FromFile(fullPath);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                    Debug.WriteLine("POSTER PATH: " + moviePosterPath);
+                    Debug.WriteLine("FULL PATH " + fullPath);
+                }
+            }
         }
     }
 }
