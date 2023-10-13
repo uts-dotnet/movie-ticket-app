@@ -114,7 +114,7 @@
             Controls.Add(listbox_Movies);
             Name = "frm_Movies";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form_Movies";
+            Text = "Movies | DOTNET Cinemas";
             ((System.ComponentModel.ISupportInitialize)picbox_Movie_Poster).EndInit();
             ResumeLayout(false);
             PerformLayout();
