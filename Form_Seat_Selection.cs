@@ -9,17 +9,23 @@ namespace MovieTicketApp
         private MovieSession _session;
         private int _availableSeats;
         private int _ticketQuantity;
+        private double _ticketPrice;
+        private double _subTotal;
+        private string _ticketSelected;
         private int _ticketsRemaining;
         private int _totalSeatsSelected = 0;
 
-        public Form_Seat_Selection(Movie selectedMovie, MovieSession selectedSession, int ticketQuantity)
+        public Form_Seat_Selection(TicketInfo ticketInfo)
         {
             InitializeComponent();
 
-            this._movie = selectedMovie;
-            this._session = selectedSession;
-            this._availableSeats = selectedSession.AvailableSeats;
-            this._ticketQuantity = ticketQuantity;
+            this._movie = ticketInfo.SelectedMovie;
+            this._session = ticketInfo.SelectedSession;
+            this._availableSeats = this._session.AvailableSeats;
+            this._ticketQuantity = ticketInfo.Quantity;
+            this._ticketPrice = ticketInfo.Price;
+            this._subTotal = ticketInfo.SubTotal;
+            this._ticketSelected = ticketInfo.TicketSelected;
             this._ticketsRemaining = this._ticketQuantity;
 
             LoadSeats();
@@ -69,7 +75,8 @@ namespace MovieTicketApp
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
-            Form_Movie_Ticket form = new Form_Movie_Ticket(this._movie, this._session);
+            TicketInfo ticketInfo = new TicketInfo(this._movie, this._session, this._ticketPrice, this._subTotal, this._ticketQuantity, this._ticketSelected);
+            Form_Movie_Ticket form = new Form_Movie_Ticket(ticketInfo);
             form.Show();
             this.Close();
         }
