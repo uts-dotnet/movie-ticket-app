@@ -11,6 +11,7 @@ namespace MovieTicketApp
         public string TicketSelected { get; private set; }
         public double TicketPrice { get; private set; }
         public double SubTotal { get; private set; }
+        public int TicketQuantity { get; private set; }
         public static int SelectedTicketQuantity { get; private set; }
 
 
@@ -18,8 +19,9 @@ namespace MovieTicketApp
         {
             InitializeComponent();
 
-            _movie = selectedMovie;
-            _session = selectedSession;
+            this._movie = selectedMovie;
+            this._session = selectedSession;
+            this.TicketSelected = string.Empty;
 
             lbl_Movie_Title.Text = _movie.Title;
             lbl_Session_Time_Fomatted.Text = _session.Time.ToString("HH:mm");
@@ -39,17 +41,18 @@ namespace MovieTicketApp
             this._session = ticketInfo.SelectedSession;
             this.TicketSelected = ticketInfo.TicketSelected;
             this.TicketPrice = ticketInfo.Price;
+            this.TicketQuantity = ticketInfo.Quantity;
             this.SubTotal = ticketInfo.SubTotal;
 
-            lbl_Movie_Title.Text = _movie.Title;
-            lbl_Session_Time_Fomatted.Text = _session.Time.ToString("HH:mm");
+            lbl_Movie_Title.Text = this._movie.Title;
+            lbl_Session_Time_Fomatted.Text = this._session.Time.ToString("HH:mm");
 
             LoadListView();
             PopulateListView();
 
             lbl_Ticket_Selected.Text = this.TicketSelected;
             lbl_Ticket_Price_Value.Text = this.TicketPrice.ToString("C");
-            lbl_Quantity_Value.Text = ticketInfo.Quantity.ToString();
+            lbl_Quantity_Value.Text = this.TicketQuantity.ToString();
             lbl_Sub_Total_Value.Text = this.SubTotal.ToString("C");
 
         }

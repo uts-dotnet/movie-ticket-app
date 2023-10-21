@@ -90,6 +90,7 @@
             btn_Logout.TabIndex = 22;
             btn_Logout.Text = "Log Out";
             btn_Logout.UseVisualStyleBackColor = true;
+            btn_Logout.Click += btn_Logout_Click;
             // 
             // lbl_Seats_Available
             // 

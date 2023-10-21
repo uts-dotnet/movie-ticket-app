@@ -80,5 +80,12 @@ namespace MovieTicketApp
             form.Show();
             this.Close();
         }
+
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            frm_Login login = new frm_Login();
+            login.Show();
+            this.Close();
+        }
     }
 }
