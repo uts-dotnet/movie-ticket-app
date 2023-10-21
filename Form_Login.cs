@@ -25,7 +25,7 @@ namespace MovieTicketApp
             if (ValidateCredentials(enteredUsername, enteredPassword))
             {
                 //MessageBox.Show("Login Successful!");
-                frm_Movies frm_Movies = new frm_Movies();
+                Form_Movies frm_Movies = new Form_Movies();
                 frm_Movies.Show();
                 this.Hide();
             }

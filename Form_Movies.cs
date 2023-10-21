@@ -5,14 +5,14 @@ using System.Text.RegularExpressions;
 
 namespace MovieTicketApp
 {
-    public partial class frm_Movies : Form
+    public partial class Form_Movies : Form
     {
         private string _moviesFile = ".\\movies.txt";
         private string _sessionsFile = ".\\sessions.txt";
 
         List<Movie> movies;
 
-        public frm_Movies()
+        public Form_Movies()
         {
             InitializeComponent();
 
@@ -23,7 +23,7 @@ namespace MovieTicketApp
             listbox_Movies.DataSource = movies;
         }
 
-        public void frm_Movies_FormClosed(object sender, FormClosedEventArgs e)
+        public void Form_Movies_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
         }
@@ -72,7 +72,7 @@ namespace MovieTicketApp
 
                         for (int j = 1; j < sessionData.Length - 1; j++) // Start at index 1 to skip the movie ID and last time (available seats)
                         {
-                            DateTime sessionTime = DateTime.ParseExact(sessionData[j], "H:mm", CultureInfo.InvariantCulture);
+                            DateTime sessionTime = DateTime.ParseExact(sessionData[j], "HH:mm", CultureInfo.InvariantCulture);
                             movie.AddSession(sessionTime, availableSeats);
                         }
 
@@ -131,10 +131,25 @@ namespace MovieTicketApp
                 {
                     sessionBtns[i].Text = selectedMovie.Sessions[i].Date.ToString("HH:mm");
                     sessionBtns[i].Tag = selectedMovie.Sessions[i];
+                    sessionBtns[i].Cursor = Cursors.Hand;
 
                     sessionBtns[i].Location = new Point(x, y);
                     x += 106; // increase the x position of each subsequent button by 106px
+
+                    sessionBtns[i].Click += SessionButton_Click;
                 }
+            }
+        }
+
+        private void SessionButton_Click(object? sender, EventArgs e)
+        {
+            Movie selectedMovie = (Movie)listbox_Movies.SelectedItem;
+
+            if (sender is Button button && button.Tag is MovieSession selectedSession)
+            {
+                Form_Movie_Session sessionForm = new Form_Movie_Session(selectedMovie, selectedSession);
+                sessionForm.Show();
+                this.Hide();
             }
         }
     }

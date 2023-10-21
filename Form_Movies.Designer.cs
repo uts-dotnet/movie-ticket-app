@@ -1,6 +1,6 @@
 ﻿namespace MovieTicketApp
 {
-    partial class frm_Movies
+    partial class Form_Movies
     {
         /// <summary>
         /// Required designer variable.
@@ -135,7 +135,7 @@
             btn_Session_Time_1.Name = "btn_Session_Time_1";
             btn_Session_Time_1.Size = new Size(85, 36);
             btn_Session_Time_1.TabIndex = 12;
-            btn_Session_Time_1.Text = "10:00";
+            btn_Session_Time_1.Text = "HH:mm";
             btn_Session_Time_1.UseVisualStyleBackColor = true;
             // 
             // btn_Session_Time_2
@@ -145,7 +145,7 @@
             btn_Session_Time_2.Name = "btn_Session_Time_2";
             btn_Session_Time_2.Size = new Size(85, 36);
             btn_Session_Time_2.TabIndex = 13;
-            btn_Session_Time_2.Text = "14:30";
+            btn_Session_Time_2.Text = "HH:mm";
             btn_Session_Time_2.UseVisualStyleBackColor = true;
             // 
             // btn_Session_Time_3
@@ -155,7 +155,7 @@
             btn_Session_Time_3.Name = "btn_Session_Time_3";
             btn_Session_Time_3.Size = new Size(85, 36);
             btn_Session_Time_3.TabIndex = 14;
-            btn_Session_Time_3.Text = "14:30";
+            btn_Session_Time_3.Text = "HH:mm";
             btn_Session_Time_3.UseVisualStyleBackColor = true;
             // 
             // btn_Session_Time_4
@@ -165,7 +165,7 @@
             btn_Session_Time_4.Name = "btn_Session_Time_4";
             btn_Session_Time_4.Size = new Size(85, 36);
             btn_Session_Time_4.TabIndex = 15;
-            btn_Session_Time_4.Text = "14:30";
+            btn_Session_Time_4.Text = "HH:mm";
             btn_Session_Time_4.UseVisualStyleBackColor = true;
             // 
             // btn_Session_Time_5
@@ -175,10 +175,10 @@
             btn_Session_Time_5.Name = "btn_Session_Time_5";
             btn_Session_Time_5.Size = new Size(85, 36);
             btn_Session_Time_5.TabIndex = 16;
-            btn_Session_Time_5.Text = "14:30";
+            btn_Session_Time_5.Text = "HH:mm";
             btn_Session_Time_5.UseVisualStyleBackColor = true;
             // 
-            // frm_Movies
+            // Form_Movies
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -196,7 +196,7 @@
             Controls.Add(picbox_Movie_Poster);
             Controls.Add(lbl_Title_Login);
             Controls.Add(listbox_Movies);
-            Name = "frm_Movies";
+            Name = "Form_Movies";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Movies | DOTNET Cinemas";
             ((System.ComponentModel.ISupportInitialize)picbox_Movie_Poster).EndInit();
