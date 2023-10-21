@@ -131,7 +131,6 @@ namespace MovieTicketApp
                 EnableContinueButton(true);
 
                 SelectedTicketQuantity = quantity;
-                Debug.WriteLine(SelectedTicketQuantity.ToString());
             }
             else
             {
@@ -159,7 +158,6 @@ namespace MovieTicketApp
                     EnableContinueButton(false);
 
                 SelectedTicketQuantity = quantity;
-                Debug.WriteLine(SelectedTicketQuantity.ToString());
             }
         }
 
