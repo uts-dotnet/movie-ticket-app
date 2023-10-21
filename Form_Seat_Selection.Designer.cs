@@ -151,18 +151,6 @@
             label1.TabIndex = 28;
             label1.Text = "Selected Seats";
             // 
-            // lbl_Edit_Seats
-            // 
-            lbl_Edit_Seats.AutoSize = true;
-            lbl_Edit_Seats.Cursor = Cursors.Hand;
-            lbl_Edit_Seats.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            lbl_Edit_Seats.ForeColor = Color.Firebrick;
-            lbl_Edit_Seats.Location = new Point(487, 230);
-            lbl_Edit_Seats.Name = "lbl_Edit_Seats";
-            lbl_Edit_Seats.Size = new Size(81, 21);
-            lbl_Edit_Seats.TabIndex = 29;
-            lbl_Edit_Seats.Text = "Edit Seats";
-            // 
             // btn_Confirm
             // 
             btn_Confirm.BackColor = Color.Firebrick;
