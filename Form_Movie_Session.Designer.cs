@@ -43,7 +43,7 @@
             lbl_Ticket_Price = new Label();
             lbl_Sub_Total_Value = new Label();
             btn_Back = new Button();
-            btn_Log_Out = new Button();
+            btn_Logout = new Button();
             SuspendLayout();
             // 
             // lbl_Title_MovieSession
@@ -166,6 +166,7 @@
             btn_Continue.TabIndex = 16;
             btn_Continue.Text = "Continue";
             btn_Continue.UseVisualStyleBackColor = false;
+            btn_Continue.Click += btn_Continue_Click;
             // 
             // lbl_Sub_Total
             // 
@@ -199,6 +200,7 @@
             // 
             // btn_Back
             // 
+            btn_Back.Cursor = Cursors.Hand;
             btn_Back.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_Back.ForeColor = Color.Firebrick;
             btn_Back.Location = new Point(17, 46);
@@ -209,24 +211,25 @@
             btn_Back.UseVisualStyleBackColor = true;
             btn_Back.Click += btn_Back_Click;
             // 
-            // btn_Log_Out
+            // btn_Logout
             // 
-            btn_Log_Out.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Log_Out.ForeColor = Color.Firebrick;
-            btn_Log_Out.Location = new Point(485, 46);
-            btn_Log_Out.Name = "btn_Log_Out";
-            btn_Log_Out.Size = new Size(89, 35);
-            btn_Log_Out.TabIndex = 21;
-            btn_Log_Out.Text = "Log Out";
-            btn_Log_Out.UseVisualStyleBackColor = true;
-            btn_Log_Out.Click += btn_Log_Out_Click;
+            btn_Logout.Cursor = Cursors.Hand;
+            btn_Logout.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Logout.ForeColor = Color.Firebrick;
+            btn_Logout.Location = new Point(485, 46);
+            btn_Logout.Name = "btn_Logout";
+            btn_Logout.Size = new Size(89, 35);
+            btn_Logout.TabIndex = 21;
+            btn_Logout.Text = "Log Out";
+            btn_Logout.UseVisualStyleBackColor = true;
+            btn_Logout.Click += btn_Log_Out_Click;
             // 
             // Form_Movie_Session
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(586, 434);
-            Controls.Add(btn_Log_Out);
+            Controls.Add(btn_Logout);
             Controls.Add(btn_Back);
             Controls.Add(lbl_Sub_Total_Value);
             Controls.Add(lbl_Ticket_Price);
@@ -266,6 +269,6 @@
         private Label lbl_Ticket_Price;
         private Label lbl_Sub_Total_Value;
         private Button btn_Back;
-        private Button btn_Log_Out;
+        private Button btn_Logout;
     }
 }

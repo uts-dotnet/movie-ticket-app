@@ -16,7 +16,7 @@ namespace MovieTicketApp
             _session = selectedSession;
 
             lbl_Title_MovieSession.Text = _movie.Title;
-            lbl_Session_Time_Fomatted.Text = _session.Date.ToString("HH:mm");
+            lbl_Session_Time_Fomatted.Text = _session.Time.ToString("HH:mm");
 
             LoadListView();
             PopulateListView();
@@ -63,7 +63,7 @@ namespace MovieTicketApp
             if (listView_Session_Tickets.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = listView_Session_Tickets.SelectedItems[0];
-                lbl_Ticket_Selected.Text = selectedItem.Text;
+                lbl_Ticket_Selected.Text = $"{selectedItem.Text} Ticket";
 
                 string priceString = selectedItem.SubItems[1].Text;
                 double price = double.Parse(priceString, NumberStyles.Currency);
@@ -151,6 +151,14 @@ namespace MovieTicketApp
                 if (quantity == 0)
                     EnableContinueButton(false);
             }
+        }
+
+        private void btn_Continue_Click(object sender, EventArgs e)
+        {
+            string sessionTime = lbl_Session_Time_Fomatted.Text;
+            Form_Seat_Selection form = new Form_Seat_Selection(this._movie, this._session);
+            form.Show();
+            this.Close();
         }
 
         private void btn_Back_Click(object sender, EventArgs e)

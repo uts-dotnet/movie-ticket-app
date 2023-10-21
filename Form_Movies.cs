@@ -129,7 +129,7 @@ namespace MovieTicketApp
 
                 for (int i = 0; i < selectedMovie.Sessions.Count && i < sessionBtns.Length; i++)
                 {
-                    sessionBtns[i].Text = selectedMovie.Sessions[i].Date.ToString("HH:mm");
+                    sessionBtns[i].Text = selectedMovie.Sessions[i].Time.ToString("HH:mm");
                     sessionBtns[i].Tag = selectedMovie.Sessions[i];
                     sessionBtns[i].Cursor = Cursors.Hand;
 

@@ -4,12 +4,12 @@ namespace MovieTicketApp
 {
     public class MovieSession
     {
-        public DateTime Date { get; private set; }
+        public DateTime Time { get; private set; }
         public int AvailableSeats { get; private set; }
 
-        public MovieSession(DateTime date, int availableSeats)
+        public MovieSession(DateTime time, int availableSeats)
         {
-            this.Date = date;
+            this.Time = time;
             this.AvailableSeats = availableSeats;
         }
     }
