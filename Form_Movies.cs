@@ -152,5 +152,12 @@ namespace MovieTicketApp
                 this.Hide();
             }
         }
+
+        private void btn_Log_Out_Click(object sender, EventArgs e)
+        {
+            frm_Login login = new frm_Login();
+            login.Show();
+            this.Close();
+        }
     }
 }

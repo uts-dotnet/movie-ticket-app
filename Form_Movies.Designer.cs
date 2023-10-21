@@ -41,6 +41,7 @@
             btn_Session_Time_3 = new Button();
             btn_Session_Time_4 = new Button();
             btn_Session_Time_5 = new Button();
+            btn_Log_Out = new Button();
             ((System.ComponentModel.ISupportInitialize)picbox_Movie_Poster).BeginInit();
             SuspendLayout();
             // 
@@ -178,11 +179,24 @@
             btn_Session_Time_5.Text = "HH:mm";
             btn_Session_Time_5.UseVisualStyleBackColor = true;
             // 
+            // btn_Log_Out
+            // 
+            btn_Log_Out.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Log_Out.ForeColor = Color.Firebrick;
+            btn_Log_Out.Location = new Point(688, 45);
+            btn_Log_Out.Name = "btn_Log_Out";
+            btn_Log_Out.Size = new Size(87, 33);
+            btn_Log_Out.TabIndex = 17;
+            btn_Log_Out.Text = "Log Out";
+            btn_Log_Out.UseVisualStyleBackColor = true;
+            btn_Log_Out.Click += btn_Log_Out_Click;
+            // 
             // Form_Movies
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 464);
+            Controls.Add(btn_Log_Out);
             Controls.Add(btn_Session_Time_5);
             Controls.Add(btn_Session_Time_4);
             Controls.Add(btn_Session_Time_3);
@@ -219,5 +233,6 @@
         private Button btn_Session_Time_3;
         private Button btn_Session_Time_4;
         private Button btn_Session_Time_5;
+        private Button btn_Log_Out;
     }
 }
