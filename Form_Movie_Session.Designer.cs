@@ -42,6 +42,8 @@
             lbl_Sub_Total = new Label();
             lbl_Ticket_Price = new Label();
             lbl_Sub_Total_Value = new Label();
+            btn_Back = new Button();
+            btn_Log_Out = new Button();
             SuspendLayout();
             // 
             // lbl_Title_MovieSession
@@ -49,7 +51,7 @@
             lbl_Title_MovieSession.AutoSize = true;
             lbl_Title_MovieSession.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_Title_MovieSession.ForeColor = Color.Firebrick;
-            lbl_Title_MovieSession.Location = new Point(12, 38);
+            lbl_Title_MovieSession.Location = new Point(204, 38);
             lbl_Title_MovieSession.Name = "lbl_Title_MovieSession";
             lbl_Title_MovieSession.Size = new Size(171, 40);
             lbl_Title_MovieSession.TabIndex = 4;
@@ -59,10 +61,10 @@
             // 
             listView_Session_Tickets.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             listView_Session_Tickets.FullRowSelect = true;
-            listView_Session_Tickets.Location = new Point(22, 140);
+            listView_Session_Tickets.Location = new Point(17, 176);
             listView_Session_Tickets.MultiSelect = false;
             listView_Session_Tickets.Name = "listView_Session_Tickets";
-            listView_Session_Tickets.Size = new Size(263, 268);
+            listView_Session_Tickets.Size = new Size(263, 232);
             listView_Session_Tickets.TabIndex = 7;
             listView_Session_Tickets.TileSize = new Size(1, 1);
             listView_Session_Tickets.UseCompatibleStateImageBehavior = false;
@@ -72,7 +74,7 @@
             // 
             lbl_Session_Time.AutoSize = true;
             lbl_Session_Time.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Session_Time.Location = new Point(17, 97);
+            lbl_Session_Time.Location = new Point(17, 140);
             lbl_Session_Time.Name = "lbl_Session_Time";
             lbl_Session_Time.Size = new Size(100, 20);
             lbl_Session_Time.TabIndex = 8;
@@ -82,7 +84,7 @@
             // 
             lbl_Session_Time_Fomatted.AutoSize = true;
             lbl_Session_Time_Fomatted.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Session_Time_Fomatted.Location = new Point(118, 97);
+            lbl_Session_Time_Fomatted.Location = new Point(118, 141);
             lbl_Session_Time_Fomatted.Name = "lbl_Session_Time_Fomatted";
             lbl_Session_Time_Fomatted.Size = new Size(61, 20);
             lbl_Session_Time_Fomatted.TabIndex = 9;
@@ -195,11 +197,37 @@
             lbl_Sub_Total_Value.TabIndex = 19;
             lbl_Sub_Total_Value.Text = "$00.00";
             // 
+            // btn_Back
+            // 
+            btn_Back.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Back.ForeColor = Color.Firebrick;
+            btn_Back.Location = new Point(17, 46);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(75, 35);
+            btn_Back.TabIndex = 20;
+            btn_Back.Text = "Back";
+            btn_Back.UseVisualStyleBackColor = true;
+            btn_Back.Click += btn_Back_Click;
+            // 
+            // btn_Log_Out
+            // 
+            btn_Log_Out.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Log_Out.ForeColor = Color.Firebrick;
+            btn_Log_Out.Location = new Point(485, 46);
+            btn_Log_Out.Name = "btn_Log_Out";
+            btn_Log_Out.Size = new Size(89, 35);
+            btn_Log_Out.TabIndex = 21;
+            btn_Log_Out.Text = "Log Out";
+            btn_Log_Out.UseVisualStyleBackColor = true;
+            btn_Log_Out.Click += btn_Log_Out_Click;
+            // 
             // Form_Movie_Session
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(586, 434);
+            Controls.Add(btn_Log_Out);
+            Controls.Add(btn_Back);
             Controls.Add(lbl_Sub_Total_Value);
             Controls.Add(lbl_Ticket_Price);
             Controls.Add(lbl_Sub_Total);
@@ -237,5 +265,7 @@
         private Label lbl_Sub_Total;
         private Label lbl_Ticket_Price;
         private Label lbl_Sub_Total_Value;
+        private Button btn_Back;
+        private Button btn_Log_Out;
     }
 }

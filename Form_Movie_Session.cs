@@ -16,13 +16,18 @@ namespace MovieTicketApp
             _session = selectedSession;
 
             lbl_Title_MovieSession.Text = _movie.Title;
-            lbl_Session_Time_Fomatted.Text = _session.Date.ToString("HH:mm tt");
+            lbl_Session_Time_Fomatted.Text = _session.Date.ToString("HH:mm");
 
             LoadListView();
             PopulateListView();
 
             EnableQuantityButtons(false);
             EnableContinueButton(false);
+        }
+
+        public void Form_Movie_Session_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
 
         private void LoadListView()
@@ -146,6 +151,20 @@ namespace MovieTicketApp
                 if (quantity == 0)
                     EnableContinueButton(false);
             }
+        }
+
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            Form_Movies form = new Form_Movies();
+            form.Show();
+            this.Close();
+        }
+
+        private void btn_Log_Out_Click(object sender, EventArgs e)
+        {
+            frm_Login form = new frm_Login();
+            form.Show();
+            this.Close();
         }
     }
 }
