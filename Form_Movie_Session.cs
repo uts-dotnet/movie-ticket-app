@@ -15,7 +15,6 @@ namespace MovieTicketApp
             _movie = selectedMovie;
             _session = selectedSession;
 
-            lbl_Title_MovieSession.Text = _movie.Title;
             lbl_Session_Time_Fomatted.Text = _session.Time.ToString("HH:mm");
 
             LoadListView();
