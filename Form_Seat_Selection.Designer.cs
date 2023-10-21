@@ -62,7 +62,6 @@
             listBox_Seats.ItemHeight = 21;
             listBox_Seats.Location = new Point(17, 119);
             listBox_Seats.Name = "listBox_Seats";
-            listBox_Seats.SelectionMode = SelectionMode.MultiSimple;
             listBox_Seats.Size = new Size(215, 298);
             listBox_Seats.TabIndex = 6;
             listBox_Seats.SelectedIndexChanged += listBox_Seats_SelectedIndexChanged;
@@ -155,6 +154,7 @@
             // lbl_Edit_Seats
             // 
             lbl_Edit_Seats.AutoSize = true;
+            lbl_Edit_Seats.Cursor = Cursors.Hand;
             lbl_Edit_Seats.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             lbl_Edit_Seats.ForeColor = Color.Firebrick;
             lbl_Edit_Seats.Location = new Point(487, 230);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace MovieTicketApp
 {
@@ -41,6 +42,9 @@ namespace MovieTicketApp
         {
             if (listBox_Seats.SelectedItem != null)
             {
+                string seat = listBox_Seats.SelectedItem.ToString();
+                listBox_Selected_Seats.Items.Add(seat);
+
                 _totalSeatsSelected++;
 
                 UpdateLabels();
