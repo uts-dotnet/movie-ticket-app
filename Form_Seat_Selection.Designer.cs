@@ -36,6 +36,10 @@
             lbl_Seats_Available_Value = new Label();
             lbl_Total_Seats_Remaining = new Label();
             lbl_Total_Seats_Remaining_Value = new Label();
+            listBox_Selected_Seats = new ListBox();
+            label1 = new Label();
+            lbl_Edit_Seats = new Label();
+            btn_Confirm = new Button();
             SuspendLayout();
             // 
             // lbl_Title_Seat_Selection
@@ -56,7 +60,7 @@
             listBox_Seats.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             listBox_Seats.FormattingEnabled = true;
             listBox_Seats.ItemHeight = 21;
-            listBox_Seats.Location = new Point(17, 124);
+            listBox_Seats.Location = new Point(17, 119);
             listBox_Seats.Name = "listBox_Seats";
             listBox_Seats.SelectionMode = SelectionMode.MultiSimple;
             listBox_Seats.Size = new Size(215, 298);
@@ -128,11 +132,58 @@
             lbl_Total_Seats_Remaining_Value.TabIndex = 26;
             lbl_Total_Seats_Remaining_Value.Text = "0";
             // 
+            // listBox_Selected_Seats
+            // 
+            listBox_Selected_Seats.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            listBox_Selected_Seats.FormattingEnabled = true;
+            listBox_Selected_Seats.ItemHeight = 20;
+            listBox_Selected_Seats.Location = new Point(256, 264);
+            listBox_Selected_Seats.Name = "listBox_Selected_Seats";
+            listBox_Selected_Seats.Size = new Size(312, 84);
+            listBox_Selected_Seats.TabIndex = 27;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(256, 230);
+            label1.Name = "label1";
+            label1.Size = new Size(117, 21);
+            label1.TabIndex = 28;
+            label1.Text = "Selected Seats";
+            // 
+            // lbl_Edit_Seats
+            // 
+            lbl_Edit_Seats.AutoSize = true;
+            lbl_Edit_Seats.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            lbl_Edit_Seats.ForeColor = Color.Firebrick;
+            lbl_Edit_Seats.Location = new Point(487, 230);
+            lbl_Edit_Seats.Name = "lbl_Edit_Seats";
+            lbl_Edit_Seats.Size = new Size(81, 21);
+            lbl_Edit_Seats.TabIndex = 29;
+            lbl_Edit_Seats.Text = "Edit Seats";
+            // 
+            // btn_Confirm
+            // 
+            btn_Confirm.BackColor = Color.Firebrick;
+            btn_Confirm.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Confirm.ForeColor = Color.White;
+            btn_Confirm.Location = new Point(256, 378);
+            btn_Confirm.Name = "btn_Confirm";
+            btn_Confirm.Size = new Size(312, 39);
+            btn_Confirm.TabIndex = 30;
+            btn_Confirm.Text = "Confirm";
+            btn_Confirm.UseVisualStyleBackColor = false;
+            // 
             // Form_Seat_Selection
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(586, 434);
+            Controls.Add(btn_Confirm);
+            Controls.Add(lbl_Edit_Seats);
+            Controls.Add(label1);
+            Controls.Add(listBox_Selected_Seats);
             Controls.Add(lbl_Total_Seats_Remaining_Value);
             Controls.Add(lbl_Total_Seats_Remaining);
             Controls.Add(lbl_Seats_Available_Value);
@@ -158,5 +209,9 @@
         private Label lbl_Seats_Available_Value;
         private Label lbl_Total_Seats_Remaining;
         private Label lbl_Total_Seats_Remaining_Value;
+        private ListBox listBox_Selected_Seats;
+        private Label label1;
+        private Label lbl_Edit_Seats;
+        private Button btn_Confirm;
     }
 }
