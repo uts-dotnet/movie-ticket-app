@@ -32,6 +32,10 @@
             listBox_Seats = new ListBox();
             btn_Back = new Button();
             btn_Logout = new Button();
+            lbl_Seats_Available = new Label();
+            lbl_Seats_Available_Value = new Label();
+            lbl_Total_Seats_Remaining = new Label();
+            lbl_Total_Seats_Remaining_Value = new Label();
             SuspendLayout();
             // 
             // lbl_Title_Seat_Selection
@@ -57,6 +61,7 @@
             listBox_Seats.SelectionMode = SelectionMode.MultiSimple;
             listBox_Seats.Size = new Size(215, 298);
             listBox_Seats.TabIndex = 6;
+            listBox_Seats.SelectedIndexChanged += listBox_Seats_SelectedIndexChanged;
             // 
             // btn_Back
             // 
@@ -83,11 +88,55 @@
             btn_Logout.Text = "Log Out";
             btn_Logout.UseVisualStyleBackColor = true;
             // 
+            // lbl_Seats_Available
+            // 
+            lbl_Seats_Available.AutoSize = true;
+            lbl_Seats_Available.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Seats_Available.Location = new Point(253, 124);
+            lbl_Seats_Available.Name = "lbl_Seats_Available";
+            lbl_Seats_Available.Size = new Size(123, 21);
+            lbl_Seats_Available.TabIndex = 23;
+            lbl_Seats_Available.Text = "Seats Available:";
+            // 
+            // lbl_Seats_Available_Value
+            // 
+            lbl_Seats_Available_Value.AutoSize = true;
+            lbl_Seats_Available_Value.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Seats_Available_Value.Location = new Point(380, 125);
+            lbl_Seats_Available_Value.Name = "lbl_Seats_Available_Value";
+            lbl_Seats_Available_Value.Size = new Size(19, 21);
+            lbl_Seats_Available_Value.TabIndex = 24;
+            lbl_Seats_Available_Value.Text = "0";
+            // 
+            // lbl_Total_Seats_Remaining
+            // 
+            lbl_Total_Seats_Remaining.AutoSize = true;
+            lbl_Total_Seats_Remaining.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Total_Seats_Remaining.Location = new Point(255, 167);
+            lbl_Total_Seats_Remaining.Name = "lbl_Total_Seats_Remaining";
+            lbl_Total_Seats_Remaining.Size = new Size(173, 21);
+            lbl_Total_Seats_Remaining.TabIndex = 25;
+            lbl_Total_Seats_Remaining.Text = "Total Seats Remaining:";
+            // 
+            // lbl_Total_Seats_Remaining_Value
+            // 
+            lbl_Total_Seats_Remaining_Value.AutoSize = true;
+            lbl_Total_Seats_Remaining_Value.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Total_Seats_Remaining_Value.Location = new Point(434, 168);
+            lbl_Total_Seats_Remaining_Value.Name = "lbl_Total_Seats_Remaining_Value";
+            lbl_Total_Seats_Remaining_Value.Size = new Size(19, 21);
+            lbl_Total_Seats_Remaining_Value.TabIndex = 26;
+            lbl_Total_Seats_Remaining_Value.Text = "0";
+            // 
             // Form_Seat_Selection
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(586, 434);
+            Controls.Add(lbl_Total_Seats_Remaining_Value);
+            Controls.Add(lbl_Total_Seats_Remaining);
+            Controls.Add(lbl_Seats_Available_Value);
+            Controls.Add(lbl_Seats_Available);
             Controls.Add(btn_Logout);
             Controls.Add(btn_Back);
             Controls.Add(listBox_Seats);
@@ -105,5 +154,9 @@
         private ListBox listBox_Seats;
         private Button btn_Back;
         private Button btn_Logout;
+        private Label lbl_Seats_Available;
+        private Label lbl_Seats_Available_Value;
+        private Label lbl_Total_Seats_Remaining;
+        private Label lbl_Total_Seats_Remaining_Value;
     }
 }

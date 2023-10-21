@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 
 namespace MovieTicketApp
@@ -7,6 +8,8 @@ namespace MovieTicketApp
     {
         private Movie _movie;
         private MovieSession _session;
+        public static int SelectedTicketQuantity { get; private set; }
+
 
         public Form_Movie_Ticket(Movie selectedMovie, MovieSession selectedSession)
         {
@@ -70,6 +73,8 @@ namespace MovieTicketApp
                 lbl_Ticket_Price_Value.Text = price.ToString("C");
                 lbl_Sub_Total_Value.Text = price.ToString("C");
                 lbl_Quantity_Value.Text = "1";
+
+                SelectedTicketQuantity = Convert.ToInt32(lbl_Quantity_Value.Text);
             }
 
             if (listView_Session_Tickets.SelectedItems.Count == 0)
@@ -124,6 +129,9 @@ namespace MovieTicketApp
                 lbl_Sub_Total_Value.Text = $"{subTotal:C}";
 
                 EnableContinueButton(true);
+
+                SelectedTicketQuantity = quantity;
+                Debug.WriteLine(SelectedTicketQuantity.ToString());
             }
             else
             {
@@ -149,13 +157,16 @@ namespace MovieTicketApp
 
                 if (quantity == 0)
                     EnableContinueButton(false);
+
+                SelectedTicketQuantity = quantity;
+                Debug.WriteLine(SelectedTicketQuantity.ToString());
             }
         }
 
         private void btn_Continue_Click(object sender, EventArgs e)
         {
             string sessionTime = lbl_Session_Time_Fomatted.Text;
-            Form_Seat_Selection form = new Form_Seat_Selection(this._movie, this._session);
+            Form_Seat_Selection form = new Form_Seat_Selection(this._movie, this._session, SelectedTicketQuantity);
             form.Show();
             this.Close();
         }
