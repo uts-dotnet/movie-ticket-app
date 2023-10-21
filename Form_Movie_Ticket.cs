@@ -3,12 +3,12 @@ using System.Globalization;
 
 namespace MovieTicketApp
 {
-    public partial class Form_Movie_Session : Form
+    public partial class Form_Movie_Ticket : Form
     {
         private Movie _movie;
         private MovieSession _session;
 
-        public Form_Movie_Session(Movie selectedMovie, MovieSession selectedSession)
+        public Form_Movie_Ticket(Movie selectedMovie, MovieSession selectedSession)
         {
             InitializeComponent();
 

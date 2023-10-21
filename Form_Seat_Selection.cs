@@ -31,7 +31,7 @@ namespace MovieTicketApp
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
-            Form_Movie_Session form = new Form_Movie_Session(this._movie, this._session);
+            Form_Movie_Ticket form = new Form_Movie_Ticket(this._movie, this._session);
             form.Show();
             this.Close();
         }
