@@ -44,6 +44,8 @@
             lbl_Sub_Total_Value = new Label();
             btn_Back = new Button();
             btn_Logout = new Button();
+            lbl_Movie = new Label();
+            lbl_Movie_Title = new Label();
             SuspendLayout();
             // 
             // lbl_Title_Select_Ticket
@@ -84,6 +86,7 @@
             // 
             lbl_Session_Time_Fomatted.AutoSize = true;
             lbl_Session_Time_Fomatted.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Session_Time_Fomatted.ForeColor = Color.Firebrick;
             lbl_Session_Time_Fomatted.Location = new Point(118, 141);
             lbl_Session_Time_Fomatted.Name = "lbl_Session_Time_Fomatted";
             lbl_Session_Time_Fomatted.Size = new Size(61, 20);
@@ -224,11 +227,34 @@
             btn_Logout.UseVisualStyleBackColor = true;
             btn_Logout.Click += btn_Log_Out_Click;
             // 
-            // Form_Movie_Session
+            // lbl_Movie
+            // 
+            lbl_Movie.AutoSize = true;
+            lbl_Movie.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Movie.Location = new Point(17, 115);
+            lbl_Movie.Name = "lbl_Movie";
+            lbl_Movie.Size = new Size(56, 20);
+            lbl_Movie.TabIndex = 22;
+            lbl_Movie.Text = "Movie:";
+            // 
+            // lbl_Movie_Title
+            // 
+            lbl_Movie_Title.AutoSize = true;
+            lbl_Movie_Title.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Movie_Title.ForeColor = Color.Firebrick;
+            lbl_Movie_Title.Location = new Point(73, 115);
+            lbl_Movie_Title.Name = "lbl_Movie_Title";
+            lbl_Movie_Title.Size = new Size(50, 20);
+            lbl_Movie_Title.TabIndex = 23;
+            lbl_Movie_Title.Text = "Name";
+            // 
+            // Form_Movie_Ticket
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(586, 434);
+            Controls.Add(lbl_Movie_Title);
+            Controls.Add(lbl_Movie);
             Controls.Add(btn_Logout);
             Controls.Add(btn_Back);
             Controls.Add(lbl_Sub_Total_Value);
@@ -245,7 +271,7 @@
             Controls.Add(lbl_Session_Time);
             Controls.Add(listView_Session_Tickets);
             Controls.Add(lbl_Title_Select_Ticket);
-            Name = "Form_Movie_Session";
+            Name = "Form_Movie_Ticket";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tickets | DOTNET Cinemas";
             ResumeLayout(false);
@@ -270,5 +296,7 @@
         private Label lbl_Sub_Total_Value;
         private Button btn_Back;
         private Button btn_Logout;
+        private Label lbl_Movie;
+        private Label lbl_Movie_Title;
     }
 }
