@@ -72,7 +72,7 @@ namespace MovieTicketApp
                 this.TicketInfo.Price = double.Parse(priceString, NumberStyles.Currency);
 
                 lbl_Ticket_Price_Value.Text = this.TicketInfo.Price.ToString("C");
-                lbl_Sub_Total_Value.Text = this.TicketInfo.Price.ToString("C");
+                lbl_Sub_Total_Value.Text = this.TicketInfo.SubTotal.ToString("C");
                 lbl_Quantity_Value.Text = "1";
 
                 this.TicketInfo.Quantity = Convert.ToInt32(lbl_Quantity_Value.Text);

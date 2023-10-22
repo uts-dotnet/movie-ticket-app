@@ -66,6 +66,13 @@
             listBox_Seats.TabIndex = 6;
             listBox_Seats.SelectedIndexChanged += listBox_Seats_SelectedIndexChanged;
             // 
+            // btn_Back
+            // 
+            btn_Back.Location = new Point(0, 0);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(75, 23);
+            btn_Back.TabIndex = 32;
+            // 
             // btn_Logout
             // 
             btn_Logout.Cursor = Cursors.Hand;
@@ -158,6 +165,7 @@
             btn_Confirm.TabIndex = 30;
             btn_Confirm.Text = "Confirm";
             btn_Confirm.UseVisualStyleBackColor = false;
+            btn_Confirm.Click += btn_Confirm_Click;
             // 
             // Form_Seat_Selection
             // 

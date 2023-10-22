@@ -69,5 +69,12 @@ namespace MovieTicketApp
             login.Show();
             this.Close();
         }
+
+        private void btn_Confirm_Click(object sender, EventArgs e)
+        {
+            Form_Confirm_Booking form = new Form_Confirm_Booking(TicketInfo);
+            form.Show();
+            this.Close();
+        }
     }
 }
