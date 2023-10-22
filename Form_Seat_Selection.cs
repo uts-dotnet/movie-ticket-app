@@ -5,28 +5,19 @@ namespace MovieTicketApp
 {
     public partial class Form_Seat_Selection : Form
     {
-        private Movie _movie;
-        private MovieSession _session;
+        public TicketInfo TicketInfo { get; set; }
         private int _availableSeats;
-        private int _ticketQuantity;
-        private double _ticketPrice;
-        private double _subTotal;
-        private string _ticketSelected;
         private int _ticketsRemaining;
         private int _totalSeatsSelected = 0;
 
-        public Form_Seat_Selection(TicketInfo ticketInfo)
+        public Form_Seat_Selection(TicketInfo ticket)
         {
             InitializeComponent();
 
-            this._movie = ticketInfo.SelectedMovie;
-            this._session = ticketInfo.SelectedSession;
-            this._availableSeats = this._session.AvailableSeats;
-            this._ticketQuantity = ticketInfo.Quantity;
-            this._ticketPrice = ticketInfo.Price;
-            this._subTotal = ticketInfo.SubTotal;
-            this._ticketSelected = ticketInfo.TicketSelected;
-            this._ticketsRemaining = this._ticketQuantity;
+            TicketInfo = new TicketInfo(ticket.SelectedMovie, ticket.SelectedSession, ticket.Price, ticket.SubTotal, ticket.Quantity, ticket.TicketSelected);
+
+            this._availableSeats = this.TicketInfo.SelectedSession.AvailableSeats;
+            this._ticketsRemaining = this.TicketInfo.Quantity;
 
             LoadSeats();
         }
@@ -34,7 +25,7 @@ namespace MovieTicketApp
         private void LoadSeats()
         {
             lbl_Seats_Available_Value.Text = this._availableSeats.ToString();
-            lbl_Total_Seats_Remaining_Value.Text = this._ticketQuantity.ToString();
+            lbl_Total_Seats_Remaining_Value.Text = this.TicketInfo.Quantity.ToString();
 
             listBox_Seats.Items.Clear();
 
@@ -56,7 +47,7 @@ namespace MovieTicketApp
                 UpdateLabels();
 
                 // disable the list box if the user can't select any more seats
-                if (_totalSeatsSelected == this._ticketQuantity)
+                if (_totalSeatsSelected == this.TicketInfo.Quantity)
                 {
                     listBox_Seats.Enabled = false;
                 }
@@ -65,9 +56,8 @@ namespace MovieTicketApp
 
         private void UpdateLabels()
         {
-            int seatsAvailable = Convert.ToInt32(_availableSeats.ToString());
-            seatsAvailable--;
-            lbl_Seats_Available_Value.Text = seatsAvailable.ToString();
+            this._availableSeats--;
+            lbl_Seats_Available_Value.Text = this._availableSeats.ToString();
 
             this._ticketsRemaining--;
             lbl_Total_Seats_Remaining_Value.Text = _ticketsRemaining.ToString();
@@ -75,8 +65,7 @@ namespace MovieTicketApp
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
-            TicketInfo ticketInfo = new TicketInfo(this._movie, this._session, this._ticketPrice, this._subTotal, this._ticketQuantity, this._ticketSelected);
-            Form_Ticket_Booking form = new Form_Ticket_Booking(ticketInfo);
+            Form_Ticket_Booking form = new Form_Ticket_Booking(this.TicketInfo);
             form.Show();
             this.Close();
         }

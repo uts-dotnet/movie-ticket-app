@@ -1,30 +1,23 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Globalization;
 
 namespace MovieTicketApp
 {
     public partial class Form_Ticket_Booking : Form
     {
-        private Movie _movie;
-        private MovieSession _session;
-        public string TicketSelected { get; private set; }
-        public double TicketPrice { get; private set; }
-        public double SubTotal { get; private set; }
-        public int TicketQuantity { get; private set; }
-        public static int SelectedTicketQuantity { get; private set; }
-
+        private string _ticketInfoFile = ".\\ticket-info.txt";
+        public TicketInfo TicketInfo { get; private set; }
 
         public Form_Ticket_Booking(Movie selectedMovie, MovieSession selectedSession)
         {
             InitializeComponent();
 
-            this._movie = selectedMovie;
-            this._session = selectedSession;
-            this.TicketSelected = string.Empty;
+            TicketInfo = new TicketInfo(selectedMovie, selectedSession, 0, 0, 0);
 
-            lbl_Movie_Title.Text = _movie.Title;
-            lbl_Session_Time_Fomatted.Text = _session.Time.ToString("HH:mm");
+            this.TicketInfo.TicketSelected = string.Empty;
+
+            lbl_Movie_Title.Text = TicketInfo.SelectedMovie.Title;
+            lbl_Session_Time_Fomatted.Text = TicketInfo.SelectedSession.Time.ToString("HH:mm");
 
             LoadListView();
             PopulateListView();
@@ -33,28 +26,23 @@ namespace MovieTicketApp
             EnableContinueButton(false);
         }
 
-        public Form_Ticket_Booking(TicketInfo ticketInfo)
+        public Form_Ticket_Booking(TicketInfo ticket)
         {
             InitializeComponent();
 
-            this._movie = ticketInfo.SelectedMovie;
-            this._session = ticketInfo.SelectedSession;
-            this.TicketSelected = ticketInfo.TicketSelected;
-            this.TicketPrice = ticketInfo.Price;
-            this.TicketQuantity = ticketInfo.Quantity;
-            this.SubTotal = ticketInfo.SubTotal;
+            TicketInfo = new TicketInfo(ticket.SelectedMovie, ticket.SelectedSession, ticket.Price, ticket.SubTotal, ticket.Quantity, ticket.TicketSelected);
 
-            lbl_Movie_Title.Text = this._movie.Title;
-            lbl_Session_Time_Fomatted.Text = this._session.Time.ToString("HH:mm");
+            this.TicketInfo.TicketSelected = ticket.TicketSelected;
+            lbl_Movie_Title.Text = this.TicketInfo.SelectedMovie.Title;
+            lbl_Session_Time_Fomatted.Text = this.TicketInfo.SelectedSession.Time.ToString("HH:mm");
 
             LoadListView();
             PopulateListView();
 
-            lbl_Ticket_Selected.Text = this.TicketSelected;
-            lbl_Ticket_Price_Value.Text = this.TicketPrice.ToString("C");
-            lbl_Quantity_Value.Text = this.TicketQuantity.ToString();
-            lbl_Sub_Total_Value.Text = this.SubTotal.ToString("C");
-
+            lbl_Ticket_Selected.Text = this.TicketInfo.TicketSelected;
+            lbl_Ticket_Price_Value.Text = this.TicketInfo.Price.ToString("C");
+            lbl_Quantity_Value.Text = this.TicketInfo.Quantity.ToString();
+            lbl_Sub_Total_Value.Text = this.TicketInfo.SubTotal.ToString("C");
         }
 
         public void Form_Movie_Session_FormClosed(object sender, FormClosedEventArgs e)
@@ -96,16 +84,16 @@ namespace MovieTicketApp
             {
                 ListViewItem selectedItem = listView_Session_Tickets.SelectedItems[0];
                 lbl_Ticket_Selected.Text = $"{selectedItem.Text} Ticket";
-                this.TicketSelected = lbl_Ticket_Selected.Text;
+                this.TicketInfo.TicketSelected = lbl_Ticket_Selected.Text;
 
                 string priceString = selectedItem.SubItems[1].Text;
-                TicketPrice = double.Parse(priceString, NumberStyles.Currency);
+                this.TicketInfo.Price = double.Parse(priceString, NumberStyles.Currency);
 
-                lbl_Ticket_Price_Value.Text = TicketPrice.ToString("C");
-                lbl_Sub_Total_Value.Text = TicketPrice.ToString("C");
+                lbl_Ticket_Price_Value.Text = this.TicketInfo.Price.ToString("C");
+                lbl_Sub_Total_Value.Text = this.TicketInfo.Price.ToString("C");
                 lbl_Quantity_Value.Text = "1";
 
-                SelectedTicketQuantity = Convert.ToInt32(lbl_Quantity_Value.Text);
+                this.TicketInfo.Quantity = Convert.ToInt32(lbl_Quantity_Value.Text);
             }
 
             if (listView_Session_Tickets.SelectedItems.Count == 0)
@@ -150,18 +138,18 @@ namespace MovieTicketApp
         private void btn_Increment_Click(object sender, EventArgs e)
         {
             int quantity = Convert.ToInt32(lbl_Quantity_Value.Text);
-            this.TicketPrice = Convert.ToDouble(lbl_Ticket_Price_Value.Text.Trim('$'));
-            this.SubTotal = Convert.ToDouble(lbl_Sub_Total_Value.Text.Trim('$'));
+            this.TicketInfo.Price = Convert.ToDouble(lbl_Ticket_Price_Value.Text.Trim('$'));
+            this.TicketInfo.SubTotal = Convert.ToDouble(lbl_Sub_Total_Value.Text.Trim('$'));
 
             if (quantity < 10)
             {
                 quantity++;
-                this.SubTotal += TicketPrice;
-                lbl_Sub_Total_Value.Text = $"{this.SubTotal:C}";
+                TicketInfo.SubTotal += TicketInfo.Price;
+                lbl_Sub_Total_Value.Text = $"{TicketInfo.SubTotal:C}";
 
                 EnableContinueButton(true);
 
-                SelectedTicketQuantity = quantity;
+                this.TicketInfo.Quantity = quantity;
             }
             else
             {
@@ -174,30 +162,44 @@ namespace MovieTicketApp
         private void btn_Decrement_Click(object sender, EventArgs e)
         {
             int quantity = Convert.ToInt32(lbl_Quantity_Value.Text);
-            this.TicketPrice = Convert.ToDouble(lbl_Ticket_Price_Value.Text.Trim('$'));
-            this.SubTotal = Convert.ToDouble(lbl_Sub_Total_Value.Text.Trim('$'));
+            this.TicketInfo.Price = Convert.ToDouble(lbl_Ticket_Price_Value.Text.Trim('$'));
+            this.TicketInfo.SubTotal = Convert.ToDouble(lbl_Sub_Total_Value.Text.Trim('$'));
 
             if (quantity > 0)
             {
                 quantity--;
 
-                this.SubTotal -= this.TicketPrice;
-                lbl_Sub_Total_Value.Text = $"{this.SubTotal:C}";
+                this.TicketInfo.SubTotal -= this.TicketInfo.Price;
+                lbl_Sub_Total_Value.Text = $"{this.TicketInfo.SubTotal:C}";
                 lbl_Quantity_Value.Text = quantity.ToString();
 
                 if (quantity == 0)
                     EnableContinueButton(false);
 
-                SelectedTicketQuantity = quantity;
+                this.TicketInfo.Quantity = quantity;
+            }
+        }
+
+        private void SaveTicketToFile()
+        {
+            // setting StreamWriter to true appends a new line instead of overwritting existing lines
+            using (StreamWriter writer = new StreamWriter(_ticketInfoFile, true))
+            {
+                writer.WriteLine(
+                    $"{this.TicketInfo.SelectedMovie.Title}," +
+                    $"{this.TicketInfo.SelectedSession.Time.ToString("HH:mm")}," +
+                    $"{this.TicketInfo.Price:F2}," + // two decimal digits without the $ sign
+                    $"{this.TicketInfo.SubTotal:F2}," +
+                    $"{this.TicketInfo.Quantity}," +
+                    $"{this.TicketInfo.TicketSelected}"
+                );
             }
         }
 
         private void btn_Continue_Click(object sender, EventArgs e)
         {
-            string sessionTime = lbl_Session_Time_Fomatted.Text;
-
-            TicketInfo ticketInfo = new TicketInfo(this._movie, this._session, this.TicketPrice, this.SubTotal, SelectedTicketQuantity, this.TicketSelected);
-            Form_Seat_Selection form = new Form_Seat_Selection(ticketInfo);
+            SaveTicketToFile();
+            Form_Seat_Selection form = new Form_Seat_Selection(this.TicketInfo);
 
             form.Show();
             this.Close();
