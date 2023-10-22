@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace MovieTicketApp
 {
-    public partial class Form_Movie_Ticket : Form
+    public partial class Form_Ticket_Booking : Form
     {
         private Movie _movie;
         private MovieSession _session;
@@ -15,7 +15,7 @@ namespace MovieTicketApp
         public static int SelectedTicketQuantity { get; private set; }
 
 
-        public Form_Movie_Ticket(Movie selectedMovie, MovieSession selectedSession)
+        public Form_Ticket_Booking(Movie selectedMovie, MovieSession selectedSession)
         {
             InitializeComponent();
 
@@ -33,7 +33,7 @@ namespace MovieTicketApp
             EnableContinueButton(false);
         }
 
-        public Form_Movie_Ticket(TicketInfo ticketInfo)
+        public Form_Ticket_Booking(TicketInfo ticketInfo)
         {
             InitializeComponent();
 

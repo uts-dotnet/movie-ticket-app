@@ -76,7 +76,7 @@ namespace MovieTicketApp
         private void btn_Back_Click(object sender, EventArgs e)
         {
             TicketInfo ticketInfo = new TicketInfo(this._movie, this._session, this._ticketPrice, this._subTotal, this._ticketQuantity, this._ticketSelected);
-            Form_Movie_Ticket form = new Form_Movie_Ticket(ticketInfo);
+            Form_Ticket_Booking form = new Form_Ticket_Booking(ticketInfo);
             form.Show();
             this.Close();
         }

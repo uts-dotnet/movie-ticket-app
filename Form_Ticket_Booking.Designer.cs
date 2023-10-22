@@ -1,6 +1,6 @@
 ﻿namespace MovieTicketApp
 {
-    partial class Form_Movie_Ticket
+    partial class Form_Ticket_Booking
     {
         /// <summary>
         /// Required designer variable.
