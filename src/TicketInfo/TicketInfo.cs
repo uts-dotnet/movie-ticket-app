@@ -4,6 +4,7 @@ namespace MovieTicketApp
 {
     public class TicketInfo
     {
+        public int MovieId { get; }
         public Movie SelectedMovie { get; set; }
         public MovieSession SelectedSession { get; set; }
         public string TicketSelected { get; set; }
@@ -19,6 +20,7 @@ namespace MovieTicketApp
             SubTotal = subTotal;
             Quantity = quantity;
             TicketSelected = string.Empty;
+            MovieId = selectedMovie.Id;
         }
 
         public TicketInfo(Movie selectedMovie, MovieSession selectedSession, double price, double subTotal, int quantity, string ticketSelected)
@@ -29,6 +31,7 @@ namespace MovieTicketApp
             SubTotal = subTotal;
             Quantity = quantity;
             TicketSelected = ticketSelected;
+            MovieId = selectedMovie.Id;
         }
     }
 }

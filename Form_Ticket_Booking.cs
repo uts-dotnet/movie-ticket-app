@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 
 namespace MovieTicketApp
@@ -163,19 +164,59 @@ namespace MovieTicketApp
 
         private void SaveTicketToFile()
         {
-            // setting StreamWriter to true appends a new line instead of overwritting existing lines
-            using (StreamWriter writer = new StreamWriter(_ticketInfoFile, true))
+            User currentUser = CurrentUserManager.Instance.CurrentUser;
+
+            if (currentUser != null)
             {
-                writer.WriteLine(
-                    $"{this.TicketInfo.SelectedMovie.Title}," +
-                    $"{this.TicketInfo.SelectedSession.Time.ToString("HH:mm")}," +
-                    $"{this.TicketInfo.Price:F2}," + // two decimal digits without the $ sign
-                    $"{this.TicketInfo.SubTotal:F2}," +
-                    $"{this.TicketInfo.Quantity}," +
-                    $"{this.TicketInfo.TicketSelected}"
-                );
+                int newTicketId;
+
+                try
+                {
+                    string[] lines = File.ReadAllLines(_ticketInfoFile);
+
+                    if (lines.Length > 0)
+                    {
+                        string lastLine = lines[lines.Length - 1];
+                        string[] lastLineData = lastLine.Split(',');
+
+                        int lastTicketId = int.Parse(lastLineData[0]);
+
+                        newTicketId = lastTicketId + 1;
+                    }
+                    else
+                    {
+                        newTicketId = 90001;
+                    }
+                }
+                catch (FileNotFoundException ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                    Debug.WriteLine(Directory.GetCurrentDirectory());
+                    return;
+                }
+
+                // setting StreamWriter to true appends a new line instead of overwriting existing lines
+                using (StreamWriter writer = new StreamWriter(_ticketInfoFile, true))
+                {
+                    writer.WriteLine(
+                        $"{newTicketId}," +
+                        $"{this.TicketInfo.SelectedMovie.Title}," +
+                        $"{this.TicketInfo.SelectedSession.Time.ToString("HH:mm")}," +
+                        $"{this.TicketInfo.Price:F2}," + // two decimal digits without the $ sign
+                        $"{this.TicketInfo.SubTotal:F2}," +
+                        $"{this.TicketInfo.Quantity}," +
+                        $"{this.TicketInfo.TicketSelected}," +
+                        $"{this.TicketInfo.MovieId}," +
+                        $"{currentUser.Id}"
+                    );
+                }
+            }
+            else
+            {
+                MessageBox.Show("There is no user currently logged in!");
             }
         }
+
 
         private void btn_Continue_Click(object sender, EventArgs e)
         {

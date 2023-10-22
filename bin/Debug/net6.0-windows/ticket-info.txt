@@ -1,2 +1,0 @@
-movieTitle,sessionTime,ticketPrice,subtotal,ticketQuantity,ticketSelected
-

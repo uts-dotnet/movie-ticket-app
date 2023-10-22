@@ -5,7 +5,7 @@ namespace MovieTicketApp
 {
     public partial class frm_Login : Form
     {
-        string _loginFilePath = ".\\login-credentials.txt";
+        string _loginFile = ".\\login-credentials.txt";
 
         public frm_Login()
         {
@@ -39,17 +39,23 @@ namespace MovieTicketApp
         {
             try
             {
-                string[] lines = File.ReadAllLines(_loginFilePath);
+                string[] lines = File.ReadAllLines(_loginFile);
 
                 foreach (string line in lines)
                 {
                     string[] data = line.Split(",");
 
+                    int storedId = Convert.ToInt32(data[0]);
                     string storedUsername = data[1];
                     string storedPassword = data[2];
+                    string storedFirstName = data[3];
+                    string storedLastName = data[4];
+                    string storedEmail = data[5];
 
                     if (storedUsername == username && storedPassword == password)
                     {
+                        User user = new User(storedId, storedFirstName, storedLastName, storedEmail);
+                        CurrentUserManager.Instance.SetCurrentUser(user);
                         return true;
                     }
                 }
