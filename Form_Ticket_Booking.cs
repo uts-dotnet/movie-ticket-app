@@ -231,9 +231,6 @@ namespace MovieTicketApp
         {
             SaveTicketToFile();
             Form_Seat_Selection form = new Form_Seat_Selection(this.TicketInfo);
-
-            MessageBox.Show(TicketInfo.Quantity.ToString());
-
             form.Show();
             this.Close();
         }

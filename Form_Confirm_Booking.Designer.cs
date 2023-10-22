@@ -45,6 +45,8 @@
             picbox_Poster_Booking = new PictureBox();
             listBox_Seats = new ListBox();
             lbl_Booked_Seats = new Label();
+            lbl_Booked_Seats_Value = new Label();
+            btn_Logout = new Button();
             ((System.ComponentModel.ISupportInitialize)picbox_Poster_Booking).BeginInit();
             SuspendLayout();
             // 
@@ -53,7 +55,7 @@
             lbl_Title_Select_Ticket.AutoSize = true;
             lbl_Title_Select_Ticket.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_Title_Select_Ticket.ForeColor = Color.Firebrick;
-            lbl_Title_Select_Ticket.Location = new Point(154, 38);
+            lbl_Title_Select_Ticket.Location = new Point(164, 38);
             lbl_Title_Select_Ticket.Name = "lbl_Title_Select_Ticket";
             lbl_Title_Select_Ticket.Size = new Size(323, 40);
             lbl_Title_Select_Ticket.TabIndex = 5;
@@ -188,11 +190,12 @@
             // btn_Checkout
             // 
             btn_Checkout.BackColor = Color.Firebrick;
+            btn_Checkout.Cursor = Cursors.Hand;
             btn_Checkout.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_Checkout.ForeColor = Color.White;
             btn_Checkout.Location = new Point(178, 379);
             btn_Checkout.Name = "btn_Checkout";
-            btn_Checkout.Size = new Size(267, 42);
+            btn_Checkout.Size = new Size(288, 42);
             btn_Checkout.TabIndex = 18;
             btn_Checkout.Text = "Checkout";
             btn_Checkout.UseVisualStyleBackColor = false;
@@ -210,28 +213,52 @@
             listBox_Seats.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             listBox_Seats.FormattingEnabled = true;
             listBox_Seats.ItemHeight = 20;
-            listBox_Seats.Location = new Point(434, 158);
+            listBox_Seats.Location = new Point(471, 158);
             listBox_Seats.Name = "listBox_Seats";
             listBox_Seats.Size = new Size(150, 164);
             listBox_Seats.TabIndex = 20;
-            listBox_Seats.SelectedIndexChanged += listBox_Seats_SelectedIndexChanged;
             // 
             // lbl_Booked_Seats
             // 
             lbl_Booked_Seats.AutoSize = true;
             lbl_Booked_Seats.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Booked_Seats.Location = new Point(434, 122);
+            lbl_Booked_Seats.Location = new Point(471, 122);
             lbl_Booked_Seats.Name = "lbl_Booked_Seats";
-            lbl_Booked_Seats.Size = new Size(110, 21);
+            lbl_Booked_Seats.Size = new Size(114, 21);
             lbl_Booked_Seats.TabIndex = 21;
-            lbl_Booked_Seats.Text = "Booked Seats";
-            lbl_Booked_Seats.Click += label1_Click;
+            lbl_Booked_Seats.Text = "Booked Seats:";
+            // 
+            // lbl_Booked_Seats_Value
+            // 
+            lbl_Booked_Seats_Value.AutoSize = true;
+            lbl_Booked_Seats_Value.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Booked_Seats_Value.ForeColor = Color.Firebrick;
+            lbl_Booked_Seats_Value.Location = new Point(582, 122);
+            lbl_Booked_Seats_Value.Name = "lbl_Booked_Seats_Value";
+            lbl_Booked_Seats_Value.Size = new Size(19, 21);
+            lbl_Booked_Seats_Value.TabIndex = 22;
+            lbl_Booked_Seats_Value.Text = "0";
+            // 
+            // btn_Logout
+            // 
+            btn_Logout.Cursor = Cursors.Hand;
+            btn_Logout.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Logout.ForeColor = Color.Firebrick;
+            btn_Logout.Location = new Point(532, 43);
+            btn_Logout.Name = "btn_Logout";
+            btn_Logout.Size = new Size(89, 35);
+            btn_Logout.TabIndex = 23;
+            btn_Logout.Text = "Log Out";
+            btn_Logout.UseVisualStyleBackColor = true;
+            btn_Logout.Click += btn_Logout_Click;
             // 
             // Form_Confirm_Booking
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(623, 447);
+            ClientSize = new Size(651, 447);
+            Controls.Add(btn_Logout);
+            Controls.Add(lbl_Booked_Seats_Value);
             Controls.Add(lbl_Booked_Seats);
             Controls.Add(listBox_Seats);
             Controls.Add(picbox_Poster_Booking);
@@ -276,5 +303,7 @@
         private PictureBox picbox_Poster_Booking;
         private ListBox listBox_Seats;
         private Label lbl_Booked_Seats;
+        private Label lbl_Booked_Seats_Value;
+        private Button btn_Logout;
     }
 }
