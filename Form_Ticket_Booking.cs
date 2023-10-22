@@ -26,25 +26,6 @@ namespace MovieTicketApp
             EnableContinueButton(false);
         }
 
-        public Form_Ticket_Booking(TicketInfo ticket)
-        {
-            InitializeComponent();
-
-            TicketInfo = new TicketInfo(ticket.SelectedMovie, ticket.SelectedSession, ticket.Price, ticket.SubTotal, ticket.Quantity, ticket.TicketSelected);
-
-            this.TicketInfo.TicketSelected = ticket.TicketSelected;
-            lbl_Movie_Title.Text = this.TicketInfo.SelectedMovie.Title;
-            lbl_Session_Time_Fomatted.Text = this.TicketInfo.SelectedSession.Time.ToString("HH:mm");
-
-            LoadListView();
-            PopulateListView();
-
-            lbl_Ticket_Selected.Text = this.TicketInfo.TicketSelected;
-            lbl_Ticket_Price_Value.Text = this.TicketInfo.Price.ToString("C");
-            lbl_Quantity_Value.Text = this.TicketInfo.Quantity.ToString();
-            lbl_Sub_Total_Value.Text = this.TicketInfo.SubTotal.ToString("C");
-        }
-
         public void Form_Movie_Session_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();

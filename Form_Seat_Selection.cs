@@ -63,13 +63,6 @@ namespace MovieTicketApp
             lbl_Total_Seats_Remaining_Value.Text = _ticketsRemaining.ToString();
         }
 
-        private void btn_Back_Click(object sender, EventArgs e)
-        {
-            Form_Ticket_Booking form = new Form_Ticket_Booking(this.TicketInfo);
-            form.Show();
-            this.Close();
-        }
-
         private void btn_Logout_Click(object sender, EventArgs e)
         {
             frm_Login login = new frm_Login();
