@@ -69,7 +69,9 @@ namespace MovieTicketApp
                 this.TicketInfo.TicketSelected = lbl_Ticket_Selected.Text;
 
                 string priceString = selectedItem.SubItems[1].Text;
+
                 this.TicketInfo.Price = double.Parse(priceString, NumberStyles.Currency);
+                this.TicketInfo.SubTotal = this.TicketInfo.Price;
 
                 lbl_Ticket_Price_Value.Text = this.TicketInfo.Price.ToString("C");
                 lbl_Sub_Total_Value.Text = this.TicketInfo.Price.ToString("C");
@@ -127,7 +129,7 @@ namespace MovieTicketApp
             {
                 quantity++;
                 TicketInfo.SubTotal += TicketInfo.Price;
-                lbl_Sub_Total_Value.Text = $"{TicketInfo.SubTotal:C}";
+                lbl_Sub_Total_Value.Text = TicketInfo.SubTotal.ToString("C");
 
                 EnableContinueButton(true);
 
@@ -174,18 +176,40 @@ namespace MovieTicketApp
                 {
                     string[] lines = File.ReadAllLines(_ticketInfoFile);
 
-                    if (lines.Length > 0)
+                    if (lines.Length > 0 && !string.IsNullOrEmpty(lines[0]))
                     {
                         string lastLine = lines[lines.Length - 1];
                         string[] lastLineData = lastLine.Split(',');
 
-                        int lastTicketId = int.Parse(lastLineData[0]);
-
-                        newTicketId = lastTicketId + 1;
+                        if (lastLineData.Length > 0)
+                        {
+                            int lastTicketId = int.Parse(lastLineData[0]);
+                            newTicketId = lastTicketId + 1;
+                        }
+                        else
+                        {
+                            newTicketId = 90001;
+                        }
                     }
                     else
                     {
                         newTicketId = 90001;
+                    }
+
+                    // setting StreamWriter to true appends a new line instead of overwriting existing lines
+                    using (StreamWriter writer = new StreamWriter(_ticketInfoFile, true))
+                    {
+                        writer.WriteLine(
+                            $"{newTicketId}," +
+                            $"{this.TicketInfo.SelectedMovie.Title}," +
+                            $"{this.TicketInfo.SelectedSession.Time.ToString("HH:mm")}," +
+                            $"{this.TicketInfo.Price:F2}," + // two decimal digits without the $ sign
+                            $"{this.TicketInfo.SubTotal:F2}," +
+                            $"{this.TicketInfo.Quantity}," +
+                            $"{this.TicketInfo.TicketSelected}," +
+                            $"{this.TicketInfo.MovieId}," +
+                            $"{currentUser.Id}"
+                        );
                     }
                 }
                 catch (FileNotFoundException ex)
@@ -193,23 +217,7 @@ namespace MovieTicketApp
                     Debug.WriteLine(ex.Message);
                     Debug.WriteLine(Directory.GetCurrentDirectory());
                     return;
-                }
-
-                // setting StreamWriter to true appends a new line instead of overwriting existing lines
-                using (StreamWriter writer = new StreamWriter(_ticketInfoFile, true))
-                {
-                    writer.WriteLine(
-                        $"{newTicketId}," +
-                        $"{this.TicketInfo.SelectedMovie.Title}," +
-                        $"{this.TicketInfo.SelectedSession.Time.ToString("HH:mm")}," +
-                        $"{this.TicketInfo.Price:F2}," + // two decimal digits without the $ sign
-                        $"{this.TicketInfo.SubTotal:F2}," +
-                        $"{this.TicketInfo.Quantity}," +
-                        $"{this.TicketInfo.TicketSelected}," +
-                        $"{this.TicketInfo.MovieId}," +
-                        $"{currentUser.Id}"
-                    );
-                }
+                }  
             }
             else
             {
@@ -218,10 +226,13 @@ namespace MovieTicketApp
         }
 
 
+
         private void btn_Continue_Click(object sender, EventArgs e)
         {
             SaveTicketToFile();
             Form_Seat_Selection form = new Form_Seat_Selection(this.TicketInfo);
+
+            MessageBox.Show(TicketInfo.Quantity.ToString());
 
             form.Show();
             this.Close();

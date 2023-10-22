@@ -8,11 +8,18 @@ namespace MovieTicketApp
         private string posterFilePath = "";
         private string moviesFile = "movies.txt";
 
-        public Form_Confirm_Booking(TicketInfo ticket)
+
+        public Form_Confirm_Booking(TicketInfo ticket, List<Seat> bookedSeats)
         {
             InitializeComponent();
             LoadData(ticket);
+
+            foreach (Seat seat in bookedSeats)
+            {
+                listBox_Seats.Items.Add(seat.Name);
+            }
         }
+
 
         private void LoadData(TicketInfo ticket)
         {
@@ -22,6 +29,8 @@ namespace MovieTicketApp
             lbl_Ticket_Price_Value.Text = ticket.Price.ToString("C");
             lbl_Quantity_Value.Text = ticket.Quantity.ToString();
             lbl_Subtotal_Value.Text = ticket.SubTotal.ToString("C");
+
+            MessageBox.Show(ticket.SubTotal.ToString("C"));
 
             LoadMoviePoster(ticket);
         }
@@ -58,6 +67,16 @@ namespace MovieTicketApp
             {
                 Debug.WriteLine(e.Message);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox_Seats_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

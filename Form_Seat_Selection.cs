@@ -9,6 +9,7 @@ namespace MovieTicketApp
         private int _availableSeats;
         private int _ticketsRemaining;
         private int _totalSeatsSelected = 0;
+        private List<Seat> _bookedSeats = new List<Seat>();
 
         public Form_Seat_Selection(TicketInfo ticket)
         {
@@ -31,7 +32,8 @@ namespace MovieTicketApp
 
             for (int i = 0; i < this._availableSeats; i++)
             {
-                listBox_Seats.Items.Add($"Seat {i + 1}");
+                string seat = $"Seat {i + 1}";
+                listBox_Seats.Items.Add(seat);
             }
         }
 
@@ -41,6 +43,7 @@ namespace MovieTicketApp
             {
                 string seat = listBox_Seats.SelectedItem.ToString();
                 listBox_Selected_Seats.Items.Add(seat);
+                _bookedSeats.Add(new Seat(seat));
 
                 _totalSeatsSelected++;
 
@@ -72,7 +75,7 @@ namespace MovieTicketApp
 
         private void btn_Confirm_Click(object sender, EventArgs e)
         {
-            Form_Confirm_Booking form = new Form_Confirm_Booking(TicketInfo);
+            Form_Confirm_Booking form = new Form_Confirm_Booking(TicketInfo, _bookedSeats);
             form.Show();
             this.Close();
         }
