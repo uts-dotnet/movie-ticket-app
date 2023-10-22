@@ -147,7 +147,7 @@ namespace MovieTicketApp
 
             if (sender is Button button && button.Tag is MovieSession selectedSession)
             {
-                Form_Ticket_Booking sessionForm = new Form_Ticket_Booking(selectedMovie, selectedSession);
+                Form_Ticket_Selection sessionForm = new Form_Ticket_Selection(selectedMovie, selectedSession);
                 sessionForm.Show();
                 this.Hide();
             }

@@ -4,12 +4,12 @@ using System.Globalization;
 
 namespace MovieTicketApp
 {
-    public partial class Form_Ticket_Booking : Form
+    public partial class Form_Ticket_Selection : Form
     {
         private string _ticketInfoFile = ".\\ticket-info.txt";
         public TicketInfo TicketInfo { get; private set; }
 
-        public Form_Ticket_Booking(Movie selectedMovie, MovieSession selectedSession)
+        public Form_Ticket_Selection(Movie selectedMovie, MovieSession selectedSession)
         {
             InitializeComponent();
 
