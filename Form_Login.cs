@@ -56,7 +56,7 @@ namespace MovieTicketApp
                     if (storedUsername == username && storedPassword == password)
                     {
                         User user = new User(storedId, storedFirstName, storedLastName, storedEmail);
-                        SaveUserToFile(user);
+                        CurrentUserManager.Instance.SetCurrentUser(user);
                         return true;
                     }
                 }
@@ -68,15 +68,6 @@ namespace MovieTicketApp
                 Debug.WriteLine(e.Message);
                 Debug.WriteLine(Directory.GetCurrentDirectory());
                 return false;
-            }
-        }
-
-        private void SaveUserToFile(User user)
-        {
-            // setting StreamWriter to true appends a new line instead of overwritting existing lines
-            using (StreamWriter writer = new StreamWriter(_usersFile, true))
-            {
-                writer.WriteLine($"{user.Id},{user.FirstName},{user.LastName},{user.Email}");
             }
         }
 
