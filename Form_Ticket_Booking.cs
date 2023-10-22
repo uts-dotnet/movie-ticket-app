@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 
 namespace MovieTicketApp
@@ -24,25 +25,6 @@ namespace MovieTicketApp
 
             EnableQuantityButtons(false);
             EnableContinueButton(false);
-        }
-
-        public Form_Ticket_Booking(TicketInfo ticket)
-        {
-            InitializeComponent();
-
-            TicketInfo = new TicketInfo(ticket.SelectedMovie, ticket.SelectedSession, ticket.Price, ticket.SubTotal, ticket.Quantity, ticket.TicketSelected);
-
-            this.TicketInfo.TicketSelected = ticket.TicketSelected;
-            lbl_Movie_Title.Text = this.TicketInfo.SelectedMovie.Title;
-            lbl_Session_Time_Fomatted.Text = this.TicketInfo.SelectedSession.Time.ToString("HH:mm");
-
-            LoadListView();
-            PopulateListView();
-
-            lbl_Ticket_Selected.Text = this.TicketInfo.TicketSelected;
-            lbl_Ticket_Price_Value.Text = this.TicketInfo.Price.ToString("C");
-            lbl_Quantity_Value.Text = this.TicketInfo.Quantity.ToString();
-            lbl_Sub_Total_Value.Text = this.TicketInfo.SubTotal.ToString("C");
         }
 
         public void Form_Movie_Session_FormClosed(object sender, FormClosedEventArgs e)
@@ -182,19 +164,59 @@ namespace MovieTicketApp
 
         private void SaveTicketToFile()
         {
-            // setting StreamWriter to true appends a new line instead of overwritting existing lines
-            using (StreamWriter writer = new StreamWriter(_ticketInfoFile, true))
+            User currentUser = CurrentUserManager.Instance.CurrentUser;
+
+            if (currentUser != null)
             {
-                writer.WriteLine(
-                    $"{this.TicketInfo.SelectedMovie.Title}," +
-                    $"{this.TicketInfo.SelectedSession.Time.ToString("HH:mm")}," +
-                    $"{this.TicketInfo.Price:F2}," + // two decimal digits without the $ sign
-                    $"{this.TicketInfo.SubTotal:F2}," +
-                    $"{this.TicketInfo.Quantity}," +
-                    $"{this.TicketInfo.TicketSelected}"
-                );
+                int newTicketId;
+
+                try
+                {
+                    string[] lines = File.ReadAllLines(_ticketInfoFile);
+
+                    if (lines.Length > 0)
+                    {
+                        string lastLine = lines[lines.Length - 1];
+                        string[] lastLineData = lastLine.Split(',');
+
+                        int lastTicketId = int.Parse(lastLineData[0]);
+
+                        newTicketId = lastTicketId + 1;
+                    }
+                    else
+                    {
+                        newTicketId = 90001;
+                    }
+                }
+                catch (FileNotFoundException ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                    Debug.WriteLine(Directory.GetCurrentDirectory());
+                    return;
+                }
+
+                // setting StreamWriter to true appends a new line instead of overwriting existing lines
+                using (StreamWriter writer = new StreamWriter(_ticketInfoFile, true))
+                {
+                    writer.WriteLine(
+                        $"{newTicketId}," +
+                        $"{this.TicketInfo.SelectedMovie.Title}," +
+                        $"{this.TicketInfo.SelectedSession.Time.ToString("HH:mm")}," +
+                        $"{this.TicketInfo.Price:F2}," + // two decimal digits without the $ sign
+                        $"{this.TicketInfo.SubTotal:F2}," +
+                        $"{this.TicketInfo.Quantity}," +
+                        $"{this.TicketInfo.TicketSelected}," +
+                        $"{this.TicketInfo.MovieId}," +
+                        $"{currentUser.Id}"
+                    );
+                }
+            }
+            else
+            {
+                MessageBox.Show("There is no user currently logged in!");
             }
         }
+
 
         private void btn_Continue_Click(object sender, EventArgs e)
         {

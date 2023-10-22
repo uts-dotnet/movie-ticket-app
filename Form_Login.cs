@@ -6,7 +6,6 @@ namespace MovieTicketApp
     public partial class frm_Login : Form
     {
         string _loginFile = ".\\login-credentials.txt";
-        string _usersFile = ".\\users.txt";
 
         public frm_Login()
         {

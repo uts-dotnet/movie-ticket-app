@@ -66,19 +66,6 @@
             listBox_Seats.TabIndex = 6;
             listBox_Seats.SelectedIndexChanged += listBox_Seats_SelectedIndexChanged;
             // 
-            // btn_Back
-            // 
-            btn_Back.Cursor = Cursors.Hand;
-            btn_Back.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Back.ForeColor = Color.Firebrick;
-            btn_Back.Location = new Point(17, 43);
-            btn_Back.Name = "btn_Back";
-            btn_Back.Size = new Size(75, 35);
-            btn_Back.TabIndex = 21;
-            btn_Back.Text = "Back";
-            btn_Back.UseVisualStyleBackColor = true;
-            btn_Back.Click += btn_Back_Click;
-            // 
             // btn_Logout
             // 
             btn_Logout.Cursor = Cursors.Hand;
