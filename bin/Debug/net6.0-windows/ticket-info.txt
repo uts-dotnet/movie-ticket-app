@@ -1,3 +1,5 @@
 movieTitle,sessionTime,ticketPrice,subtotal,ticketQuantity,ticketSelected
 Expand4bles,18:30,17.55,52.65,3,Child Ticket
 Expand4bles,18:30,22.05,110.25,5,Adult Ticket
+Expand4bles,18:30,17.55,52.65,3,Child Ticket
+Expand4bles,18:30,17.55,52.65,3,Child Ticket
