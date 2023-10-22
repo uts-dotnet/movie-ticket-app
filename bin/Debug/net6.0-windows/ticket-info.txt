@@ -1,3 +1,8 @@
 90001,Expand4bles,16:00,17.55,35.10,2,Child Ticket,40001,10002
 90002,Expand4bles,16:00,19.35,19.35,2,Concession Ticket,40001,10002
 90003,Expand4bles,16:00,19.35,38.70,2,Student Ticket,40001,10002
+90004,Expand4bles,13:30,17.55,0.00,1,Child Ticket,40001,10002
+90005,Expand4bles,10:00,19.35,0.00,1,Concession Ticket,40001,10002
+90006,Expand4bles,13:30,17.55,35.10,2,Child Ticket,40001,10002
+90007,Expand4bles,18:30,22.05,0.00,1,Adult Ticket,40001,10002
+90008,Expand4bles,10:00,19.35,0.00,1,Student Ticket,40001,10002
