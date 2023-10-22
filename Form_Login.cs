@@ -35,7 +35,7 @@ namespace MovieTicketApp
             }
         }
 
-        private bool ValidateCredentials(string username, string password)
+        private bool ValidateCredentials(string email, string password)
         {
             try
             {
@@ -50,11 +50,10 @@ namespace MovieTicketApp
                     string storedPassword = data[2];
                     string storedFirstName = data[3];
                     string storedLastName = data[4];
-                    string storedEmail = data[5];
 
-                    if (storedUsername == username && storedPassword == password)
+                    if (storedUsername == email && storedPassword == password)
                     {
-                        User user = new User(storedId, storedFirstName, storedLastName, storedEmail);
+                        User user = new User(storedId, storedFirstName, storedLastName, storedUsername);
                         CurrentUserManager.Instance.SetCurrentUser(user);
                         return true;
                     }
