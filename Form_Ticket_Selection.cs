@@ -9,6 +9,11 @@ namespace MovieTicketApp
         private string _ticketInfoFile = ".\\ticket-info.txt";
         public TicketInfo TicketInfo { get; private set; }
 
+        private void Form_Ticket_Selection_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
+
         public Form_Ticket_Selection(Movie selectedMovie, MovieSession selectedSession)
         {
             InitializeComponent();

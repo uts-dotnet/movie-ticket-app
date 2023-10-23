@@ -21,6 +21,11 @@ namespace MovieTicketApp
             }
         }
 
+        private void Form_Confirm_Booking_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close(); 
+        }
+
         private void LoadData(TicketInfo ticket)
         {
             lbl_Movie_Title.Text = ticket.SelectedMovie.Title;

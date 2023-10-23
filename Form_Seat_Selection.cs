@@ -23,6 +23,11 @@ namespace MovieTicketApp
             LoadSeats();
         }
 
+        private void Form_Seat_Selection_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close(); // if the form is not closed it'll cause a conflict between Visual Studio and the executable file
+        }
+
         private void LoadSeats()
         {
             lbl_Seats_Available_Value.Text = this._availableSeats.ToString();
