@@ -1,0 +1,4 @@
+bookingID,movieID,session,numOfAttendees,seatsBooked
+1,40001,10:00,1,5
+2,40002,11:00,2,6-7
+3,40003,11:30,3,8-9-10
