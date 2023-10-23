@@ -17,7 +17,7 @@ namespace MovieTicketApp
             InitializeComponent();
         }
 
-        private void frm_SignUp_FormClosing(object sender, FormClosingEventArgs e)
+        private void frm_SignUp_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close(); // if the form is not closed it'll cause a conflict between Visual Studio and the executable file
         }

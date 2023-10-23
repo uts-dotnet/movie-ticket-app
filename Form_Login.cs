@@ -12,7 +12,7 @@ namespace MovieTicketApp
             InitializeComponent();
         }
 
-        private void frm_Login_FormClosing(object sender, FormClosingEventArgs e)
+        private void frm_Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close(); // if the form is not closed it'll cause a conflict between Visual Studio and the executable file
         }
@@ -24,7 +24,10 @@ namespace MovieTicketApp
 
             if (ValidateCredentials(enteredUsername, enteredPassword))
             {
-                MessageBox.Show("Login Successful!");
+                //MessageBox.Show("Login Successful!");
+                frm_Movies frm_Movies = new frm_Movies();
+                frm_Movies.Show();
+                this.Hide();
             }
             else
             {
