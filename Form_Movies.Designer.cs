@@ -1,6 +1,6 @@
 ﻿namespace MovieTicketApp
 {
-    partial class frm_Movies
+    partial class Form_Movies
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,13 @@
             lbl_Movie_Duration_Genre = new Label();
             txt_Movie_Description = new TextBox();
             lbl_Movie_Release_Date = new Label();
+            lbl_Sessions = new Label();
+            btn_Session_Time_1 = new Button();
+            btn_Session_Time_2 = new Button();
+            btn_Session_Time_3 = new Button();
+            btn_Session_Time_4 = new Button();
+            btn_Session_Time_5 = new Button();
+            btn_Log_Out = new Button();
             ((System.ComponentModel.ISupportInitialize)picbox_Movie_Poster).BeginInit();
             SuspendLayout();
             // 
@@ -112,11 +119,90 @@
             lbl_Movie_Release_Date.TabIndex = 9;
             lbl_Movie_Release_Date.Text = "Released on (Day, Month, Year)";
             // 
-            // frm_Movies
+            // lbl_Sessions
+            // 
+            lbl_Sessions.AutoSize = true;
+            lbl_Sessions.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Sessions.Location = new Point(268, 337);
+            lbl_Sessions.Name = "lbl_Sessions";
+            lbl_Sessions.Size = new Size(83, 25);
+            lbl_Sessions.TabIndex = 11;
+            lbl_Sessions.Text = "Sessions";
+            // 
+            // btn_Session_Time_1
+            // 
+            btn_Session_Time_1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Session_Time_1.Location = new Point(266, 381);
+            btn_Session_Time_1.Name = "btn_Session_Time_1";
+            btn_Session_Time_1.Size = new Size(85, 36);
+            btn_Session_Time_1.TabIndex = 12;
+            btn_Session_Time_1.Text = "HH:mm";
+            btn_Session_Time_1.UseVisualStyleBackColor = true;
+            // 
+            // btn_Session_Time_2
+            // 
+            btn_Session_Time_2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Session_Time_2.Location = new Point(372, 381);
+            btn_Session_Time_2.Name = "btn_Session_Time_2";
+            btn_Session_Time_2.Size = new Size(85, 36);
+            btn_Session_Time_2.TabIndex = 13;
+            btn_Session_Time_2.Text = "HH:mm";
+            btn_Session_Time_2.UseVisualStyleBackColor = true;
+            // 
+            // btn_Session_Time_3
+            // 
+            btn_Session_Time_3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Session_Time_3.Location = new Point(478, 381);
+            btn_Session_Time_3.Name = "btn_Session_Time_3";
+            btn_Session_Time_3.Size = new Size(85, 36);
+            btn_Session_Time_3.TabIndex = 14;
+            btn_Session_Time_3.Text = "HH:mm";
+            btn_Session_Time_3.UseVisualStyleBackColor = true;
+            // 
+            // btn_Session_Time_4
+            // 
+            btn_Session_Time_4.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Session_Time_4.Location = new Point(584, 381);
+            btn_Session_Time_4.Name = "btn_Session_Time_4";
+            btn_Session_Time_4.Size = new Size(85, 36);
+            btn_Session_Time_4.TabIndex = 15;
+            btn_Session_Time_4.Text = "HH:mm";
+            btn_Session_Time_4.UseVisualStyleBackColor = true;
+            // 
+            // btn_Session_Time_5
+            // 
+            btn_Session_Time_5.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Session_Time_5.Location = new Point(690, 381);
+            btn_Session_Time_5.Name = "btn_Session_Time_5";
+            btn_Session_Time_5.Size = new Size(85, 36);
+            btn_Session_Time_5.TabIndex = 16;
+            btn_Session_Time_5.Text = "HH:mm";
+            btn_Session_Time_5.UseVisualStyleBackColor = true;
+            // 
+            // btn_Log_Out
+            // 
+            btn_Log_Out.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Log_Out.ForeColor = Color.Firebrick;
+            btn_Log_Out.Location = new Point(688, 45);
+            btn_Log_Out.Name = "btn_Log_Out";
+            btn_Log_Out.Size = new Size(87, 33);
+            btn_Log_Out.TabIndex = 17;
+            btn_Log_Out.Text = "Log Out";
+            btn_Log_Out.UseVisualStyleBackColor = true;
+            btn_Log_Out.Click += btn_Log_Out_Click;
+            // 
+            // Form_Movies
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 464);
+            Controls.Add(btn_Log_Out);
+            Controls.Add(btn_Session_Time_5);
+            Controls.Add(btn_Session_Time_4);
+            Controls.Add(btn_Session_Time_3);
+            Controls.Add(btn_Session_Time_2);
+            Controls.Add(btn_Session_Time_1);
+            Controls.Add(lbl_Sessions);
             Controls.Add(lbl_Movie_Release_Date);
             Controls.Add(txt_Movie_Description);
             Controls.Add(lbl_Movie_Duration_Genre);
@@ -124,7 +210,7 @@
             Controls.Add(picbox_Movie_Poster);
             Controls.Add(lbl_Title_Login);
             Controls.Add(listbox_Movies);
-            Name = "frm_Movies";
+            Name = "Form_Movies";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Movies | DOTNET Cinemas";
             ((System.ComponentModel.ISupportInitialize)picbox_Movie_Poster).EndInit();
@@ -141,5 +227,12 @@
         private Label lbl_Movie_Duration_Genre;
         private TextBox txt_Movie_Description;
         private Label lbl_Movie_Release_Date;
+        private Label lbl_Sessions;
+        private Button btn_Session_Time_1;
+        private Button btn_Session_Time_2;
+        private Button btn_Session_Time_3;
+        private Button btn_Session_Time_4;
+        private Button btn_Session_Time_5;
+        private Button btn_Log_Out;
     }
 }

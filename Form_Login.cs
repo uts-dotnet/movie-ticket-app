@@ -5,7 +5,7 @@ namespace MovieTicketApp
 {
     public partial class frm_Login : Form
     {
-        string _loginFilePath = ".\\login-credentials.txt";
+        string _loginFile = ".\\login-credentials.txt";
 
         public frm_Login()
         {
@@ -25,7 +25,7 @@ namespace MovieTicketApp
             if (ValidateCredentials(enteredUsername, enteredPassword))
             {
                 //MessageBox.Show("Login Successful!");
-                frm_Movies frm_Movies = new frm_Movies();
+                Form_Movies frm_Movies = new Form_Movies();
                 frm_Movies.Show();
                 this.Hide();
             }
@@ -35,21 +35,26 @@ namespace MovieTicketApp
             }
         }
 
-        private bool ValidateCredentials(string username, string password)
+        private bool ValidateCredentials(string email, string password)
         {
             try
             {
-                string[] lines = File.ReadAllLines(_loginFilePath);
+                string[] lines = File.ReadAllLines(_loginFile);
 
                 foreach (string line in lines)
                 {
                     string[] data = line.Split(",");
 
+                    int storedId = Convert.ToInt32(data[0]);
                     string storedUsername = data[1];
                     string storedPassword = data[2];
+                    string storedFirstName = data[3];
+                    string storedLastName = data[4];
 
-                    if (storedUsername == username && storedPassword == password)
+                    if (storedUsername == email && storedPassword == password)
                     {
+                        User user = new User(storedId, storedFirstName, storedLastName, storedUsername);
+                        CurrentUserManager.Instance.SetCurrentUser(user);
                         return true;
                     }
                 }
