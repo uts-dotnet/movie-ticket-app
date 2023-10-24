@@ -28,5 +28,6 @@ namespace MovieTicketApp
             loginForm.Show();
             this.Hide();
         }
+
     }
 }
