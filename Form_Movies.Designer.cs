@@ -196,7 +196,7 @@
             // 
             btn_UserProfile.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_UserProfile.ForeColor = Color.Firebrick;
-            btn_UserProfile.Location = new Point(688, 84);
+            btn_UserProfile.Location = new Point(595, 45);
             btn_UserProfile.Name = "btn_UserProfile";
             btn_UserProfile.Size = new Size(87, 33);
             btn_UserProfile.TabIndex = 18;

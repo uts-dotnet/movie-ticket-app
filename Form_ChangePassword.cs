@@ -53,5 +53,12 @@ namespace MovieTicketApp
             // Provide feedback to the user (e.g., show a success message)
             MessageBox.Show("Password changed successfully.");
         }
+
+        private void btn_BackToMovies_Click(object sender, EventArgs e)
+        {
+            Form_UserProfile profile = new Form_UserProfile();
+            profile.Show();
+            this.Close();
+        }
     }
 }

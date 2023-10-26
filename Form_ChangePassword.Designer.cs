@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             lbl_Title_SignUp = new Label();
-            lbl_FirstName = new Label();
             label2 = new Label();
             label1 = new Label();
             label3 = new Label();
@@ -40,6 +39,7 @@
             lbl_PWLengthWarning = new Label();
             lbl_PWMatchWarning = new Label();
             btn_ChangePW = new Button();
+            btn_BackToMovies = new Button();
             SuspendLayout();
             // 
             // lbl_Title_SignUp
@@ -52,18 +52,6 @@
             lbl_Title_SignUp.Size = new Size(258, 40);
             lbl_Title_SignUp.TabIndex = 2;
             lbl_Title_SignUp.Text = "Change Password";
-            // 
-            // lbl_FirstName
-            // 
-            lbl_FirstName.AutoSize = true;
-            lbl_FirstName.BackColor = Color.Firebrick;
-            lbl_FirstName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_FirstName.ForeColor = SystemColors.ButtonFace;
-            lbl_FirstName.Location = new Point(34, 37);
-            lbl_FirstName.Name = "lbl_FirstName";
-            lbl_FirstName.Size = new Size(69, 21);
-            lbl_FirstName.TabIndex = 14;
-            lbl_FirstName.Text = "Go Back";
             // 
             // label2
             // 
@@ -156,11 +144,22 @@
             btn_ChangePW.UseVisualStyleBackColor = true;
             btn_ChangePW.Click += btn_ChangePW_Click;
             // 
+            // btn_BackToMovies
+            // 
+            btn_BackToMovies.Location = new Point(51, 22);
+            btn_BackToMovies.Name = "btn_BackToMovies";
+            btn_BackToMovies.Size = new Size(75, 23);
+            btn_BackToMovies.TabIndex = 29;
+            btn_BackToMovies.Text = "Go Back";
+            btn_BackToMovies.UseVisualStyleBackColor = true;
+            btn_BackToMovies.Click += btn_BackToMovies_Click;
+            // 
             // frm_ChangePassword
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_BackToMovies);
             Controls.Add(btn_ChangePW);
             Controls.Add(lbl_PWMatchWarning);
             Controls.Add(lbl_PWLengthWarning);
@@ -171,7 +170,6 @@
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(label2);
-            Controls.Add(lbl_FirstName);
             Controls.Add(lbl_Title_SignUp);
             Name = "frm_ChangePassword";
             Text = "Form1";
@@ -182,7 +180,6 @@
         #endregion
 
         private Label lbl_Title_SignUp;
-        private Label lbl_FirstName;
         private Label label2;
         private Label label1;
         private Label label3;
@@ -193,5 +190,6 @@
         private Label lbl_PWLengthWarning;
         private Label lbl_PWMatchWarning;
         private Button btn_ChangePW;
+        private Button btn_BackToMovies;
     }
 }
