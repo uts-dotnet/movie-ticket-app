@@ -96,5 +96,12 @@ namespace MovieTicketApp
                 }
             }
         }
+
+        private void btn_Profile_Click(object sender, EventArgs e)
+        {
+            Form_UserProfile userProfile = new Form_UserProfile();
+            userProfile.Show();
+            this.Hide();
+        }
     }
 }

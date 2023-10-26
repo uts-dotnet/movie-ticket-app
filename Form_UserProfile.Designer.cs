@@ -33,8 +33,8 @@
             listBox1 = new ListBox();
             pictureBox1 = new PictureBox();
             label2 = new Label();
-            lbl_FirstName = new Label();
-            label4 = new Label();
+            btn_Back = new Label();
+            btn_ChangePW = new Label();
             label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -87,29 +87,30 @@
             label2.TabIndex = 17;
             label2.Text = "View Bookings";
             // 
-            // lbl_FirstName
+            // btn_Back
             // 
-            lbl_FirstName.AutoSize = true;
-            lbl_FirstName.BackColor = Color.Firebrick;
-            lbl_FirstName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_FirstName.ForeColor = SystemColors.ButtonFace;
-            lbl_FirstName.Location = new Point(39, 41);
-            lbl_FirstName.Name = "lbl_FirstName";
-            lbl_FirstName.Size = new Size(69, 21);
-            lbl_FirstName.TabIndex = 13;
-            lbl_FirstName.Text = "Go Back";
+            btn_Back.AutoSize = true;
+            btn_Back.BackColor = Color.Firebrick;
+            btn_Back.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Back.ForeColor = SystemColors.ButtonFace;
+            btn_Back.Location = new Point(39, 41);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(69, 21);
+            btn_Back.TabIndex = 13;
+            btn_Back.Text = "Go Back";
             // 
-            // label4
+            // btn_ChangePW
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Firebrick;
-            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = SystemColors.ButtonFace;
-            label4.Location = new Point(553, 130);
-            label4.Name = "label4";
-            label4.Size = new Size(138, 21);
-            label4.TabIndex = 19;
-            label4.Text = "Change Password";
+            btn_ChangePW.AutoSize = true;
+            btn_ChangePW.BackColor = Color.Firebrick;
+            btn_ChangePW.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ChangePW.ForeColor = SystemColors.ButtonFace;
+            btn_ChangePW.Location = new Point(553, 130);
+            btn_ChangePW.Name = "btn_ChangePW";
+            btn_ChangePW.Size = new Size(138, 21);
+            btn_ChangePW.TabIndex = 19;
+            btn_ChangePW.Text = "Change Password";
+            btn_ChangePW.Click += btn_ChangePW_Click;
             // 
             // label3
             // 
@@ -128,12 +129,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label3);
-            Controls.Add(label4);
+            Controls.Add(btn_ChangePW);
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             Controls.Add(listBox1);
             Controls.Add(label1);
-            Controls.Add(lbl_FirstName);
+            Controls.Add(btn_Back);
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_UserProfile";
             Text = "Form1";
@@ -150,8 +151,8 @@
         private ListBox listBox1;
         private PictureBox pictureBox1;
         private Label label2;
-        private Label lbl_FirstName;
-        private Label label4;
+        private Label btn_Back;
+        private Label btn_ChangePW;
         private Label label3;
     }
 }

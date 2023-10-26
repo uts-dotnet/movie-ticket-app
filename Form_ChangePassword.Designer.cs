@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             lbl_Title_SignUp = new Label();
-            lbl_FirstName = new Label();
-            label2 = new Label();
+            btn_back = new Label();
+            lbl_currentPW = new Label();
             label1 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            label4 = new Label();
+            txt_currentPW = new TextBox();
+            txt_newPW = new TextBox();
+            txt_confirmPW = new TextBox();
+            btn_Submit = new Label();
             label5 = new Label();
             SuspendLayout();
             // 
@@ -51,27 +51,27 @@
             lbl_Title_SignUp.TabIndex = 2;
             lbl_Title_SignUp.Text = "Change Password";
             // 
-            // lbl_FirstName
+            // btn_back
             // 
-            lbl_FirstName.AutoSize = true;
-            lbl_FirstName.BackColor = Color.Firebrick;
-            lbl_FirstName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_FirstName.ForeColor = SystemColors.ButtonFace;
-            lbl_FirstName.Location = new Point(34, 37);
-            lbl_FirstName.Name = "lbl_FirstName";
-            lbl_FirstName.Size = new Size(69, 21);
-            lbl_FirstName.TabIndex = 14;
-            lbl_FirstName.Text = "Go Back";
+            btn_back.AutoSize = true;
+            btn_back.BackColor = Color.Firebrick;
+            btn_back.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_back.ForeColor = SystemColors.ButtonFace;
+            btn_back.Location = new Point(34, 37);
+            btn_back.Name = "btn_back";
+            btn_back.Size = new Size(69, 21);
+            btn_back.TabIndex = 14;
+            btn_back.Text = "Go Back";
             // 
-            // label2
+            // lbl_currentPW
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(244, 120);
-            label2.Name = "label2";
-            label2.Size = new Size(138, 21);
-            label2.TabIndex = 18;
-            label2.Text = "Current Password";
+            lbl_currentPW.AutoSize = true;
+            lbl_currentPW.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_currentPW.Location = new Point(244, 120);
+            lbl_currentPW.Name = "lbl_currentPW";
+            lbl_currentPW.Size = new Size(138, 21);
+            lbl_currentPW.TabIndex = 18;
+            lbl_currentPW.Text = "Current Password";
             // 
             // label1
             // 
@@ -93,38 +93,38 @@
             label3.TabIndex = 20;
             label3.Text = "Confirm Password";
             // 
-            // textBox1
+            // txt_currentPW
             // 
-            textBox1.Location = new Point(244, 144);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(298, 23);
-            textBox1.TabIndex = 21;
+            txt_currentPW.Location = new Point(244, 144);
+            txt_currentPW.Name = "txt_currentPW";
+            txt_currentPW.Size = new Size(298, 23);
+            txt_currentPW.TabIndex = 21;
             // 
-            // textBox2
+            // txt_newPW
             // 
-            textBox2.Location = new Point(244, 229);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(298, 23);
-            textBox2.TabIndex = 22;
+            txt_newPW.Location = new Point(244, 229);
+            txt_newPW.Name = "txt_newPW";
+            txt_newPW.Size = new Size(298, 23);
+            txt_newPW.TabIndex = 22;
             // 
-            // textBox3
+            // txt_confirmPW
             // 
-            textBox3.Location = new Point(244, 312);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(298, 23);
-            textBox3.TabIndex = 23;
+            txt_confirmPW.Location = new Point(244, 312);
+            txt_confirmPW.Name = "txt_confirmPW";
+            txt_confirmPW.Size = new Size(298, 23);
+            txt_confirmPW.TabIndex = 23;
             // 
-            // label4
+            // btn_Submit
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Firebrick;
-            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = SystemColors.ButtonFace;
-            label4.Location = new Point(347, 373);
-            label4.Name = "label4";
-            label4.Size = new Size(62, 21);
-            label4.TabIndex = 24;
-            label4.Text = "Submit";
+            btn_Submit.AutoSize = true;
+            btn_Submit.BackColor = Color.Firebrick;
+            btn_Submit.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Submit.ForeColor = SystemColors.ButtonFace;
+            btn_Submit.Location = new Point(347, 373);
+            btn_Submit.Name = "btn_Submit";
+            btn_Submit.Size = new Size(62, 21);
+            btn_Submit.TabIndex = 24;
+            btn_Submit.Text = "Submit";
             // 
             // label5
             // 
@@ -142,14 +142,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(btn_Submit);
+            Controls.Add(txt_confirmPW);
+            Controls.Add(txt_newPW);
+            Controls.Add(txt_currentPW);
             Controls.Add(label3);
             Controls.Add(label1);
-            Controls.Add(label2);
-            Controls.Add(lbl_FirstName);
+            Controls.Add(lbl_currentPW);
+            Controls.Add(btn_back);
             Controls.Add(lbl_Title_SignUp);
             Name = "frm_ChangePassword";
             Text = "Form1";
@@ -160,14 +160,14 @@
         #endregion
 
         private Label lbl_Title_SignUp;
-        private Label lbl_FirstName;
-        private Label label2;
+        private Label btn_back;
+        private Label lbl_currentPW;
         private Label label1;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Label label4;
+        private TextBox txt_currentPW;
+        private TextBox txt_newPW;
+        private TextBox txt_confirmPW;
+        private Label btn_Submit;
         private Label label5;
     }
 }

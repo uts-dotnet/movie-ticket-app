@@ -35,6 +35,7 @@
             lbl_Movie_Duration_Genre = new Label();
             txt_Movie_Description = new TextBox();
             lbl_Movie_Release_Date = new Label();
+            btn_Profile = new Button();
             ((System.ComponentModel.ISupportInitialize)picbox_Movie_Poster).BeginInit();
             SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // 
             // picbox_Movie_Poster
             // 
-            picbox_Movie_Poster.Location = new Point(268, 113);
+            picbox_Movie_Poster.Location = new Point(248, 113);
             picbox_Movie_Poster.MaximumSize = new Size(150, 200);
             picbox_Movie_Poster.Name = "picbox_Movie_Poster";
             picbox_Movie_Poster.Size = new Size(150, 200);
@@ -112,11 +113,24 @@
             lbl_Movie_Release_Date.TabIndex = 9;
             lbl_Movie_Release_Date.Text = "Released on (Day, Month, Year)";
             // 
+            // btn_Profile
+            // 
+            btn_Profile.BackColor = Color.Firebrick;
+            btn_Profile.ForeColor = Color.WhiteSmoke;
+            btn_Profile.Location = new Point(655, 54);
+            btn_Profile.Name = "btn_Profile";
+            btn_Profile.Size = new Size(102, 23);
+            btn_Profile.TabIndex = 10;
+            btn_Profile.Text = "View Profile";
+            btn_Profile.UseVisualStyleBackColor = false;
+            btn_Profile.Click += btn_Profile_Click;
+            // 
             // frm_Movies
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_Profile);
             Controls.Add(lbl_Movie_Release_Date);
             Controls.Add(txt_Movie_Description);
             Controls.Add(lbl_Movie_Duration_Genre);
@@ -141,5 +155,6 @@
         private Label lbl_Movie_Duration_Genre;
         private TextBox txt_Movie_Description;
         private Label lbl_Movie_Release_Date;
+        private Button btn_Profile;
     }
 }

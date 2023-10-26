@@ -90,5 +90,10 @@ namespace MovieTicketApp
                 MessageBox.Show("The file does not exist.");
             }
         }
+
+        private void btn_ChangePW_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
