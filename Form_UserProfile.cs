@@ -91,9 +91,12 @@ namespace MovieTicketApp
             }
         }
 
-        private void btn_ChangePW_Click(object sender, EventArgs e)
+        private void btn_BackToMovies_Click(object sender, EventArgs e)
         {
-
+            Form_Movies movies = new Form_Movies();
+            movies.Show();
+            this.Close();
         }
+
     }
 }
