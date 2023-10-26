@@ -159,5 +159,18 @@ namespace MovieTicketApp
             login.Show();
             this.Close();
         }
+
+        private void btn_UserProfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_UserProfile_Click_1(object sender, EventArgs e)
+        {
+            Form_UserProfile profile = new Form_UserProfile();
+            profile.Show();
+            this.Close();
+        }
+
     }
 }

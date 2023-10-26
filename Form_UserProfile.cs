@@ -90,5 +90,13 @@ namespace MovieTicketApp
                 MessageBox.Show("The file does not exist.");
             }
         }
+
+        private void btn_BackToMovies_Click(object sender, EventArgs e)
+        {
+            Form_Movies movies = new Form_Movies();
+            movies.Show();
+            this.Close();
+        }
+
     }
 }

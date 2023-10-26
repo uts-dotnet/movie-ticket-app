@@ -1,2 +1,0 @@
-userID,bookings
-10001,"1;2;3"
