@@ -15,6 +15,7 @@ namespace MovieTicketApp
         public DateTime ReleaseDate { get; private set; }
         public string Description { get; private set; }
         public string Poster { get; private set; }
+        public List<MovieSession> Sessions { get; private set; }
 
         public Movie(int id, string title, string genre, Duration duration, DateTime releaseDate, string description, string poster)
         {
@@ -25,11 +26,18 @@ namespace MovieTicketApp
             this.Description = description;
             this.ReleaseDate = releaseDate;
             this.Poster = poster;
+            this.Sessions = new List<MovieSession>();
         }
 
         public override string ToString()
         {
             return $"Movie: {this.Title}, Genre: {this.Genre}, Duration: {this.Duration}, Release Date: {this.ReleaseDate}";
+        }
+
+        public void AddSession(DateTime date, int availableSeats)
+        {
+            MovieSession session = new MovieSession(date, availableSeats);
+            Sessions.Add(session);
         }
     }
 }
