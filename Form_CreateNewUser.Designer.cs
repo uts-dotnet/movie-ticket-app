@@ -151,6 +151,7 @@
             Controls.Add(label1);
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_CreateNewUser";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

@@ -172,6 +172,7 @@
             Controls.Add(label2);
             Controls.Add(lbl_Title_SignUp);
             Name = "frm_ChangePassword";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
