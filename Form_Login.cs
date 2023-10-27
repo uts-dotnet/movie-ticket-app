@@ -22,11 +22,18 @@ namespace MovieTicketApp
             string enteredUsername = txt_Username.Text.Trim();
             string enteredPassword = txt_Password.Text.Trim();
 
-            if (ValidateCredentials(enteredUsername, enteredPassword))
+            bool credentialIsValid = ValidateCredentials(enteredUsername, enteredPassword);
+
+            if (credentialIsValid && enteredUsername == "admin")
             {
-                //MessageBox.Show("Login Successful!");
-                Form_Movies frm_Movies = new Form_Movies();
-                frm_Movies.Show();
+                Form_AdminView form = new Form_AdminView();
+                form.Show();
+                this.Hide();
+            }
+            else if (credentialIsValid)
+            { 
+                Form_Movies form = new Form_Movies();
+                form.Show();
                 this.Hide();
             }
             else

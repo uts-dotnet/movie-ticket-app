@@ -129,6 +129,7 @@
             Controls.Add(btn_Back);
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_AdminView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
