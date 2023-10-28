@@ -12,17 +12,6 @@ namespace MovieTicketApp
         public static double SubTotal { get; set; }
         public static int Quantity { get; set; }
 
-        public static void SetTicket(Movie selectedMovie, MovieSession selectedSession, double price, double subTotal, int quantity)
-        {
-            SelectedMovie = selectedMovie;
-            SelectedSession = selectedSession;
-            Price = price;
-            SubTotal = subTotal;
-            Quantity = quantity;
-            TicketType = string.Empty;
-            MovieId = selectedMovie.Id;
-        }
-
         public static void SetTicket(Movie selectedMovie, MovieSession selectedSession, double price, double subTotal, int quantity, string ticketSelected)
         {
             SelectedMovie = selectedMovie;

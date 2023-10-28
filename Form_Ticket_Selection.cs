@@ -22,7 +22,7 @@ namespace MovieTicketApp
         {
             InitializeComponent();
 
-            TicketInfo.SetTicket(selectedMovie, selectedSession, 0, 0, 0);
+            TicketInfo.SetTicket(selectedMovie, selectedSession, 0, 0, 0, string.Empty);
 
             TicketInfo.TicketType = string.Empty;
 
