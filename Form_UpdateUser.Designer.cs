@@ -40,17 +40,20 @@
             userDataBindingSource = new BindingSource(components);
             userBindingSource = new BindingSource(components);
             btn_Cancel = new Button();
-            button1 = new Button();
-            label1 = new Label();
+            btn_UpdateData = new Button();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            textBox_UserId = new TextBox();
             textBox_Username = new TextBox();
             textBox_Password = new TextBox();
             textBox_firstName = new TextBox();
             textBox_lastName = new TextBox();
+            btn_CreateNewUser = new Button();
+            label1 = new Label();
+            textBox_UserId = new TextBox();
+            label6 = new Label();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)userGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userDataBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
@@ -75,11 +78,11 @@
             userGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             userGrid.Columns.AddRange(new DataGridViewColumn[] { userIdDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, Delete });
             userGrid.DataSource = userDataBindingSource;
-            userGrid.Location = new Point(37, 168);
+            userGrid.Location = new Point(37, 152);
             userGrid.Name = "userGrid";
             userGrid.RowTemplate.Height = 25;
             userGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            userGrid.Size = new Size(742, 270);
+            userGrid.Size = new Size(742, 286);
             userGrid.TabIndex = 5;
             userGrid.CellClick += userGrid_CelLClick;
             // 
@@ -139,29 +142,21 @@
             btn_Cancel.UseVisualStyleBackColor = true;
             btn_Cancel.Click += btn_Cancel_Click;
             // 
-            // button1
+            // btn_UpdateData
             // 
-            button1.Location = new Point(670, 25);
-            button1.Name = "button1";
-            button1.Size = new Size(109, 23);
-            button1.TabIndex = 8;
-            button1.Text = "Update Data";
-            button1.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(292, 73);
-            label1.Name = "label1";
-            label1.Size = new Size(40, 15);
-            label1.TabIndex = 9;
-            label1.Text = "UserId";
+            btn_UpdateData.Location = new Point(679, 25);
+            btn_UpdateData.Name = "btn_UpdateData";
+            btn_UpdateData.Size = new Size(99, 23);
+            btn_UpdateData.TabIndex = 8;
+            btn_UpdateData.Text = "Update User";
+            btn_UpdateData.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btn_UpdateData.UseVisualStyleBackColor = true;
+            btn_UpdateData.Click += btn_UpdateData_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(40, 73);
+            label2.Location = new Point(228, 74);
             label2.Name = "label2";
             label2.Size = new Size(60, 15);
             label2.TabIndex = 10;
@@ -170,7 +165,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(43, 113);
+            label3.Location = new Point(231, 114);
             label3.Name = "label3";
             label3.Size = new Size(57, 15);
             label3.TabIndex = 11;
@@ -179,7 +174,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(544, 74);
+            label4.Location = new Point(475, 76);
             label4.Name = "label4";
             label4.Size = new Size(64, 15);
             label4.TabIndex = 12;
@@ -188,52 +183,97 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(544, 115);
+            label5.Location = new Point(475, 117);
             label5.Name = "label5";
             label5.Size = new Size(63, 15);
             label5.TabIndex = 13;
             label5.Text = "Last Name";
             // 
-            // textBox_UserId
-            // 
-            textBox_UserId.Location = new Point(338, 70);
-            textBox_UserId.Name = "textBox_UserId";
-            textBox_UserId.Size = new Size(190, 23);
-            textBox_UserId.TabIndex = 14;
-            // 
             // textBox_Username
             // 
-            textBox_Username.Location = new Point(106, 70);
+            textBox_Username.Location = new Point(294, 71);
             textBox_Username.Name = "textBox_Username";
             textBox_Username.Size = new Size(170, 23);
             textBox_Username.TabIndex = 15;
             // 
             // textBox_Password
             // 
-            textBox_Password.Location = new Point(106, 113);
+            textBox_Password.Location = new Point(294, 114);
             textBox_Password.Name = "textBox_Password";
             textBox_Password.Size = new Size(161, 23);
             textBox_Password.TabIndex = 16;
             // 
             // textBox_firstName
             // 
-            textBox_firstName.Location = new Point(614, 69);
+            textBox_firstName.Location = new Point(545, 71);
             textBox_firstName.Name = "textBox_firstName";
             textBox_firstName.Size = new Size(165, 23);
             textBox_firstName.TabIndex = 17;
             // 
             // textBox_lastName
             // 
-            textBox_lastName.Location = new Point(613, 112);
+            textBox_lastName.Location = new Point(544, 114);
             textBox_lastName.Name = "textBox_lastName";
             textBox_lastName.Size = new Size(165, 23);
             textBox_lastName.TabIndex = 18;
+            // 
+            // btn_CreateNewUser
+            // 
+            btn_CreateNewUser.Location = new Point(544, 25);
+            btn_CreateNewUser.Name = "btn_CreateNewUser";
+            btn_CreateNewUser.Size = new Size(114, 23);
+            btn_CreateNewUser.TabIndex = 19;
+            btn_CreateNewUser.Text = "Create New User";
+            btn_CreateNewUser.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btn_CreateNewUser.UseVisualStyleBackColor = true;
+            btn_CreateNewUser.Click += btn_CreateNewUser_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.CausesValidation = false;
+            label1.Location = new Point(69, 74);
+            label1.Name = "label1";
+            label1.Size = new Size(40, 15);
+            label1.TabIndex = 9;
+            label1.Text = "UserId";
+            // 
+            // textBox_UserId
+            // 
+            textBox_UserId.CausesValidation = false;
+            textBox_UserId.Location = new Point(115, 71);
+            textBox_UserId.Name = "textBox_UserId";
+            textBox_UserId.ReadOnly = true;
+            textBox_UserId.Size = new Size(93, 23);
+            textBox_UserId.TabIndex = 14;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(594, 51);
+            label6.Name = "label6";
+            label6.Size = new Size(0, 15);
+            label6.TabIndex = 20;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.CausesValidation = false;
+            label7.Font = new Font("Segoe UI", 8.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label7.Location = new Point(63, 97);
+            label7.Name = "label7";
+            label7.Size = new Size(145, 13);
+            label7.TabIndex = 21;
+            label7.Text = "Auto-generated for new users";
             // 
             // Form_UpdateUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(btn_CreateNewUser);
             Controls.Add(textBox_lastName);
             Controls.Add(textBox_firstName);
             Controls.Add(textBox_Password);
@@ -244,7 +284,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(btn_UpdateData);
             Controls.Add(btn_Cancel);
             Controls.Add(userGrid);
             Controls.Add(lbl_Title_SignUp);
@@ -282,5 +322,10 @@
         private TextBox textBox_lastName;
         private DataGridView userGrid;
         private DataGridViewButtonColumn Delete;
+        private Button btn_UpdateData;
+        private Button button2;
+        private Button btn_CreateNewUser;
+        private Label label6;
+        private Label label7;
     }
 }
