@@ -98,7 +98,7 @@ namespace MovieTicketApp
                 currentUser.Id
             );
 
-            Form_Confirm_Booking form = new Form_Confirm_Booking(TicketInfo.BookedSeats);
+            Form_Confirm_Booking form = new Form_Confirm_Booking();
             form.Show();
             this.Close();
         }

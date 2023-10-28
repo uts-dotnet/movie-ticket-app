@@ -6,16 +6,16 @@ namespace MovieTicketApp
     public partial class Form_Confirm_Booking : Form
     {
         private string posterFilePath = "";
-        private string moviesFile = "movies.txt";
+        private string moviesFile = ".\\movies.txt";
 
-        public Form_Confirm_Booking(List<Seat> bookedSeats)
+        public Form_Confirm_Booking()
         {
             InitializeComponent();
             LoadData();
 
-            lbl_Booked_Seats_Value.Text = bookedSeats.Count.ToString();
+            lbl_Booked_Seats_Value.Text = TicketInfo.BookedSeats.Count.ToString();
 
-            foreach (Seat seat in bookedSeats)
+            foreach (Seat seat in TicketInfo.BookedSeats)
             {
                 listBox_Seats.Items.Add(seat.Name);
             }

@@ -19,11 +19,14 @@ namespace MovieTicketApp
 
             lbl_MovieTitle.Text = TicketInfo.SelectedMovie.Title;
             lbl_TicketType.Text = TicketInfo.TicketType;
+            lbl_TicketQuantity.Text = TicketInfo.Quantity.ToString();
             lbl_Subtotal_Value.Text = TicketInfo.SubTotal.ToString("C");
             lbl_BookingFee_Value.Text = _bookingFee.ToString("C");
             lbl_Total_Value.Text = _total.ToString("C");
 
             txt_CardNumber.MaxLength = 16;
+            txt_ExpiryDate.MaxLength = 5;
+            txt_CVV.MaxLength = 3;
             txt_CardName.TextChanged += TextFields_TextChanged;
             txt_CardNumber.TextChanged += TextFields_TextChanged;
             txt_ExpiryDate.TextChanged += TextFields_TextChanged;
@@ -32,16 +35,11 @@ namespace MovieTicketApp
             btn_Pay.Enabled = false;
             btn_Pay.BackColor = Color.White;
             btn_Pay.ForeColor = Color.Gray;
-
-            txt_CardName.Enter += TextField_Enter;
-            txt_CardNumber.Enter += TextField_Enter;
-            txt_ExpiryDate.Enter += TextField_Enter;
-            txt_CVV.Enter += TextField_Enter;
         }
 
-        private void TextField_Enter(object sender, EventArgs e)
+        private void Form_Checkout_FormClosed(object sender, FormClosedEventArgs e)
         {
-            btn_Pay.Enabled = true;
+            this.Close();
         }
 
         private void TextFields_TextChanged(object sender, EventArgs e)
@@ -92,7 +90,9 @@ namespace MovieTicketApp
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
-
+            Form_Confirm_Booking form = new Form_Confirm_Booking();
+            form.Show();
+            this.Close();
         }
     }
 }

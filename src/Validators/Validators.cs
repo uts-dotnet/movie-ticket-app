@@ -11,13 +11,14 @@ namespace MovieTicketApp
                 return false;
 
             string formattedName = char.ToUpper(name[0]) + name.Substring(1).ToLower();
-            return Regex.IsMatch(name, @"^[A-Za-z\s]+$");
+            return Regex.IsMatch(formattedName, @"^[A-Za-z\s]+$");
         }
 
         public static bool ValidateCardNumber(string number)
         {
             if (string.IsNullOrEmpty(number))
                 return false;
+
             return Regex.IsMatch(number, @"^\d{16}$");
         }
 
