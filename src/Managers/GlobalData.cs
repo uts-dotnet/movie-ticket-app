@@ -47,7 +47,7 @@ namespace MovieTicketApp.src.Managers
 
             // Load credentials from login-credentials.txt
             FileManager<UserData> credentialsFileManager = new FileManager<UserData>("credentials.txt");
-            UserData = credentialsFileManager.Load();
+            UserData = credentialsFileManager.Load(false);
 
             // Load user bookings from user-bookings.txt
             FileManager<UserBookings> userBookingsFileManager = new FileManager<UserBookings>("user-bookings.txt");

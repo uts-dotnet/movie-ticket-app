@@ -34,19 +34,28 @@ namespace MovieTicketApp.src.Managers
             this.filePath = filePath;
         }
 
-        public List<T> Load()
+        public List<T> Load(bool skipHeaders = true)
         {
             if (File.Exists(filePath))
             {
-                using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
+                var lines = File.ReadAllLines(filePath);
+
+                // Skip headers if skipHeaders is true
+                if (skipHeaders && lines.Length > 0)
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
-                    List<T> data = (List<T>)serializer.Deserialize(fileStream);
+                    lines = lines.Skip(1).ToArray();
+                }
+
+                using (var fileStream = new FileStream(filePath, FileMode.Open))
+                {
+                    var serializer = new XmlSerializer(typeof(List<T>));
+                    var data = (List<T>)serializer.Deserialize(fileStream);
                     return data;
                 }
             }
             return new List<T>();
         }
+
 
         public void Save(List<T> data)
         {
