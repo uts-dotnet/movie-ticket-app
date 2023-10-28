@@ -15,7 +15,10 @@ namespace MovieTicketApp
             ApplicationConfiguration.Initialize();
 
             // Load data from files when the application starts
-            GlobalData.LoadData();
+            FileManager.Load();
+
+            // Subscribe the OnApplicationExit method to the ApplicationExit event
+            Application.ApplicationExit += OnApplicationExit;
 
             Application.Run(new frm_Login());
         }
@@ -24,10 +27,11 @@ namespace MovieTicketApp
         private static void OnApplicationExit(object sender, EventArgs e)
         {
             //Save all the data to .txt files
-            GlobalData.SaveData();
+            FileManager.Save();
 
             // Clear all data
             GlobalData.Clear(); 
         }
+
     }
 }

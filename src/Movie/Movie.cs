@@ -1,42 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MovieTicketApp.src.Managers;
+﻿using MovieTicketApp.src.Managers;
+using MovieTicketApp;
 
-namespace MovieTicketApp
+public class Movie
 {
-    public class Movie
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Genre { get; set; }
+    public int Hours { get; set; }
+    public int Minutes { get; set; }
+    public int Year { get; set; }
+    public int Month { get; set; }
+    public int Day { get; set; }
+    public string Description { get; set; }
+    public string Poster { get; set; }
+
+    public Duration Duration { get; set; }
+    public DateTime ReleaseDate { get; set; }
+    public List<MovieSession> Sessions { get; set; }
+
+    public Movie()
     {
-        public int Id { get; set; } // Add a public setter
-        public string Title { get; set; } // Add a public setter
-        public string Genre { get; set; } // Add a public setter
-        public int Hours { get; set; } // Add a public setter
-        public int Minutes { get; set; } // Add a public setter
-        public string Description { get; set; } // Add a public setter
-        public string Poster { get; set; } // Add a public setter
+        // Initialize properties in the parameterless constructor
+        Duration = new Duration();
+        ReleaseDate = DateTime.MinValue;
+        Sessions = new List<MovieSession>();
+    }
 
-        public Movie(string title, string genre, int hours, int minutes, string description, string poster)
-        {
-            Id = GenerateNewMovieId(); // Generate a new movie Id
-            Title = title;
-            Genre = genre;
-            Hours = hours;
-            Minutes = minutes;
-            Description = description;
-            Poster = poster;
-        }
+    public Movie(string title, string genre, int hours, int minutes, int year, int month, int day, string description, string poster)
+    {
+        Id = GenerateNewMovieId();
+        Title = title;
+        Genre = genre;
+        Hours = hours;
+        Minutes = minutes;
+        Year = year;
+        Month = month;
+        Day = day;
+        Description = description;
+        Poster = poster;
 
-        private int GenerateNewMovieId()
-        {
-            int maxId = GlobalData.Movies.Max(m => m.Id); // Find the maximum Id among existing movies
-            return maxId + 1;
-        }
+        Duration = new Duration(Hours, Minutes);
+        ReleaseDate = new DateTime(Year, Month, Day);
+        Sessions = new List<MovieSession>();
+    }
 
-        public override string ToString()
-        {
-            return $"Movie: {this.Title}, Genre: {this.Genre}, Duration: {this.Hours}:{this.Minutes}, Description: {this.Description}";
-        }
+    private int GenerateNewMovieId()
+    {
+        int maxId = GlobalData.Movies.Max(m => m.Id);
+        return maxId + 1;
+    }
+
+    public void AddSession(DateTime date, int availableSeats)
+    {
+        MovieSession session = new MovieSession(date, availableSeats);
+        Sessions.Add(session);
+    }
+
+    public override string ToString()
+    {
+        return $"Movie: {this.Title}, Genre: {this.Genre}, Duration: {this.Hours}:{this.Minutes}, Description: {this.Description}";
     }
 }

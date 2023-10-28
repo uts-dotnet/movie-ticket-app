@@ -7,6 +7,8 @@ using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp.src.User
 {
+    [Serializable]
+
     public class UserData
     {
         public int UserId { get; set; }
@@ -26,7 +28,7 @@ namespace MovieTicketApp.src.User
 
         private int GenerateNewUserDataId()
         {
-            int maxId = GlobalData.UserData.Max(u => u.Id); // Find the maximum Id among existing UserData
+            int maxId = GlobalData.UserData.Max(u => u.UserId); // Find the maximum Id among existing UserData
             return maxId + 1;
         }
 
