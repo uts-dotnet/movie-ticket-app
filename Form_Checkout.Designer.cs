@@ -33,13 +33,15 @@
             lbl_YourOrder = new Label();
             lbl_CheckoutSubtitle = new Label();
             panel_YourOrder = new Panel();
+            lbl_Subtotal_Value = new Label();
+            lbl_Subtotal = new Label();
             lbl_MovieTitle = new Label();
             lbl_Line = new Label();
             lbl_TicketQuantity = new Label();
             lbl_TicketType = new Label();
             lbl_BookingFee_Value = new Label();
             lbl_BookingFee = new Label();
-            label1 = new Label();
+            lbl_Total_Value = new Label();
             lbl_Total = new Label();
             btn_Back = new Button();
             lbl_CardName = new Label();
@@ -101,24 +103,47 @@
             // 
             panel_YourOrder.BackColor = Color.White;
             panel_YourOrder.BorderStyle = BorderStyle.FixedSingle;
+            panel_YourOrder.Controls.Add(lbl_Subtotal_Value);
+            panel_YourOrder.Controls.Add(lbl_Subtotal);
             panel_YourOrder.Controls.Add(lbl_MovieTitle);
             panel_YourOrder.Controls.Add(lbl_Line);
             panel_YourOrder.Controls.Add(lbl_TicketQuantity);
             panel_YourOrder.Controls.Add(lbl_TicketType);
             panel_YourOrder.Controls.Add(lbl_BookingFee_Value);
             panel_YourOrder.Controls.Add(lbl_BookingFee);
-            panel_YourOrder.Controls.Add(label1);
+            panel_YourOrder.Controls.Add(lbl_Total_Value);
             panel_YourOrder.Controls.Add(lbl_Total);
             panel_YourOrder.Location = new Point(32, 183);
             panel_YourOrder.Name = "panel_YourOrder";
             panel_YourOrder.Size = new Size(219, 217);
             panel_YourOrder.TabIndex = 25;
             // 
+            // lbl_Subtotal_Value
+            // 
+            lbl_Subtotal_Value.AutoSize = true;
+            lbl_Subtotal_Value.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Subtotal_Value.Location = new Point(150, 82);
+            lbl_Subtotal_Value.Name = "lbl_Subtotal_Value";
+            lbl_Subtotal_Value.Size = new Size(59, 21);
+            lbl_Subtotal_Value.TabIndex = 45;
+            lbl_Subtotal_Value.Text = "$00.00";
+            lbl_Subtotal_Value.TextAlign = ContentAlignment.TopRight;
+            // 
+            // lbl_Subtotal
+            // 
+            lbl_Subtotal.AutoSize = true;
+            lbl_Subtotal.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Subtotal.Location = new Point(13, 82);
+            lbl_Subtotal.Name = "lbl_Subtotal";
+            lbl_Subtotal.Size = new Size(77, 21);
+            lbl_Subtotal.TabIndex = 44;
+            lbl_Subtotal.Text = "Sub Total";
+            // 
             // lbl_MovieTitle
             // 
             lbl_MovieTitle.AutoSize = true;
             lbl_MovieTitle.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_MovieTitle.Location = new Point(13, 22);
+            lbl_MovieTitle.Location = new Point(13, 14);
             lbl_MovieTitle.Name = "lbl_MovieTitle";
             lbl_MovieTitle.Size = new Size(92, 21);
             lbl_MovieTitle.TabIndex = 43;
@@ -128,7 +153,7 @@
             // 
             lbl_Line.AutoSize = true;
             lbl_Line.ForeColor = Color.Silver;
-            lbl_Line.Location = new Point(13, 95);
+            lbl_Line.Location = new Point(13, 110);
             lbl_Line.Name = "lbl_Line";
             lbl_Line.Size = new Size(192, 15);
             lbl_Line.TabIndex = 42;
@@ -138,7 +163,7 @@
             // 
             lbl_TicketQuantity.AutoSize = true;
             lbl_TicketQuantity.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_TicketQuantity.Location = new Point(181, 62);
+            lbl_TicketQuantity.Location = new Point(181, 48);
             lbl_TicketQuantity.Name = "lbl_TicketQuantity";
             lbl_TicketQuantity.Size = new Size(24, 21);
             lbl_TicketQuantity.TabIndex = 41;
@@ -148,7 +173,7 @@
             // 
             lbl_TicketType.AutoSize = true;
             lbl_TicketType.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_TicketType.Location = new Point(13, 62);
+            lbl_TicketType.Location = new Point(13, 48);
             lbl_TicketType.Name = "lbl_TicketType";
             lbl_TicketType.Size = new Size(93, 21);
             lbl_TicketType.TabIndex = 40;
@@ -159,7 +184,7 @@
             lbl_BookingFee_Value.AutoSize = true;
             lbl_BookingFee_Value.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_BookingFee_Value.ForeColor = Color.Firebrick;
-            lbl_BookingFee_Value.Location = new Point(156, 132);
+            lbl_BookingFee_Value.Location = new Point(158, 141);
             lbl_BookingFee_Value.Name = "lbl_BookingFee_Value";
             lbl_BookingFee_Value.Size = new Size(50, 21);
             lbl_BookingFee_Value.TabIndex = 39;
@@ -171,27 +196,28 @@
             lbl_BookingFee.AutoSize = true;
             lbl_BookingFee.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_BookingFee.ForeColor = Color.Firebrick;
-            lbl_BookingFee.Location = new Point(13, 132);
+            lbl_BookingFee.Location = new Point(13, 141);
             lbl_BookingFee.Name = "lbl_BookingFee";
             lbl_BookingFee.Size = new Size(99, 21);
             lbl_BookingFee.TabIndex = 37;
             lbl_BookingFee.Text = "Booking fee";
             // 
-            // label1
+            // lbl_Total_Value
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(133, 170);
-            label1.Name = "label1";
-            label1.Size = new Size(72, 25);
-            label1.TabIndex = 38;
-            label1.Text = "$00.00";
+            lbl_Total_Value.AutoSize = true;
+            lbl_Total_Value.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Total_Value.Location = new Point(136, 177);
+            lbl_Total_Value.Name = "lbl_Total_Value";
+            lbl_Total_Value.Size = new Size(72, 25);
+            lbl_Total_Value.TabIndex = 38;
+            lbl_Total_Value.Text = "$00.00";
+            lbl_Total_Value.TextAlign = ContentAlignment.TopRight;
             // 
             // lbl_Total
             // 
             lbl_Total.AutoSize = true;
             lbl_Total.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Total.Location = new Point(13, 170);
+            lbl_Total.Location = new Point(13, 177);
             lbl_Total.Name = "lbl_Total";
             lbl_Total.Size = new Size(53, 25);
             lbl_Total.TabIndex = 37;
@@ -208,6 +234,7 @@
             btn_Back.TabIndex = 26;
             btn_Back.Text = "Back";
             btn_Back.UseVisualStyleBackColor = true;
+            btn_Back.Click += btn_Back_Click;
             // 
             // lbl_CardName
             // 
@@ -342,12 +369,14 @@
         private Button btn_Pay;
         private TextBox txt_CVV;
         private Label lbl_Total;
-        private Label label1;
+        private Label lbl_Total_Value;
         private Label lbl_BookingFee;
         private Label lbl_BookingFee_Value;
         private Label lbl_TicketQuantity;
         private Label lbl_TicketType;
         private Label lbl_Line;
         private Label lbl_MovieTitle;
+        private Label lbl_Subtotal;
+        private Label lbl_Subtotal_Value;
     }
 }

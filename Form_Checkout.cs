@@ -10,16 +10,24 @@ namespace MovieTicketApp
         private string _expiryDate = "";
         private string _cvv = "";
         private double _bookingFee = 1.63;
+        private double _total;
 
-        public Form_Checkout()
+        public Form_Checkout(TicketInfo ticket)
         {
             InitializeComponent();
+            _total = ticket.SubTotal + _bookingFee;
+
+            lbl_MovieTitle.Text = ticket.SelectedMovie.Title;
+            lbl_TicketType.Text = ticket.TicketType;
+            lbl_Subtotal_Value.Text = ticket.SubTotal.ToString("C");
+            lbl_BookingFee_Value.Text = _bookingFee.ToString("C");
+            lbl_Total_Value.Text = _total.ToString("C");
+
             txt_CardNumber.MaxLength = 16;
             txt_CardName.TextChanged += TextFields_TextChanged;
             txt_CardNumber.TextChanged += TextFields_TextChanged;
             txt_ExpiryDate.TextChanged += TextFields_TextChanged;
             txt_CVV.TextChanged += TextFields_TextChanged;
-            lbl_BookingFee_Value.Text = _bookingFee.ToString("C");
         }
 
         private void TextFields_TextChanged(object sender, EventArgs e)
@@ -54,6 +62,11 @@ namespace MovieTicketApp
         }
 
         private void btn_Pay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Back_Click(object sender, EventArgs e)
         {
 
         }

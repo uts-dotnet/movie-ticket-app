@@ -7,11 +7,15 @@ namespace MovieTicketApp
     {
         private string posterFilePath = "";
         private string moviesFile = "movies.txt";
+        private TicketInfo ticketInfo;
+
+
 
         public Form_Confirm_Booking(TicketInfo ticket, List<Seat> bookedSeats)
         {
             InitializeComponent();
             LoadData(ticket);
+            this.ticketInfo = ticket;
 
             lbl_Booked_Seats_Value.Text = bookedSeats.Count.ToString();
 
@@ -81,7 +85,7 @@ namespace MovieTicketApp
 
         private void btn_Checkout_Click(object sender, EventArgs e)
         {
-            Form_Checkout form = new Form_Checkout();
+            Form_Checkout form = new Form_Checkout(ticketInfo);
             form.Show();
             this.Close();
         }
