@@ -2,17 +2,17 @@
 
 namespace MovieTicketApp
 {
-    public class TicketInfo
+    public static class TicketInfo
     {
-        public int MovieId { get; }
-        public Movie SelectedMovie { get; set; }
-        public MovieSession SelectedSession { get; set; }
-        public string TicketType { get; set; }
-        public double Price { get; set; }
-        public double SubTotal { get; set; }
-        public int Quantity { get; set; }
+        public static int MovieId { get; private set;  }
+        public static Movie SelectedMovie { get; set; }
+        public static MovieSession SelectedSession { get; set; }
+        public static string TicketType { get; set; }
+        public static double Price { get; set; }
+        public static double SubTotal { get; set; }
+        public static int Quantity { get; set; }
 
-        public TicketInfo(Movie selectedMovie, MovieSession selectedSession, double price, double subTotal, int quantity)
+        public static void SetTicket(Movie selectedMovie, MovieSession selectedSession, double price, double subTotal, int quantity)
         {
             SelectedMovie = selectedMovie;
             SelectedSession = selectedSession;
@@ -23,7 +23,7 @@ namespace MovieTicketApp
             MovieId = selectedMovie.Id;
         }
 
-        public TicketInfo(Movie selectedMovie, MovieSession selectedSession, double price, double subTotal, int quantity, string ticketSelected)
+        public static void SetTicket(Movie selectedMovie, MovieSession selectedSession, double price, double subTotal, int quantity, string ticketSelected)
         {
             SelectedMovie = selectedMovie;
             SelectedSession = selectedSession;
