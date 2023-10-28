@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {
@@ -10,14 +11,13 @@ namespace MovieTicketApp
         private string _moviesFile = ".\\movies.txt";
         private string _sessionsFile = ".\\sessions.txt";
 
-        List<Movie> movies;
+        List<Movie> movies = GlobalData.Movies;
 
         public Form_Movies()
         {
             InitializeComponent();
 
-            movies = LoadMovies(_moviesFile, _sessionsFile);
-
+            //movies = LoadMovies(_moviesFile, _sessionsFile);
             // this string needs to match the name of a Movie field (i.e. Title, Genre, etc)
             listbox_Movies.DisplayMember = "Title";
             listbox_Movies.DataSource = movies;
@@ -26,70 +26,6 @@ namespace MovieTicketApp
         public void Form_Movies_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
-        }
-
-        public List<Movie> LoadMovies(string moviesPath, string sessionsPath)
-        {
-            List<Movie> movies = new List<Movie>();
-
-            try
-            {
-                string[] movieLines = File.ReadAllLines(moviesPath);
-                string[] sessionLines = File.ReadAllLines(sessionsPath);
-
-                for (int i = 1; i < movieLines.Length; i++)
-                {
-                    /*
-                     * This regex splits a string by a comma but ignores commas enclosed in " ".
-                     * This is needed for movie descriptions that have comma.
-                     * 
-                     * Reference: Rohit Jain. (2013, September 19). Comment on "Splitting on comma outside quotes." Stack Overflow. https://stackoverflow.com/questions/18893390/splitting-on-comma-outside-quotes
-                     */
-                    string regex = ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
-                    string[] movieData = Regex.Split(movieLines[i], regex);
-                    int movieId = Convert.ToInt32(movieData[0]);
-
-                    string sessions = sessionLines.FirstOrDefault(line => line.StartsWith(movieId.ToString()));
-
-                    try
-                    {
-                        string[] sessionData = sessions.Split(',');
-                        int availableSeats = Convert.ToInt32(sessionData[sessionData.Length - 1]); // get the available seats (last item)
-
-                        string title = movieData[1];
-                        string genre = movieData[2];
-                        int hours = Convert.ToInt32(movieData[3]);
-                        int minutes = Convert.ToInt32(movieData[4]);
-                        int year = Convert.ToInt32(movieData[5]);
-                        int month = Convert.ToInt32(movieData[6]);
-                        int day = Convert.ToInt32(movieData[7]);
-                        string description = movieData[8].Trim('"'); // remove the double quotes from the description
-                        string poster = movieData[9];
-
-                        Duration duration = new Duration(hours, minutes);
-                        DateTime releasedate = new DateTime(year, month, day);
-                        Movie movie = new Movie(movieId, title, genre, duration, releasedate, description, poster);
-
-                        for (int j = 1; j < sessionData.Length - 1; j++) // Start at index 1 to skip the movie ID and last time (available seats)
-                        {
-                            DateTime sessionTime = DateTime.ParseExact(sessionData[j], "HH:mm", CultureInfo.InvariantCulture);
-                            movie.AddSession(sessionTime, availableSeats);
-                        }
-
-                        movies.Add(movie);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
-                }
-            }
-            catch (FileNotFoundException e)
-            {
-                MessageBox.Show(e.Message);
-            }
-
-            return movies;
         }
 
         private void listbox_Movies_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,5 +108,33 @@ namespace MovieTicketApp
             this.Close();
         }
 
+
+        //For testing only
+        private void btn_TestDisplayGlobalData_Click(object sender, EventArgs e)
+        {
+            // Display all Movies
+            string allData = "All Movies:\n";
+            foreach (var movie in GlobalData.Movies)
+            {
+                allData += $"Movie ID: {movie.Id}, Title: {movie.Title}\n";
+            }
+
+            // Display all Bookings
+            allData += "\nAll Bookings:\n";
+            foreach (var booking in GlobalData.Bookings)
+            {
+                allData += $"Booking ID: {booking.BookingID}, Movie ID: {booking.MovieID}\n";
+            }
+
+            // Display all Sessions
+            allData += "\nAll Sessions:\n";
+            foreach (var session in GlobalData.Sessions)
+            {
+                allData += $"Movie ID: {session.MovieID}\n";
+            }
+
+            // Display all the data in a MessageBox
+            MessageBox.Show(allData, "All Data");
+        }
     }
 }

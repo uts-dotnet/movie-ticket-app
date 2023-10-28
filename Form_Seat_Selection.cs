@@ -15,7 +15,7 @@ namespace MovieTicketApp
         {
             InitializeComponent();
 
-            TicketInfo = new TicketInfo(ticket.SelectedMovie, ticket.SelectedSession, ticket.Price, ticket.SubTotal, ticket.Quantity, ticket.TicketSelected);
+            TicketInfo = new TicketInfo(ticket.SelectedMovie, ticket.SelectedSession, ticket.Price, ticket.SubTotal, ticket.Quantity, ticket.TicketType);
 
             this._availableSeats = this.TicketInfo.SelectedSession.AvailableSeats;
             this._ticketsRemaining = this.TicketInfo.Quantity;
@@ -80,6 +80,19 @@ namespace MovieTicketApp
 
         private void btn_Confirm_Click(object sender, EventArgs e)
         {
+            User currentUser = CurrentUserManager.Instance.CurrentUser;
+
+            //Create a new booking object
+            Booking newBooking = Booking.CreateNewBooking(
+            this.TicketInfo.MovieId,  // Use your movie ID here
+            this.TicketInfo.SelectedSession.Time,
+            this.TicketInfo.Quantity,
+            string.Join("-",_bookedSeats),
+            this.TicketInfo.SubTotal,
+            this.TicketInfo.TicketType,
+            currentUser.Id
+        );
+
             Form_Confirm_Booking form = new Form_Confirm_Booking(TicketInfo, _bookedSeats);
             form.Show();
             this.Close();

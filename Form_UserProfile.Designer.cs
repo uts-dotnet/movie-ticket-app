@@ -30,7 +30,7 @@
         {
             lbl_Title_SignUp = new Label();
             label1 = new Label();
-            listBox1 = new ListBox();
+            listBox_Bookings = new ListBox();
             pic_Ticket = new PictureBox();
             label2 = new Label();
             label3 = new Label();
@@ -62,21 +62,21 @@
             label1.Size = new Size(0, 21);
             label1.TabIndex = 14;
             // 
-            // listBox1
+            // listBox_Bookings
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(39, 130);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(192, 289);
-            listBox1.TabIndex = 15;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            listBox_Bookings.FormattingEnabled = true;
+            listBox_Bookings.ItemHeight = 15;
+            listBox_Bookings.Location = new Point(39, 130);
+            listBox_Bookings.Name = "listBox_Bookings";
+            listBox_Bookings.Size = new Size(358, 289);
+            listBox_Bookings.TabIndex = 15;
+            listBox_Bookings.SelectedIndexChanged += listBox_Bookings_SelectedIndexChanged;
             // 
             // pic_Ticket
             // 
-            pic_Ticket.Location = new Point(251, 130);
+            pic_Ticket.Location = new Point(421, 172);
             pic_Ticket.Name = "pic_Ticket";
-            pic_Ticket.Size = new Size(238, 289);
+            pic_Ticket.Size = new Size(308, 188);
             pic_Ticket.TabIndex = 16;
             pic_Ticket.TabStop = false;
             // 
@@ -103,7 +103,7 @@
             // 
             // btn_GoToChangePW
             // 
-            btn_GoToChangePW.Location = new Point(575, 130);
+            btn_GoToChangePW.Location = new Point(633, 30);
             btn_GoToChangePW.Name = "btn_GoToChangePW";
             btn_GoToChangePW.Size = new Size(143, 23);
             btn_GoToChangePW.TabIndex = 21;
@@ -124,7 +124,7 @@
             // 
             lbl_MovieName.AutoSize = true;
             lbl_MovieName.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_MovieName.Location = new Point(311, 221);
+            lbl_MovieName.Location = new Point(519, 224);
             lbl_MovieName.Name = "lbl_MovieName";
             lbl_MovieName.Size = new Size(123, 25);
             lbl_MovieName.TabIndex = 23;
@@ -133,7 +133,7 @@
             // lbl_MovieTime
             // 
             lbl_MovieTime.AutoSize = true;
-            lbl_MovieTime.Location = new Point(331, 260);
+            lbl_MovieTime.Location = new Point(539, 263);
             lbl_MovieTime.Name = "lbl_MovieTime";
             lbl_MovieTime.Size = new Size(53, 15);
             lbl_MovieTime.TabIndex = 24;
@@ -142,7 +142,7 @@
             // lbl_Seats
             // 
             lbl_Seats.AutoSize = true;
-            lbl_Seats.Location = new Point(331, 287);
+            lbl_Seats.Location = new Point(539, 290);
             lbl_Seats.Name = "lbl_Seats";
             lbl_Seats.Size = new Size(62, 15);
             lbl_Seats.TabIndex = 25;
@@ -162,7 +162,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(pic_Ticket);
-            Controls.Add(listBox1);
+            Controls.Add(listBox_Bookings);
             Controls.Add(label1);
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_UserProfile";
@@ -187,5 +187,6 @@
         private Label lbl_MovieName;
         private Label lbl_MovieTime;
         private Label lbl_Seats;
+        private ListBox listBox_Bookings;
     }
 }

@@ -1,3 +1,5 @@
+using MovieTicketApp.src.Managers;
+
 namespace MovieTicketApp
 {
     internal static class Program
@@ -11,7 +13,25 @@ namespace MovieTicketApp
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+
+            // Load data from files when the application starts
+            FileManager.Load();
+
+            // Subscribe the OnApplicationExit method to the ApplicationExit event
+            Application.ApplicationExit += OnApplicationExit;
+
             Application.Run(new frm_Login());
         }
+
+        // Handle the application exit event
+        private static void OnApplicationExit(object sender, EventArgs e)
+        {
+            //Save all the data to .txt files
+            //FileManager.Save();
+
+            // Clear all data
+            GlobalData.Clear(); 
+        }
+
     }
 }

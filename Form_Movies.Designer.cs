@@ -43,6 +43,7 @@
             btn_Session_Time_5 = new Button();
             btn_Log_Out = new Button();
             btn_UserProfile = new Button();
+            btn_TestDisplayGlobalData = new Button();
             ((System.ComponentModel.ISupportInitialize)picbox_Movie_Poster).BeginInit();
             SuspendLayout();
             // 
@@ -204,11 +205,22 @@
             btn_UserProfile.UseVisualStyleBackColor = true;
             btn_UserProfile.Click += btn_UserProfile_Click_1;
             // 
+            // btn_TestDisplayGlobalData
+            // 
+            btn_TestDisplayGlobalData.Location = new Point(327, 54);
+            btn_TestDisplayGlobalData.Name = "btn_TestDisplayGlobalData";
+            btn_TestDisplayGlobalData.Size = new Size(130, 23);
+            btn_TestDisplayGlobalData.TabIndex = 19;
+            btn_TestDisplayGlobalData.Text = "display global data";
+            btn_TestDisplayGlobalData.UseVisualStyleBackColor = true;
+            btn_TestDisplayGlobalData.Click += btn_TestDisplayGlobalData_Click;
+            // 
             // Form_Movies
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 464);
+            Controls.Add(btn_TestDisplayGlobalData);
             Controls.Add(btn_UserProfile);
             Controls.Add(btn_Log_Out);
             Controls.Add(btn_Session_Time_5);
@@ -250,5 +262,6 @@
         private Button btn_Log_Out;
         private Button button1;
         private Button btn_UserProfile;
+        private Button btn_TestDisplayGlobalData;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {
@@ -33,6 +34,9 @@ namespace MovieTicketApp
             }
 
             InitializeComponent();
+
+            pic_Ticket.SizeMode = PictureBoxSizeMode.StretchImage;
+            pic_Ticket.Image = Image.FromFile("ticket.png");
         }
 
         private void Button_Click(object sender, EventArgs e)
@@ -55,39 +59,45 @@ namespace MovieTicketApp
 
         private void Form_UserProfile_Load(object sender, EventArgs e)
         {
-            // Populate listBox1 when the form loads
+            // Populate listBox_Bookings when the form loads
             PopulateListBox();
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Handle the event when an item in listBox1 is selected
-            string selectedBooking = listBox1.SelectedItem as string;
-
-            if (selectedBooking != null)
-            {
-                // You can perform some action based on the selected booking here
-                MessageBox.Show("You selected: " + selectedBooking);
-            }
         }
 
         private void PopulateListBox()
         {
-            string filePath = "bookings.txt"; // Replace with the actual file path
+            listBox_Bookings.Items.Clear(); // Clear the list before populating
 
-            if (File.Exists(filePath))
+            // Iterate through the bookings in GlobalData.Bookings
+            foreach (Booking booking in GlobalData.Bookings)
             {
-                // Read the file's content line by line and add it to listBox1
-                string[] lines = File.ReadAllLines(filePath);
+                // Find the associated Movie based on Movie ID
+                Movie movie = GlobalData.Movies.FirstOrDefault(m => m.Id == booking.MovieID);
 
-                foreach (string line in lines)
-                {
-                    listBox1.Items.Add(line);
-                }
+                // Create a string representation of the booking and add it to the ListBox
+                string bookingInfo = $"Movie Title: {movie?.Title},  Booking ID: {booking.BookingID}";
+                listBox_Bookings.Items.Add(bookingInfo);
             }
-            else
+        }
+
+        private void listBox_Bookings_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Check if an item is selected in the ListBox
+            if (listBox_Bookings.SelectedItem != null)
             {
-                MessageBox.Show("The file does not exist.");
+                // Assuming that the selected item in the ListBox contains the booking information
+                string selectedBookingInfo = listBox_Bookings.SelectedItem.ToString();
+
+                // Split the selected booking information into parts
+                string[] parts = selectedBookingInfo.Split(new[] { ", " }, StringSplitOptions.None);
+
+                // Assuming that the title, session, and seats are displayed in this order in the string
+                if (parts.Length >= 3)
+                {
+                    // Update the labels with the selected booking information
+                    lbl_MovieName.Text = "";
+                    lbl_MovieTime.Text = "";
+                    lbl_Seats.Text = "";
+                }
             }
         }
 
