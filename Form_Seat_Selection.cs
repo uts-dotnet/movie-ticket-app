@@ -5,36 +5,38 @@ namespace MovieTicketApp
 {
     public partial class Form_Seat_Selection : Form
     {
-        private int _availableSeats;
         private int _ticketsRemaining;
         private int _totalSeatsSelected = 0;
-        private List<Seat> _bookedSeats = new List<Seat>();
 
         public Form_Seat_Selection()
         {
             InitializeComponent();
 
-            this._availableSeats = TicketInfo.SelectedSession.AvailableSeats;
             this._ticketsRemaining = TicketInfo.Quantity;
             LoadSeats();
         }
 
         private void Form_Seat_Selection_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Close(); // if the form is not closed it'll cause a conflict between Visual Studio and the executable file
+            this.Close();
         }
 
         private void LoadSeats()
         {
-            lbl_Seats_Available_Value.Text = this._availableSeats.ToString();
+            lbl_Seats_Available_Value.Text = TicketInfo.SelectedSession.AvailableSeats.ToString();
             lbl_Total_Seats_Remaining_Value.Text = TicketInfo.Quantity.ToString();
 
             listBox_Seats.Items.Clear();
 
-            for (int i = 0; i < this._availableSeats; i++)
+            for (int i = 0; i < TicketInfo.SelectedSession.AvailableSeats; i++)
             {
                 string seat = $"Seat {i + 1}";
                 listBox_Seats.Items.Add(seat);
+            }
+
+            foreach (var seat in TicketInfo.BookedSeats)
+            {
+                listBox_Selected_Seats.Items.Add(seat.Name);
             }
         }
 
@@ -44,7 +46,7 @@ namespace MovieTicketApp
             {
                 string seat = listBox_Seats.SelectedItem.ToString();
                 listBox_Selected_Seats.Items.Add(seat);
-                _bookedSeats.Add(new Seat(seat));
+                TicketInfo.AddSeat(new Seat(seat));
 
                 _totalSeatsSelected++;
 
@@ -55,13 +57,17 @@ namespace MovieTicketApp
                 {
                     listBox_Seats.Enabled = false;
                 }
+
+                // Remove the selected seat from the list after selecting it
+                listBox_Seats.Items.Remove(seat);
             }
         }
 
+
         private void UpdateLabels()
         {
-            this._availableSeats--;
-            lbl_Seats_Available_Value.Text = this._availableSeats.ToString();
+            TicketInfo.SelectedSession.AvailableSeats--;
+            lbl_Seats_Available_Value.Text = TicketInfo.SelectedSession.AvailableSeats.ToString();
 
             this._ticketsRemaining--;
             lbl_Total_Seats_Remaining_Value.Text = _ticketsRemaining.ToString();
@@ -79,11 +85,11 @@ namespace MovieTicketApp
             User currentUser = CurrentUserManager.Instance.CurrentUser;
 
             // Format booked seats
-            string seatsBooked = string.Join("-", _bookedSeats.Select(seat => seat.Name.Split().Last()));
+            string seatsBooked = string.Join("-", TicketInfo.BookedSeats.Select(seat => seat.Name.Split().Last()));
 
             //Create a new booking object
             Booking newBooking = Booking.CreateNewBooking(
-                TicketInfo.MovieId,  // Use your movie ID here
+                TicketInfo.MovieId,
                 TicketInfo.SelectedSession.Time,
                 TicketInfo.Quantity,
                 seatsBooked,
@@ -92,7 +98,7 @@ namespace MovieTicketApp
                 currentUser.Id
             );
 
-            Form_Confirm_Booking form = new Form_Confirm_Booking(_bookedSeats);
+            Form_Confirm_Booking form = new Form_Confirm_Booking(TicketInfo.BookedSeats);
             form.Show();
             this.Close();
         }

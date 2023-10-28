@@ -11,6 +11,8 @@ namespace MovieTicketApp
         public static double Price { get; set; }
         public static double SubTotal { get; set; }
         public static int Quantity { get; set; }
+        public static List<Seat> BookedSeats { get; set; } = new List<Seat>();
+        public static int TotalAvailableSeats { get; set; }
 
         public static void SetTicket(Movie selectedMovie, MovieSession selectedSession, double price, double subTotal, int quantity, string ticketSelected)
         {
@@ -21,6 +23,11 @@ namespace MovieTicketApp
             Quantity = quantity;
             TicketType = ticketSelected;
             MovieId = selectedMovie.Id;
+        }
+
+        public static void AddSeat(Seat seat)
+        {
+            BookedSeats.Add(seat);
         }
     }
 }

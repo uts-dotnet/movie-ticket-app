@@ -47,6 +47,7 @@
             lbl_Booked_Seats = new Label();
             lbl_Booked_Seats_Value = new Label();
             btn_Logout = new Button();
+            btn_Back = new Button();
             ((System.ComponentModel.ISupportInitialize)picbox_Poster_Booking).BeginInit();
             SuspendLayout();
             // 
@@ -253,11 +254,25 @@
             btn_Logout.UseVisualStyleBackColor = true;
             btn_Logout.Click += btn_Logout_Click;
             // 
+            // btn_Back
+            // 
+            btn_Back.Cursor = Cursors.Hand;
+            btn_Back.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Back.ForeColor = Color.Firebrick;
+            btn_Back.Location = new Point(31, 43);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(75, 35);
+            btn_Back.TabIndex = 34;
+            btn_Back.Text = "Back";
+            btn_Back.UseVisualStyleBackColor = true;
+            btn_Back.Click += btn_Back_Click;
+            // 
             // Form_Confirm_Booking
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(651, 447);
+            Controls.Add(btn_Back);
             Controls.Add(btn_Logout);
             Controls.Add(lbl_Booked_Seats_Value);
             Controls.Add(lbl_Booked_Seats);
@@ -306,5 +321,6 @@
         private Label lbl_Booked_Seats;
         private Label lbl_Booked_Seats_Value;
         private Button btn_Logout;
+        private Button btn_Back;
     }
 }
