@@ -39,6 +39,10 @@
             textBox4 = new TextBox();
             btn_Save = new Button();
             btn_Cancel = new Button();
+            label5 = new Label();
+            textBox5 = new TextBox();
+            textBox6 = new TextBox();
+            label6 = new Label();
             SuspendLayout();
             // 
             // lbl_Title_SignUp
@@ -82,7 +86,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(455, 205);
+            label4.Location = new Point(109, 308);
             label4.Name = "label4";
             label4.Size = new Size(57, 15);
             label4.TabIndex = 8;
@@ -111,7 +115,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(449, 234);
+            textBox4.Location = new Point(109, 336);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(259, 23);
             textBox4.TabIndex = 12;
@@ -134,11 +138,47 @@
             btn_Cancel.Text = "Cancel";
             btn_Cancel.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(449, 205);
+            label5.Name = "label5";
+            label5.Size = new Size(36, 15);
+            label5.TabIndex = 15;
+            label5.Text = "Email";
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(449, 234);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(259, 23);
+            textBox5.TabIndex = 16;
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(449, 336);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(259, 23);
+            textBox6.TabIndex = 17;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(449, 308);
+            label6.Name = "label6";
+            label6.Size = new Size(104, 15);
+            label6.TabIndex = 18;
+            label6.Text = "Confirm Password";
+            // 
             // Form_CreateNewUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label6);
+            Controls.Add(textBox6);
+            Controls.Add(textBox5);
+            Controls.Add(label5);
             Controls.Add(btn_Cancel);
             Controls.Add(btn_Save);
             Controls.Add(textBox4);
@@ -169,5 +209,9 @@
         private TextBox textBox4;
         private Button btn_Save;
         private Button btn_Cancel;
+        private Label label5;
+        private TextBox textBox5;
+        private TextBox textBox6;
+        private Label label6;
     }
 }
