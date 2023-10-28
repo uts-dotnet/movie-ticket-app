@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace MovieTicketApp
 {
-    public partial class UpdateMovie : Form
+    public partial class Form_UpdateMovie : Form
     {
-        public UpdateMovie()
+        public Form_UpdateMovie()
         {
             InitializeComponent();
+        }
+
+        private void Form_UpdateMovie_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

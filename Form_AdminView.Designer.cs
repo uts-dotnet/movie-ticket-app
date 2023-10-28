@@ -30,10 +30,10 @@
         {
             lbl_Title_SignUp = new Label();
             btn_Back = new Button();
-            button1 = new Button();
+            btn_AddUser = new Button();
             btn_EditUser = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            btn_AddMovie = new Button();
+            btn_EditMovie = new Button();
             label5 = new Label();
             label1 = new Label();
             SuspendLayout();
@@ -59,14 +59,15 @@
             btn_Back.UseVisualStyleBackColor = true;
             btn_Back.Click += btn_Back_Click;
             // 
-            // button1
+            // btn_AddUser
             // 
-            button1.Location = new Point(145, 188);
-            button1.Name = "button1";
-            button1.Size = new Size(127, 23);
-            button1.TabIndex = 5;
-            button1.Text = "Add New User";
-            button1.UseVisualStyleBackColor = true;
+            btn_AddUser.Location = new Point(145, 188);
+            btn_AddUser.Name = "btn_AddUser";
+            btn_AddUser.Size = new Size(127, 23);
+            btn_AddUser.TabIndex = 5;
+            btn_AddUser.Text = "Add New User";
+            btn_AddUser.UseVisualStyleBackColor = true;
+            btn_AddUser.Click += btn_AddUser_Click;
             // 
             // btn_EditUser
             // 
@@ -77,23 +78,25 @@
             btn_EditUser.Text = "Edit or Delete User";
             btn_EditUser.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btn_AddMovie
             // 
-            button4.Location = new Point(501, 188);
-            button4.Name = "button4";
-            button4.Size = new Size(127, 23);
-            button4.TabIndex = 8;
-            button4.Text = "Add New Movie";
-            button4.UseVisualStyleBackColor = true;
+            btn_AddMovie.Location = new Point(501, 188);
+            btn_AddMovie.Name = "btn_AddMovie";
+            btn_AddMovie.Size = new Size(127, 23);
+            btn_AddMovie.TabIndex = 8;
+            btn_AddMovie.Text = "Add New Movie";
+            btn_AddMovie.UseVisualStyleBackColor = true;
+            btn_AddMovie.Click += btn_AddMovie_Click;
             // 
-            // button5
+            // btn_EditMovie
             // 
-            button5.Location = new Point(501, 237);
-            button5.Name = "button5";
-            button5.Size = new Size(127, 23);
-            button5.TabIndex = 9;
-            button5.Text = "Edit or Delete Movie";
-            button5.UseVisualStyleBackColor = true;
+            btn_EditMovie.Location = new Point(501, 237);
+            btn_EditMovie.Name = "btn_EditMovie";
+            btn_EditMovie.Size = new Size(127, 23);
+            btn_EditMovie.TabIndex = 9;
+            btn_EditMovie.Text = "Edit or Delete Movie";
+            btn_EditMovie.UseVisualStyleBackColor = true;
+            btn_EditMovie.Click += btn_EditMovie_Click;
             // 
             // label5
             // 
@@ -122,10 +125,10 @@
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
             Controls.Add(label5);
-            Controls.Add(button5);
-            Controls.Add(button4);
+            Controls.Add(btn_EditMovie);
+            Controls.Add(btn_AddMovie);
             Controls.Add(btn_EditUser);
-            Controls.Add(button1);
+            Controls.Add(btn_AddUser);
             Controls.Add(btn_Back);
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_AdminView";
@@ -138,10 +141,10 @@
 
         private Label lbl_Title_SignUp;
         private Button btn_Back;
-        private Button button1;
+        private Button btn_AddUser;
         private Button btn_EditUser;
-        private Button button4;
-        private Button button5;
+        private Button btn_AddMovie;
+        private Button btn_EditMovie;
         private Label label5;
         private Label label1;
     }

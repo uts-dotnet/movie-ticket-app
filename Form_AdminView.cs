@@ -30,5 +30,27 @@ namespace MovieTicketApp
             form.Show();
             this.Close();
         }
+
+        private void btn_AddUser_Click(object sender, EventArgs e)
+        {
+            Form_CreateNewUser form = new Form_CreateNewUser();
+            form.Show();
+            this.Close();
+        }
+
+        private void btn_AddMovie_Click(object sender, EventArgs e)
+        {
+            Form_CreateMovie form = new Form_CreateMovie();
+            form.Show();
+            this.Close();
+        }
+
+        private void btn_EditMovie_Click(object sender, EventArgs e)
+        {
+            Form_UpdateMovie form = new Form_UpdateMovie();
+            form.Show();
+            this.Close();
+   
+        }
     }
 }
