@@ -26,9 +26,9 @@ public class Movie
         Sessions = new List<MovieSession>();
     }
 
-    public Movie(string title, string genre, int hours, int minutes, int year, int month, int day, string description, string poster)
+    public Movie(int movieID, string title, string genre, int hours, int minutes, int year, int month, int day, string description, string poster)
     {
-        Id = GenerateNewMovieId();
+        Id = movieID;
         Title = title;
         Genre = genre;
         Hours = hours;
@@ -44,16 +44,25 @@ public class Movie
         Sessions = new List<MovieSession>();
     }
 
-    private int GenerateNewMovieId()
+    // Must use this method to create movies or else it won't increment ID or add to global
+    public static Movie CreateNewMovie(int movieId, string title, string genre, int hours, int minutes, int year, int month, int day, string description, string poster)
+    {
+        int newMovieId = GenerateNewMovieId();
+        Movie movie = new Movie(newMovieId, title, genre, hours, minutes, year, month, day, description, poster);
+        GlobalData.Movies.Add(movie);
+        return movie;
+    }
+
+    private static int GenerateNewMovieId()
     {
         int maxId = GlobalData.Movies.Max(m => m.Id);
         return maxId + 1;
     }
 
-    public void AddSession(DateTime date, int availableSeats)
+    public void AddSession(int movieID, DateTime date, int availableSeats)
     {
-        MovieSession session = new MovieSession(date, availableSeats);
-        Sessions.Add(session);
+        MovieSession session = new MovieSession(movieID, date, availableSeats);
+        GlobalData.Sessions.Add(session);
     }
 
     public override string ToString()

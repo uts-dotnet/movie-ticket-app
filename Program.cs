@@ -27,7 +27,7 @@ namespace MovieTicketApp
         private static void OnApplicationExit(object sender, EventArgs e)
         {
             //Save all the data to .txt files
-            FileManager.Save();
+            //FileManager.Save();
 
             // Clear all data
             GlobalData.Clear(); 

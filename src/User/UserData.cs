@@ -19,14 +19,23 @@ namespace MovieTicketApp.src.User
 
         public UserData(int userId, string username, string password, string firstName, string lastName)
         {
-            UserId = GenerateNewUserDataId();
+            UserId = userId;
             Username = username;
             Password = password;
             FirstName = firstName;
             LastName = lastName;
         }
 
-        private int GenerateNewUserDataId()
+        // Must use this method to create movies or else it won't increment ID or add to global
+        public static UserData CreateNewUser(string username, string password, string firstName, string lastName)
+        {
+            int newUserId = GenerateNewUserDataId();
+            UserData user = new UserData(newUserId, username, password, firstName, lastName);
+            GlobalData.Movies.Add(user);
+            return user;
+        }
+
+        private static int GenerateNewUserDataId()
         {
             int maxId = GlobalData.UserData.Max(u => u.UserId); // Find the maximum Id among existing UserData
             return maxId + 1;
