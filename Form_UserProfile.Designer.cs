@@ -124,17 +124,21 @@
             // lbl_MovieName
             // 
             lbl_MovieName.AutoSize = true;
-            lbl_MovieName.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_MovieName.Location = new Point(515, 224);
+            lbl_MovieName.BackColor = Color.Transparent;
+            lbl_MovieName.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_MovieName.Location = new Point(470, 210);
             lbl_MovieName.Name = "lbl_MovieName";
-            lbl_MovieName.Size = new Size(123, 25);
+            lbl_MovieName.Size = new Size(97, 20);
             lbl_MovieName.TabIndex = 23;
             lbl_MovieName.Text = "Movie Name";
+            lbl_MovieName.TextAlign = ContentAlignment.TopCenter;
+            lbl_MovieName.Click += lbl_MovieName_Click;
             // 
             // lbl_MovieTime
             // 
             lbl_MovieTime.AutoSize = true;
-            lbl_MovieTime.Location = new Point(539, 263);
+            lbl_MovieTime.BackColor = Color.Transparent;
+            lbl_MovieTime.Location = new Point(484, 247);
             lbl_MovieTime.Name = "lbl_MovieTime";
             lbl_MovieTime.Size = new Size(53, 15);
             lbl_MovieTime.TabIndex = 24;
@@ -143,7 +147,8 @@
             // lbl_Seats
             // 
             lbl_Seats.AutoSize = true;
-            lbl_Seats.Location = new Point(539, 290);
+            lbl_Seats.BackColor = Color.Transparent;
+            lbl_Seats.Location = new Point(484, 276);
             lbl_Seats.Name = "lbl_Seats";
             lbl_Seats.Size = new Size(62, 15);
             lbl_Seats.TabIndex = 25;
