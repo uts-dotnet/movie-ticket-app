@@ -29,8 +29,6 @@ namespace MovieTicketApp
             this.Close();
         }
 
-
-        // Don't need this with new FileManager
         //public List<Movie> LoadMovies(string moviesPath, string sessionsPath)
         //{
         //    List<Movie> movies = new List<Movie>();

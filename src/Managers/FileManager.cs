@@ -10,8 +10,8 @@ namespace MovieTicketApp.src.Managers
     {
         public static void Load()
         {
-            LoadMovies(false);
             LoadSessions(false);
+            LoadMovies(false);
             LoadUserBookings(false);
             LoadUserData(true);
             LoadBookings(false);
