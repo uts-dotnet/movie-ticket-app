@@ -199,6 +199,7 @@
             btn_Checkout.TabIndex = 18;
             btn_Checkout.Text = "Checkout";
             btn_Checkout.UseVisualStyleBackColor = false;
+            btn_Checkout.Click += btn_Checkout_Click;
             // 
             // picbox_Poster_Booking
             // 

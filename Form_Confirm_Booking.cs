@@ -23,7 +23,7 @@ namespace MovieTicketApp
 
         private void Form_Confirm_Booking_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Close(); 
+            this.Close();
         }
 
         private void LoadData(TicketInfo ticket)
@@ -75,6 +75,13 @@ namespace MovieTicketApp
         private void btn_Logout_Click(object sender, EventArgs e)
         {
             frm_Login form = new frm_Login();
+            form.Show();
+            this.Close();
+        }
+
+        private void btn_Checkout_Click(object sender, EventArgs e)
+        {
+            Form_Checkout form = new Form_Checkout();
             form.Show();
             this.Close();
         }
