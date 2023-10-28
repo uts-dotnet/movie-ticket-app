@@ -5,15 +5,19 @@ namespace MovieTicketApp
 {
     public partial class Form_Seat_Selection : Form
     {
-        private int _ticketsRemaining;
+        private static int seatsRemaining = TicketInfo.Quantity;
         private int _totalSeatsSelected = 0;
 
         public Form_Seat_Selection()
         {
             InitializeComponent();
 
-            this._ticketsRemaining = TicketInfo.Quantity;
             LoadSeats();
+
+            if (seatsRemaining == 0)
+            {
+                listBox_Seats.Enabled = false;
+            }
         }
 
         private void Form_Seat_Selection_FormClosed(object sender, FormClosedEventArgs e)
@@ -24,7 +28,7 @@ namespace MovieTicketApp
         private void LoadSeats()
         {
             lbl_Seats_Available_Value.Text = TicketInfo.SelectedSession.AvailableSeats.ToString();
-            lbl_Total_Seats_Remaining_Value.Text = TicketInfo.Quantity.ToString();
+            lbl_Total_Seats_Remaining_Value.Text = seatsRemaining.ToString();
 
             listBox_Seats.Items.Clear();
 
@@ -36,7 +40,9 @@ namespace MovieTicketApp
 
             foreach (var seat in TicketInfo.BookedSeats)
             {
+                // add selected seats to the corresponding listbox and remove them from the list of available seats
                 listBox_Selected_Seats.Items.Add(seat.Name);
+                listBox_Seats.Items.Remove(seat.Name);
             }
         }
 
@@ -50,7 +56,11 @@ namespace MovieTicketApp
 
                 _totalSeatsSelected++;
 
-                UpdateLabels();
+                TicketInfo.SelectedSession.AvailableSeats--;
+                lbl_Seats_Available_Value.Text = TicketInfo.SelectedSession.AvailableSeats.ToString();
+
+                seatsRemaining--;
+                lbl_Total_Seats_Remaining_Value.Text = seatsRemaining.ToString();
 
                 // disable the list box if the user can't select any more seats
                 if (_totalSeatsSelected == TicketInfo.Quantity)
@@ -61,16 +71,6 @@ namespace MovieTicketApp
                 // Remove the selected seat from the list after selecting it
                 listBox_Seats.Items.Remove(seat);
             }
-        }
-
-
-        private void UpdateLabels()
-        {
-            TicketInfo.SelectedSession.AvailableSeats--;
-            lbl_Seats_Available_Value.Text = TicketInfo.SelectedSession.AvailableSeats.ToString();
-
-            this._ticketsRemaining--;
-            lbl_Total_Seats_Remaining_Value.Text = _ticketsRemaining.ToString();
         }
 
         private void btn_Logout_Click(object sender, EventArgs e)

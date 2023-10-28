@@ -13,6 +13,7 @@ namespace MovieTicketApp
         public static int Quantity { get; set; }
         public static List<Seat> BookedSeats { get; set; } = new List<Seat>();
         public static int TotalAvailableSeats { get; set; }
+        public static int SeatsRemaining { get; set; }
 
         public static void SetTicket(Movie selectedMovie, MovieSession selectedSession, double price, double subTotal, int quantity, string ticketSelected)
         {
