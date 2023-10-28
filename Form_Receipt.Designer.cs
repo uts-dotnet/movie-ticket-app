@@ -31,14 +31,14 @@
             lbl_ReceiptTitle = new Label();
             listview_Receipt = new ListView();
             label1 = new Label();
-            label2 = new Label();
+            lbl_Subtotal_Value = new Label();
             label3 = new Label();
-            label4 = new Label();
+            lbl_BookingFee_Value = new Label();
             label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
+            lbl_Total_Value = new Label();
+            lbl_MovieTitle = new Label();
+            lbl_SessionTime = new Label();
+            lbl_SessionTime_Value = new Label();
             SuspendLayout();
             // 
             // lbl_ReceiptTitle
@@ -70,16 +70,16 @@
             label1.TabIndex = 8;
             label1.Text = "Sub Total:";
             // 
-            // label2
+            // lbl_Subtotal_Value
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(355, 413);
-            label2.Name = "label2";
-            label2.Size = new Size(72, 25);
-            label2.TabIndex = 9;
-            label2.Text = "$00.00";
-            label2.TextAlign = ContentAlignment.TopRight;
+            lbl_Subtotal_Value.AutoSize = true;
+            lbl_Subtotal_Value.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Subtotal_Value.Location = new Point(355, 413);
+            lbl_Subtotal_Value.Name = "lbl_Subtotal_Value";
+            lbl_Subtotal_Value.Size = new Size(72, 25);
+            lbl_Subtotal_Value.TabIndex = 9;
+            lbl_Subtotal_Value.Text = "$00.00";
+            lbl_Subtotal_Value.TextAlign = ContentAlignment.TopRight;
             // 
             // label3
             // 
@@ -92,17 +92,17 @@
             label3.TabIndex = 10;
             label3.Text = "Booking fee:";
             // 
-            // label4
+            // lbl_BookingFee_Value
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = Color.Firebrick;
-            label4.Location = new Point(366, 455);
-            label4.Name = "label4";
-            label4.Size = new Size(61, 25);
-            label4.TabIndex = 11;
-            label4.Text = "$0.00";
-            label4.TextAlign = ContentAlignment.TopRight;
+            lbl_BookingFee_Value.AutoSize = true;
+            lbl_BookingFee_Value.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_BookingFee_Value.ForeColor = Color.Firebrick;
+            lbl_BookingFee_Value.Location = new Point(366, 455);
+            lbl_BookingFee_Value.Name = "lbl_BookingFee_Value";
+            lbl_BookingFee_Value.Size = new Size(61, 25);
+            lbl_BookingFee_Value.TabIndex = 11;
+            lbl_BookingFee_Value.Text = "$0.00";
+            lbl_BookingFee_Value.TextAlign = ContentAlignment.TopRight;
             // 
             // label5
             // 
@@ -114,60 +114,60 @@
             label5.TabIndex = 12;
             label5.Text = "Total:";
             // 
-            // label6
+            // lbl_Total_Value
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(349, 509);
-            label6.Name = "label6";
-            label6.Size = new Size(78, 30);
-            label6.TabIndex = 13;
-            label6.Text = "$00.00";
-            label6.TextAlign = ContentAlignment.TopRight;
+            lbl_Total_Value.AutoSize = true;
+            lbl_Total_Value.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_Total_Value.Location = new Point(349, 509);
+            lbl_Total_Value.Name = "lbl_Total_Value";
+            lbl_Total_Value.Size = new Size(78, 30);
+            lbl_Total_Value.TabIndex = 13;
+            lbl_Total_Value.Text = "$00.00";
+            lbl_Total_Value.TextAlign = ContentAlignment.TopRight;
             // 
-            // label7
+            // lbl_MovieTitle
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(23, 107);
-            label7.Name = "label7";
-            label7.Size = new Size(135, 32);
-            label7.TabIndex = 14;
-            label7.Text = "Movie Title";
+            lbl_MovieTitle.AutoSize = true;
+            lbl_MovieTitle.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_MovieTitle.Location = new Point(23, 107);
+            lbl_MovieTitle.Name = "lbl_MovieTitle";
+            lbl_MovieTitle.Size = new Size(135, 32);
+            lbl_MovieTitle.TabIndex = 14;
+            lbl_MovieTitle.Text = "Movie Title";
             // 
-            // label8
+            // lbl_SessionTime
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(23, 165);
-            label8.Name = "label8";
-            label8.Size = new Size(160, 32);
-            label8.TabIndex = 15;
-            label8.Text = "Session Time:";
+            lbl_SessionTime.AutoSize = true;
+            lbl_SessionTime.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_SessionTime.Location = new Point(23, 165);
+            lbl_SessionTime.Name = "lbl_SessionTime";
+            lbl_SessionTime.Size = new Size(160, 32);
+            lbl_SessionTime.TabIndex = 15;
+            lbl_SessionTime.Text = "Session Time:";
             // 
-            // label9
+            // lbl_SessionTime_Value
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(189, 165);
-            label9.Name = "label9";
-            label9.Size = new Size(98, 32);
-            label9.TabIndex = 16;
-            label9.Text = "HH:mm";
+            lbl_SessionTime_Value.AutoSize = true;
+            lbl_SessionTime_Value.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_SessionTime_Value.Location = new Point(189, 165);
+            lbl_SessionTime_Value.Name = "lbl_SessionTime_Value";
+            lbl_SessionTime_Value.Size = new Size(98, 32);
+            lbl_SessionTime_Value.TabIndex = 16;
+            lbl_SessionTime_Value.Text = "HH:mm";
             // 
             // Form_Receipt
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(451, 583);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
+            Controls.Add(lbl_SessionTime_Value);
+            Controls.Add(lbl_SessionTime);
+            Controls.Add(lbl_MovieTitle);
+            Controls.Add(lbl_Total_Value);
             Controls.Add(label5);
-            Controls.Add(label4);
+            Controls.Add(lbl_BookingFee_Value);
             Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(lbl_Subtotal_Value);
             Controls.Add(label1);
             Controls.Add(listview_Receipt);
             Controls.Add(lbl_ReceiptTitle);
@@ -183,13 +183,13 @@
         private Label lbl_ReceiptTitle;
         private ListView listview_Receipt;
         private Label label1;
-        private Label label2;
+        private Label lbl_Subtotal_Value;
         private Label label3;
-        private Label label4;
+        private Label lbl_BookingFee_Value;
         private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
+        private Label lbl_Total_Value;
+        private Label lbl_MovieTitle;
+        private Label lbl_SessionTime;
+        private Label lbl_SessionTime_Value;
     }
 }
