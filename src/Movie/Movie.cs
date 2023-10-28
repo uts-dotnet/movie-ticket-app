@@ -18,34 +18,26 @@ public class Movie
     public DateTime ReleaseDate { get; set; }
     public List<MovieSession> Sessions { get; set; }
 
-    public Movie()
-    {
-        // Initialize properties in the parameterless constructor
-        Duration = new Duration();
-        ReleaseDate = DateTime.MinValue;
-        Sessions = new List<MovieSession>();
-    }
-
     public Movie(int movieID, string title, string genre, int hours, int minutes, int year, int month, int day, string description, string poster)
     {
-        Id = movieID;
-        Title = title;
-        Genre = genre;
-        Hours = hours;
-        Minutes = minutes;
-        Year = year;
-        Month = month;
-        Day = day;
-        Description = description;
-        Poster = poster;
+        this.Id = movieID;
+        this.Title = title;
+        this.Genre = genre;
+        this.Hours = hours;
+        this.Minutes = minutes;
+        this.Year = year;
+        this.Month = month;
+        this.Day = day;
+        this.Description = description;
+        this.Poster = poster;
 
-        Duration = new Duration(Hours, Minutes);
-        ReleaseDate = new DateTime(Year, Month, Day);
-        Sessions = new List<MovieSession>();
+        this.Duration = new Duration(Hours, Minutes);
+        this.ReleaseDate = new DateTime(Year, Month, Day);
+        this.Sessions = new List<MovieSession>();
     }
 
     // Must use this method to create movies or else it won't increment ID or add to global
-    public static Movie CreateNewMovie(int movieId, string title, string genre, int hours, int minutes, int year, int month, int day, string description, string poster)
+    public static Movie CreateNewMovie(string title, string genre, int hours, int minutes, int year, int month, int day, string description, string poster)
     {
         int newMovieId = GenerateNewMovieId();
         Movie movie = new Movie(newMovieId, title, genre, hours, minutes, year, month, day, description, poster);

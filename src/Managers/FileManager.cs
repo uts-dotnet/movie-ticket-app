@@ -43,7 +43,7 @@ namespace MovieTicketApp.src.Managers
 
                 foreach (string line in lines)
                 {
-                    string[] parts = line.Split(','); // Split the line into parts based on the delimiter (',')
+                    string[] parts = ParseCsvLine(line); // Custom CSV parsing
 
                     if (parts.Length == 10)
                     {
@@ -70,20 +70,8 @@ namespace MovieTicketApp.src.Managers
                                                 string description = parts[8];
                                                 string poster = parts[9];
 
-                                                // Create a Movie object and add it to the GlobalData.Movies list
-                                                Movie movie = new Movie
-                                                {
-                                                    Id = id,
-                                                    Title = title,
-                                                    Genre = genre,
-                                                    Hours = hours,
-                                                    Minutes = minutes,
-                                                    Year = year,
-                                                    Month = month,
-                                                    Day = day,
-                                                    Description = description,
-                                                    Poster = poster
-                                                };
+                                                // Create a Movie object with the provided 'id'
+                                                Movie movie = new Movie(id, title, genre, hours, minutes, year, month, day, description, poster);
 
                                                 GlobalData.Movies.Add(movie);
                                             }
@@ -111,6 +99,34 @@ namespace MovieTicketApp.src.Managers
                     writer.WriteLine(line);
                 }
             }
+        }
+
+        // Custom CSV parsing that handles double quotes
+        private static string[] ParseCsvLine(string line)
+        {
+            var parts = new List<string>();
+            int start = 0;
+            bool inQuotes = false;
+
+            for (int i = 0; i < line.Length; i++)
+            {
+                if (line[i] == '"')
+                {
+                    inQuotes = !inQuotes;
+                }
+
+                if (line[i] == ',' && !inQuotes)
+                {
+                    string part = line.Substring(start, i - start).Trim(' ', ',');
+                    parts.Add(part);
+                    start = i + 1;
+                }
+            }
+
+            // Add the last part
+            parts.Add(line.Substring(start).Trim(' ', ','));
+
+            return parts.ToArray();
         }
 
 
@@ -227,7 +243,7 @@ namespace MovieTicketApp.src.Managers
         /* USER CREDENTIALS DATA HANDLING */
         public static void LoadUserData(bool skipHeaders = true)
         {
-            string filePath = "user-credentials.txt";
+            string filePath = "login-credentials.txt";
 
             if (File.Exists(filePath))
             {
@@ -262,7 +278,7 @@ namespace MovieTicketApp.src.Managers
 
         public static void SaveUserData()
         {
-            string filePath = "user-credentials.txt";
+            string filePath = "login-credentials.txt";
 
             using (StreamWriter writer = new StreamWriter(filePath, false))
             {
@@ -306,7 +322,7 @@ namespace MovieTicketApp.src.Managers
                             string seatsBooked = parts[4];
 
                             // Create a Booking object and add it to the GlobalData.Bookings list
-                            Booking booking = new Booking(movieID, session, numOfAttendees, seatsBooked);
+                            Booking booking = new Booking(bookingID, movieID, session, numOfAttendees, seatsBooked);
                             GlobalData.Bookings.Add(booking);
                         }
                     }

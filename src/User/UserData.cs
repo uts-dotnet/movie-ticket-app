@@ -31,7 +31,7 @@ namespace MovieTicketApp.src.User
         {
             int newUserId = GenerateNewUserDataId();
             UserData user = new UserData(newUserId, username, password, firstName, lastName);
-            GlobalData.Movies.Add(user);
+            GlobalData.UserData.Add(user);
             return user;
         }
 
