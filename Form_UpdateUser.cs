@@ -78,7 +78,6 @@ namespace MovieTicketApp
 
             UserData.CreateNewUser(textBox_Username.Text, textBox_Password.Text, textBox_firstName.Text, textBox_lastName.Text);
 
-
             // Rebind data because refresh does not work
             userGrid.DataSource = null; // Unbind the data source
             userGrid.DataSource = GlobalData.UserData; // Rebind to the data source
@@ -87,10 +86,60 @@ namespace MovieTicketApp
             // Notify the user of the successful update
             MessageBox.Show("User added successfully.");
 
-
-
-
         }
+
+        private void btn_DeleteUser_Click(object sender, EventArgs e)
+        {
+            // Find the user in the data source (e.g., a list or database)
+            UserData? userToDelete = GlobalData.UserData.FirstOrDefault(user => user.UserId == int.Parse(textBox_UserId.Text));
+
+            if (userToDelete == null)
+            {
+                MessageBox.Show("User not found.");
+                return;
+            }
+
+            if (userToDelete != null)
+            {
+                // Check if the user being deleted is the admin user
+                if (userToDelete.Username.Equals("admin", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("You cannot delete the admin user.");
+                    return; // Prevent deletion of admin user
+                }
+
+                // Check if there are associated bookings
+                bool hasAssociatedBookings = GlobalData.Bookings.Any(booking => booking.UserID == userToDelete.UserId);
+
+                if (hasAssociatedBookings)
+                {
+                    MessageBox.Show("This user has associated bookings and cannot be deleted until the bookings are resolved.", "User Deletion Restriction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // User deletion is restricted
+                }
+
+                // Display a confirmation message box
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this user?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // User confirmed deletion
+                    // Delete the user from the data source
+                    GlobalData.UserData.Remove(userToDelete);
+
+                    // Rebind data because refresh does not work
+                    userGrid.DataSource = null; // Unbind the data source
+                    userGrid.DataSource = GlobalData.UserData; // Rebind to the data source
+
+                    // Notify the user of the successful deletion
+                    MessageBox.Show("User deleted successfully.");
+                }
+                else
+                {
+                    // User chose not to delete the user (do nothing)
+                }
+            }
+        }
+
 
         private bool ValidateUserData(int userId, string username, string password, string firstName, string lastName)
         {

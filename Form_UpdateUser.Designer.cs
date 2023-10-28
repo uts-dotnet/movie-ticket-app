@@ -54,6 +54,7 @@
             textBox_UserId = new TextBox();
             label6 = new Label();
             label7 = new Label();
+            btn_DeleteUser = new Button();
             ((System.ComponentModel.ISupportInitialize)userGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userDataBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
@@ -64,11 +65,11 @@
             lbl_Title_SignUp.AutoSize = true;
             lbl_Title_SignUp.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_Title_SignUp.ForeColor = Color.Firebrick;
-            lbl_Title_SignUp.Location = new Point(317, 13);
+            lbl_Title_SignUp.Location = new Point(294, 9);
             lbl_Title_SignUp.Name = "lbl_Title_SignUp";
-            lbl_Title_SignUp.Size = new Size(187, 40);
+            lbl_Title_SignUp.Size = new Size(212, 40);
             lbl_Title_SignUp.TabIndex = 4;
-            lbl_Title_SignUp.Text = "Update User";
+            lbl_Title_SignUp.Text = "Manage Users";
             // 
             // userGrid
             // 
@@ -78,11 +79,11 @@
             userGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             userGrid.Columns.AddRange(new DataGridViewColumn[] { userIdDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, Delete });
             userGrid.DataSource = userDataBindingSource;
-            userGrid.Location = new Point(37, 152);
+            userGrid.Location = new Point(37, 203);
             userGrid.Name = "userGrid";
             userGrid.RowTemplate.Height = 25;
             userGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            userGrid.Size = new Size(742, 286);
+            userGrid.Size = new Size(742, 235);
             userGrid.TabIndex = 5;
             userGrid.CellClick += userGrid_CelLClick;
             // 
@@ -144,11 +145,11 @@
             // 
             // btn_UpdateData
             // 
-            btn_UpdateData.Location = new Point(679, 25);
+            btn_UpdateData.Location = new Point(316, 159);
             btn_UpdateData.Name = "btn_UpdateData";
-            btn_UpdateData.Size = new Size(99, 23);
+            btn_UpdateData.Size = new Size(129, 23);
             btn_UpdateData.TabIndex = 8;
-            btn_UpdateData.Text = "Update User";
+            btn_UpdateData.Text = "Update User Data";
             btn_UpdateData.TextImageRelation = TextImageRelation.TextBeforeImage;
             btn_UpdateData.UseVisualStyleBackColor = true;
             btn_UpdateData.Click += btn_UpdateData_Click;
@@ -219,7 +220,7 @@
             // 
             // btn_CreateNewUser
             // 
-            btn_CreateNewUser.Location = new Point(544, 25);
+            btn_CreateNewUser.Location = new Point(148, 159);
             btn_CreateNewUser.Name = "btn_CreateNewUser";
             btn_CreateNewUser.Size = new Size(114, 23);
             btn_CreateNewUser.TabIndex = 19;
@@ -266,11 +267,23 @@
             label7.TabIndex = 21;
             label7.Text = "Auto-generated for new users";
             // 
+            // btn_DeleteUser
+            // 
+            btn_DeleteUser.Location = new Point(489, 159);
+            btn_DeleteUser.Name = "btn_DeleteUser";
+            btn_DeleteUser.Size = new Size(140, 23);
+            btn_DeleteUser.TabIndex = 22;
+            btn_DeleteUser.Text = "Delete Selected User";
+            btn_DeleteUser.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btn_DeleteUser.UseVisualStyleBackColor = true;
+            btn_DeleteUser.Click += btn_DeleteUser_Click;
+            // 
             // Form_UpdateUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_DeleteUser);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(btn_CreateNewUser);
@@ -327,5 +340,7 @@
         private Button btn_CreateNewUser;
         private Label label6;
         private Label label7;
+        private Button button3;
+        private Button btn_DeleteUser;
     }
 }
