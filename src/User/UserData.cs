@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp.src.User
 {
@@ -16,11 +17,17 @@ namespace MovieTicketApp.src.User
 
         public UserData(int userId, string username, string password, string firstName, string lastName)
         {
-            UserId = userId;
+            UserId = GenerateNewUserDataId();
             Username = username;
             Password = password;
             FirstName = firstName;
             LastName = lastName;
+        }
+
+        private int GenerateNewUserDataId()
+        {
+            int maxId = GlobalData.UserData.Max(u => u.Id); // Find the maximum Id among existing UserData
+            return maxId + 1;
         }
 
         public override string ToString()

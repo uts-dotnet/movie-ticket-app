@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {
@@ -16,15 +17,21 @@ namespace MovieTicketApp
         public string Description { get; set; } // Add a public setter
         public string Poster { get; set; } // Add a public setter
 
-        public Movie(int id, string title, string genre, int hours, int minutes, string description, string poster)
+        public Movie(string title, string genre, int hours, int minutes, string description, string poster)
         {
-            this.Id = id;
-            this.Title = title;
-            this.Genre = genre;
-            this.Hours = hours;
-            this.Minutes = minutes;
-            this.Description = description;
-            this.Poster = poster;
+            Id = GenerateNewMovieId(); // Generate a new movie Id
+            Title = title;
+            Genre = genre;
+            Hours = hours;
+            Minutes = minutes;
+            Description = description;
+            Poster = poster;
+        }
+
+        private int GenerateNewMovieId()
+        {
+            int maxId = GlobalData.Movies.Max(m => m.Id); // Find the maximum Id among existing movies
+            return maxId + 1;
         }
 
         public override string ToString()

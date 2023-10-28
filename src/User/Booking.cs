@@ -1,11 +1,10 @@
 ﻿using System;
+using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {
     public class Booking
     {
-        private static int lastBookingId = 3; // Set to the highest existing BookingId
-
         public int BookingId { get; set; }
         public int MovieId { get; set; }
         public DateTime Session { get; set; }
@@ -14,11 +13,17 @@ namespace MovieTicketApp
 
         public Booking(int movieId, DateTime session, int numOfAttendees, string seatsBooked)
         {
-            this.BookingId = ++lastBookingId; // Auto-increment the BookingId
+            this.BookingId = GenerateNewBookingId(); ; // Auto-increment the BookingId
             this.MovieId = movieId;
             this.Session = session;
             this.NumOfAttendees = numOfAttendees;
             this.SeatsBooked = seatsBooked;
+        }
+
+        private int GenerateNewBookingId()
+        {
+            int maxId = GlobalData.Bookings.Max(b => b.BookingId); // Find the maximum BookingId among existing bookings
+            return maxId + 1;
         }
     }
 }
