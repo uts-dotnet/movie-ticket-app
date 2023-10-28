@@ -282,12 +282,12 @@ namespace MovieTicketApp.src.Managers
             using (StreamWriter writer = new StreamWriter(filePath, false))
             {
                 // Write headers
-                writer.WriteLine("bookingID,movieID,session,numOfAttendees,seatsBooked");
+                writer.WriteLine("bookingID,movieID,session,numberOfTickets,seatsBooked,subtotal,ticketType,userID");
 
                 // Write all booking data in GlobalData
                 foreach (Booking booking in GlobalData.Bookings)
                 {
-                    string line = $"{booking.BookingID},{booking.MovieID},{booking.Session},{booking.NumOfTickets},{booking.SeatsBooked}";
+                    string line = $"{booking.BookingID},{booking.MovieID},{booking.Session.ToString("HH:mm")},{booking.NumOfTickets},{booking.SeatsBooked},{booking.Subtotal:F2},{booking.TicketType},{booking.UserID}";
                     writer.WriteLine(line);
                 }
             }

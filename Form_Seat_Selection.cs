@@ -82,12 +82,15 @@ namespace MovieTicketApp
         {
             User currentUser = CurrentUserManager.Instance.CurrentUser;
 
+            // Format booked seats
+            string seatsBooked = string.Join("-", _bookedSeats.Select(seat => seat.Name.Split().Last()));
+
             //Create a new booking object
             Booking newBooking = Booking.CreateNewBooking(
             this.TicketInfo.MovieId,  // Use your movie ID here
             this.TicketInfo.SelectedSession.Time,
             this.TicketInfo.Quantity,
-            string.Join("-",_bookedSeats),
+            seatsBooked,
             this.TicketInfo.SubTotal,
             this.TicketInfo.TicketType,
             currentUser.Id
