@@ -36,17 +36,16 @@
             SecurityLevel = new DataGridViewComboBoxColumn();
             Username = new DataGridViewTextBoxColumn();
             Password = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            userBindingSource = new BindingSource(components);
             btn_SaveChanges = new Button();
             btn_Cancel = new Button();
             button1 = new Button();
-            userBindingSource = new BindingSource(components);
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            userDataBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)userDataBindingSource).BeginInit();
             SuspendLayout();
             // 
             // lbl_Title_SignUp
@@ -64,9 +63,9 @@
             // 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { FirstName, LastName, SecurityLevel, Username, Password, idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn });
-            dataGridView1.DataSource = userBindingSource;
-            dataGridView1.Location = new Point(37, 102);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { FirstName, LastName, SecurityLevel, Username, Password, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn });
+            dataGridView1.DataSource = userDataBindingSource;
+            dataGridView1.Location = new Point(26, 93);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(742, 336);
@@ -96,6 +95,24 @@
             // 
             Password.HeaderText = "Password";
             Password.Name = "Password";
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // userBindingSource
+            // 
+            userBindingSource.DataSource = typeof(User);
             // 
             // btn_SaveChanges
             // 
@@ -127,44 +144,9 @@
             button1.TextImageRelation = TextImageRelation.TextBeforeImage;
             button1.UseVisualStyleBackColor = true;
             // 
-            // userBindingSource
+            // userDataBindingSource
             // 
-            userBindingSource.DataSource = typeof(User);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            firstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            lastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            emailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
-            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            userDataBindingSource.DataSource = typeof(src.User.UserData);
             // 
             // Form_UpdateUser
             // 
@@ -180,6 +162,7 @@
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)userDataBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -196,11 +179,9 @@
         private Button btn_SaveChanges;
         private Button btn_Cancel;
         private Button button1;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private BindingSource userBindingSource;
+        private BindingSource userDataBindingSource;
     }
 }

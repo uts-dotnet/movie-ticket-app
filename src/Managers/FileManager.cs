@@ -12,7 +12,7 @@ namespace MovieTicketApp.src.Managers
         {
             LoadSessions(false);
             LoadMovies(false);
-            LoadUserData(true);
+            LoadUserData(false);
             LoadBookings(false);
         }
 
