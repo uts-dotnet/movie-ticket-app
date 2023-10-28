@@ -85,7 +85,9 @@ namespace MovieTicketApp
 
         private void btn_Pay_Click(object sender, EventArgs e)
         {
-
+            Form_Receipt form = new Form_Receipt();
+            form.Show();
+            this.Close();
         }
 
         private void btn_Back_Click(object sender, EventArgs e)
