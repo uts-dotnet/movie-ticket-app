@@ -8,36 +8,28 @@ namespace MovieTicketApp
 {
     public class Movie
     {
-        public int Id { get; }
-        public string Title { get; private set; }
-        public string Genre { get; private set; }
-        public Duration Duration { get; private set; }
-        public DateTime ReleaseDate { get; private set; }
-        public string Description { get; private set; }
-        public string Poster { get; private set; }
-        public List<MovieSession> Sessions { get; private set; }
+        public int Id { get; set; } // Add a public setter
+        public string Title { get; set; } // Add a public setter
+        public string Genre { get; set; } // Add a public setter
+        public int Hours { get; set; } // Add a public setter
+        public int Minutes { get; set; } // Add a public setter
+        public string Description { get; set; } // Add a public setter
+        public string Poster { get; set; } // Add a public setter
 
-        public Movie(int id, string title, string genre, Duration duration, DateTime releaseDate, string description, string poster)
+        public Movie(int id, string title, string genre, int hours, int minutes, string description, string poster)
         {
             this.Id = id;
             this.Title = title;
             this.Genre = genre;
-            this.Duration = duration;
+            this.Hours = hours;
+            this.Minutes = minutes;
             this.Description = description;
-            this.ReleaseDate = releaseDate;
             this.Poster = poster;
-            this.Sessions = new List<MovieSession>();
         }
 
         public override string ToString()
         {
-            return $"Movie: {this.Title}, Genre: {this.Genre}, Duration: {this.Duration}, Release Date: {this.ReleaseDate}";
-        }
-
-        public void AddSession(DateTime date, int availableSeats)
-        {
-            MovieSession session = new MovieSession(date, availableSeats);
-            Sessions.Add(session);
+            return $"Movie: {this.Title}, Genre: {this.Genre}, Duration: {this.Hours}:{this.Minutes}, Description: {this.Description}";
         }
     }
 }
