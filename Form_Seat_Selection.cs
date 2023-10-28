@@ -5,21 +5,17 @@ namespace MovieTicketApp
 {
     public partial class Form_Seat_Selection : Form
     {
-        public TicketInfo TicketInfo { get; set; }
         private int _availableSeats;
         private int _ticketsRemaining;
         private int _totalSeatsSelected = 0;
         private List<Seat> _bookedSeats = new List<Seat>();
 
-        public Form_Seat_Selection(TicketInfo ticket)
+        public Form_Seat_Selection()
         {
             InitializeComponent();
 
-            TicketInfo = new TicketInfo(ticket.SelectedMovie, ticket.SelectedSession, ticket.Price, ticket.SubTotal, ticket.Quantity, ticket.TicketType);
-
-            this._availableSeats = this.TicketInfo.SelectedSession.AvailableSeats;
-            this._ticketsRemaining = this.TicketInfo.Quantity;
-
+            this._availableSeats = TicketInfo.SelectedSession.AvailableSeats;
+            this._ticketsRemaining = TicketInfo.Quantity;
             LoadSeats();
         }
 
@@ -31,7 +27,7 @@ namespace MovieTicketApp
         private void LoadSeats()
         {
             lbl_Seats_Available_Value.Text = this._availableSeats.ToString();
-            lbl_Total_Seats_Remaining_Value.Text = this.TicketInfo.Quantity.ToString();
+            lbl_Total_Seats_Remaining_Value.Text = TicketInfo.Quantity.ToString();
 
             listBox_Seats.Items.Clear();
 
@@ -55,7 +51,7 @@ namespace MovieTicketApp
                 UpdateLabels();
 
                 // disable the list box if the user can't select any more seats
-                if (_totalSeatsSelected == this.TicketInfo.Quantity)
+                if (_totalSeatsSelected == TicketInfo.Quantity)
                 {
                     listBox_Seats.Enabled = false;
                 }
@@ -87,16 +83,23 @@ namespace MovieTicketApp
 
             //Create a new booking object
             Booking newBooking = Booking.CreateNewBooking(
-            this.TicketInfo.MovieId,  // Use your movie ID here
-            this.TicketInfo.SelectedSession.Time,
-            this.TicketInfo.Quantity,
-            seatsBooked,
-            this.TicketInfo.SubTotal,
-            this.TicketInfo.TicketType,
-            currentUser.Id
-        );
+                TicketInfo.MovieId,  // Use your movie ID here
+                TicketInfo.SelectedSession.Time,
+                TicketInfo.Quantity,
+                seatsBooked,
+                TicketInfo.SubTotal,
+                TicketInfo.TicketType,
+                currentUser.Id
+            );
 
-            Form_Confirm_Booking form = new Form_Confirm_Booking(TicketInfo, _bookedSeats);
+            Form_Confirm_Booking form = new Form_Confirm_Booking(_bookedSeats);
+            form.Show();
+            this.Close();
+        }
+
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            Form_Ticket_Selection form = new Form_Ticket_Selection();
             form.Show();
             this.Close();
         }

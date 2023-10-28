@@ -12,14 +12,14 @@ namespace MovieTicketApp
         private double _bookingFee = 1.63;
         private double _total;
 
-        public Form_Checkout(TicketInfo ticket)
+        public Form_Checkout()
         {
             InitializeComponent();
-            _total = ticket.SubTotal + _bookingFee;
+            _total = TicketInfo.SubTotal + _bookingFee;
 
-            lbl_MovieTitle.Text = ticket.SelectedMovie.Title;
-            lbl_TicketType.Text = ticket.TicketType;
-            lbl_Subtotal_Value.Text = ticket.SubTotal.ToString("C");
+            lbl_MovieTitle.Text = TicketInfo.SelectedMovie.Title;
+            lbl_TicketType.Text = TicketInfo.TicketType;
+            lbl_Subtotal_Value.Text = TicketInfo.SubTotal.ToString("C");
             lbl_BookingFee_Value.Text = _bookingFee.ToString("C");
             lbl_Total_Value.Text = _total.ToString("C");
 

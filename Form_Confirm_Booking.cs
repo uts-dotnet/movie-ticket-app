@@ -7,15 +7,11 @@ namespace MovieTicketApp
     {
         private string posterFilePath = "";
         private string moviesFile = "movies.txt";
-        private TicketInfo ticketInfo;
 
-
-
-        public Form_Confirm_Booking(TicketInfo ticket, List<Seat> bookedSeats)
+        public Form_Confirm_Booking(List<Seat> bookedSeats)
         {
             InitializeComponent();
-            LoadData(ticket);
-            this.ticketInfo = ticket;
+            LoadData();
 
             lbl_Booked_Seats_Value.Text = bookedSeats.Count.ToString();
 
@@ -30,19 +26,19 @@ namespace MovieTicketApp
             this.Close();
         }
 
-        private void LoadData(TicketInfo ticket)
+        private void LoadData()
         {
-            lbl_Movie_Title.Text = ticket.SelectedMovie.Title;
-            lbl_Session_Time.Text = ticket.SelectedSession.Time.ToString("HH:mm");
-            lbl_Ticket_Type.Text = ticket.TicketType;
-            lbl_Ticket_Price_Value.Text = ticket.Price.ToString("C");
-            lbl_Quantity_Value.Text = ticket.Quantity.ToString();
-            lbl_Subtotal_Value.Text = ticket.SubTotal.ToString("C");
+            lbl_Movie_Title.Text = TicketInfo.SelectedMovie.Title;
+            lbl_Session_Time.Text = TicketInfo.SelectedSession.Time.ToString("HH:mm");
+            lbl_Ticket_Type.Text = TicketInfo.TicketType;
+            lbl_Ticket_Price_Value.Text = TicketInfo.Price.ToString("C");
+            lbl_Quantity_Value.Text = TicketInfo.Quantity.ToString();
+            lbl_Subtotal_Value.Text = TicketInfo.SubTotal.ToString("C");
 
-            LoadMoviePoster(ticket);
+            LoadMoviePoster();
         }
 
-        private void LoadMoviePoster(TicketInfo ticket)
+        private void LoadMoviePoster()
         {
             try
             {
@@ -55,7 +51,7 @@ namespace MovieTicketApp
                     int movieId = Convert.ToInt32(data[0]);
                     string posterFile = data[data.Length - 1];
 
-                    if (ticket.SelectedMovie.Id == movieId)
+                    if (TicketInfo.SelectedMovie.Id == movieId)
                     {
                         this.posterFilePath += posterFile;
                     }
@@ -85,7 +81,7 @@ namespace MovieTicketApp
 
         private void btn_Checkout_Click(object sender, EventArgs e)
         {
-            Form_Checkout form = new Form_Checkout(ticketInfo);
+            Form_Checkout form = new Form_Checkout();
             form.Show();
             this.Close();
         }

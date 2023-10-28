@@ -30,7 +30,6 @@
         {
             lbl_Title_Seat_Selection = new Label();
             listBox_Seats = new ListBox();
-            btn_Back = new Button();
             btn_Logout = new Button();
             lbl_Seats_Available = new Label();
             lbl_Seats_Available_Value = new Label();
@@ -40,6 +39,7 @@
             label1 = new Label();
             lbl_Edit_Seats = new Label();
             btn_Confirm = new Button();
+            btn_Back = new Button();
             SuspendLayout();
             // 
             // lbl_Title_Seat_Selection
@@ -65,13 +65,6 @@
             listBox_Seats.Size = new Size(215, 298);
             listBox_Seats.TabIndex = 6;
             listBox_Seats.SelectedIndexChanged += listBox_Seats_SelectedIndexChanged;
-            // 
-            // btn_Back
-            // 
-            btn_Back.Location = new Point(0, 0);
-            btn_Back.Name = "btn_Back";
-            btn_Back.Size = new Size(75, 23);
-            btn_Back.TabIndex = 32;
             // 
             // btn_Logout
             // 
@@ -167,11 +160,25 @@
             btn_Confirm.UseVisualStyleBackColor = false;
             btn_Confirm.Click += btn_Confirm_Click;
             // 
+            // btn_Back
+            // 
+            btn_Back.Cursor = Cursors.Hand;
+            btn_Back.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Back.ForeColor = Color.Firebrick;
+            btn_Back.Location = new Point(17, 43);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(75, 35);
+            btn_Back.TabIndex = 33;
+            btn_Back.Text = "Back";
+            btn_Back.UseVisualStyleBackColor = true;
+            btn_Back.Click += btn_Back_Click;
+            // 
             // Form_Seat_Selection
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(586, 434);
+            Controls.Add(btn_Back);
             Controls.Add(btn_Confirm);
             Controls.Add(lbl_Edit_Seats);
             Controls.Add(label1);
@@ -181,7 +188,6 @@
             Controls.Add(lbl_Seats_Available_Value);
             Controls.Add(lbl_Seats_Available);
             Controls.Add(btn_Logout);
-            Controls.Add(btn_Back);
             Controls.Add(listBox_Seats);
             Controls.Add(lbl_Title_Seat_Selection);
             Name = "Form_Seat_Selection";
@@ -195,7 +201,6 @@
 
         private Label lbl_Title_Seat_Selection;
         private ListBox listBox_Seats;
-        private Button btn_Back;
         private Button btn_Logout;
         private Label lbl_Seats_Available;
         private Label lbl_Seats_Available_Value;
@@ -205,5 +210,6 @@
         private Label label1;
         private Label lbl_Edit_Seats;
         private Button btn_Confirm;
+        private Button btn_Back;
     }
 }
