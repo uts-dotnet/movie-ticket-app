@@ -31,21 +31,25 @@
             components = new System.ComponentModel.Container();
             lbl_Title_SignUp = new Label();
             dataGridView1 = new DataGridView();
-            FirstName = new DataGridViewTextBoxColumn();
-            LastName = new DataGridViewTextBoxColumn();
-            SecurityLevel = new DataGridViewComboBoxColumn();
-            Username = new DataGridViewTextBoxColumn();
-            Password = new DataGridViewTextBoxColumn();
-            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            userDataBindingSource = new BindingSource(components);
             userBindingSource = new BindingSource(components);
-            btn_SaveChanges = new Button();
             btn_Cancel = new Button();
             button1 = new Button();
-            userDataBindingSource = new BindingSource(components);
+            userIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            usernameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            passwordDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Delete = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userDataBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             SuspendLayout();
             // 
             // lbl_Title_SignUp
@@ -63,65 +67,21 @@
             // 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { FirstName, LastName, SecurityLevel, Username, Password, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { userIdDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, Delete });
             dataGridView1.DataSource = userDataBindingSource;
-            dataGridView1.Location = new Point(26, 93);
+            dataGridView1.Location = new Point(37, 168);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(742, 336);
+            dataGridView1.Size = new Size(742, 270);
             dataGridView1.TabIndex = 5;
             // 
-            // FirstName
+            // userDataBindingSource
             // 
-            FirstName.HeaderText = "First Name";
-            FirstName.Name = "FirstName";
-            // 
-            // LastName
-            // 
-            LastName.HeaderText = "LastName";
-            LastName.Name = "LastName";
-            // 
-            // SecurityLevel
-            // 
-            SecurityLevel.HeaderText = "Security Level";
-            SecurityLevel.Name = "SecurityLevel";
-            // 
-            // Username
-            // 
-            Username.HeaderText = "Username";
-            Username.Name = "Username";
-            // 
-            // Password
-            // 
-            Password.HeaderText = "Password";
-            Password.Name = "Password";
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            firstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            userDataBindingSource.DataSource = typeof(src.User.UserData);
             // 
             // userBindingSource
             // 
             userBindingSource.DataSource = typeof(User);
-            // 
-            // btn_SaveChanges
-            // 
-            btn_SaveChanges.Location = new Point(668, 26);
-            btn_SaveChanges.Name = "btn_SaveChanges";
-            btn_SaveChanges.Size = new Size(100, 23);
-            btn_SaveChanges.TabIndex = 6;
-            btn_SaveChanges.Text = "Save Changes";
-            btn_SaveChanges.UseVisualStyleBackColor = true;
             // 
             // btn_Cancel
             // 
@@ -136,33 +96,125 @@
             // 
             // button1
             // 
-            button1.Location = new Point(318, 64);
+            button1.Location = new Point(656, 26);
             button1.Name = "button1";
-            button1.Size = new Size(130, 23);
+            button1.Size = new Size(109, 23);
             button1.TabIndex = 8;
-            button1.Text = "Update Password";
+            button1.Text = "Update Data";
             button1.TextImageRelation = TextImageRelation.TextBeforeImage;
             button1.UseVisualStyleBackColor = true;
             // 
-            // userDataBindingSource
+            // userIdDataGridViewTextBoxColumn
             // 
-            userDataBindingSource.DataSource = typeof(src.User.UserData);
+            userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
+            userIdDataGridViewTextBoxColumn.HeaderText = "UserId";
+            userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            // 
+            // Delete
+            // 
+            Delete.DataPropertyName = "UserId";
+            Delete.HeaderText = "Delete";
+            Delete.Name = "Delete";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(37, 67);
+            label1.Name = "label1";
+            label1.Size = new Size(40, 15);
+            label1.TabIndex = 9;
+            label1.Text = "UserId";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(37, 113);
+            label2.Name = "label2";
+            label2.Size = new Size(60, 15);
+            label2.TabIndex = 10;
+            label2.Text = "Username";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(294, 67);
+            label3.Name = "label3";
+            label3.Size = new Size(57, 15);
+            label3.TabIndex = 11;
+            label3.Text = "Password";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(505, 67);
+            label4.Name = "label4";
+            label4.Size = new Size(64, 15);
+            label4.TabIndex = 12;
+            label4.Text = "First Name";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(506, 113);
+            label5.Name = "label5";
+            label5.Size = new Size(63, 15);
+            label5.TabIndex = 13;
+            label5.Text = "Last Name";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(656, 63);
+            button2.Name = "button2";
+            button2.Size = new Size(109, 23);
+            button2.TabIndex = 14;
+            button2.Text = "Add New";
+            button2.TextImageRelation = TextImageRelation.TextBeforeImage;
+            button2.UseVisualStyleBackColor = true;
             // 
             // Form_UpdateUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(btn_Cancel);
-            Controls.Add(btn_SaveChanges);
             Controls.Add(dataGridView1);
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_UpdateUser";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)userDataBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -171,17 +223,21 @@
 
         private Label lbl_Title_SignUp;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn FirstName;
-        private DataGridViewTextBoxColumn LastName;
-        private DataGridViewComboBoxColumn SecurityLevel;
-        private DataGridViewTextBoxColumn Username;
-        private DataGridViewTextBoxColumn Password;
-        private Button btn_SaveChanges;
         private Button btn_Cancel;
         private Button button1;
-        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private BindingSource userBindingSource;
         private BindingSource userDataBindingSource;
+        private DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Delete;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Button button2;
     }
 }
