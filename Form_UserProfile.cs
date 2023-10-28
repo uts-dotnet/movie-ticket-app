@@ -108,5 +108,11 @@ namespace MovieTicketApp
             this.Close();
         }
 
+        private void btn_GoToChangePW_Click(object sender, EventArgs e)
+        {
+            frm_ChangePassword form = new frm_ChangePassword();
+            form.Show();
+            this.Close();
+        }
     }
 }

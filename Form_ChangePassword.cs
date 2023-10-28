@@ -21,7 +21,6 @@ namespace MovieTicketApp
 
         private void btn_ChangePW_Click(object sender, EventArgs e)
         {
-            string currentPassword = textBox_currentPW.Text;
             string newPassword = textBox_newPW.Text;
             string confirmNewPassword = textBox_confirmPW.Text;
 
@@ -51,7 +50,10 @@ namespace MovieTicketApp
             // (e.g., update the user's password in your data store)
 
             // Provide feedback to the user (e.g., show a success message)
+            Form_UserProfile form = new Form_UserProfile();
+            form.Show();
             MessageBox.Show("Password changed successfully.");
+            this.Close();
         }
 
         private void btn_BackToMovies_Click(object sender, EventArgs e)

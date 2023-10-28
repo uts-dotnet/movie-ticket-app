@@ -109,6 +109,7 @@
             btn_GoToChangePW.TabIndex = 21;
             btn_GoToChangePW.Text = "Change Password";
             btn_GoToChangePW.UseVisualStyleBackColor = true;
+            btn_GoToChangePW.Click += btn_GoToChangePW_Click;
             // 
             // btn_BackToMovies
             // 
@@ -124,7 +125,7 @@
             // 
             lbl_MovieName.AutoSize = true;
             lbl_MovieName.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_MovieName.Location = new Point(519, 224);
+            lbl_MovieName.Location = new Point(515, 224);
             lbl_MovieName.Name = "lbl_MovieName";
             lbl_MovieName.Size = new Size(123, 25);
             lbl_MovieName.TabIndex = 23;

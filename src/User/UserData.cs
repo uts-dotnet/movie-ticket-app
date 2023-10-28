@@ -7,8 +7,6 @@ using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp.src.User
 {
-    [Serializable]
-
     public class UserData
     {
         public int UserId { get; set; }

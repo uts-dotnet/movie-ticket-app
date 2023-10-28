@@ -33,15 +33,15 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            textBox_firstName = new TextBox();
+            textBox_username = new TextBox();
+            textBox_lastName = new TextBox();
+            textBox_password = new TextBox();
             btn_Save = new Button();
             btn_Cancel = new Button();
             label5 = new Label();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
+            textBox_email = new TextBox();
+            textBox_confirmPW = new TextBox();
             label6 = new Label();
             SuspendLayout();
             // 
@@ -92,42 +92,43 @@
             label4.TabIndex = 8;
             label4.Text = "Password";
             // 
-            // textBox1
+            // textBox_firstName
             // 
-            textBox1.Location = new Point(109, 136);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(259, 23);
-            textBox1.TabIndex = 9;
+            textBox_firstName.Location = new Point(109, 136);
+            textBox_firstName.Name = "textBox_firstName";
+            textBox_firstName.Size = new Size(259, 23);
+            textBox_firstName.TabIndex = 9;
             // 
-            // textBox2
+            // textBox_username
             // 
-            textBox2.Location = new Point(109, 234);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(259, 23);
-            textBox2.TabIndex = 10;
+            textBox_username.Location = new Point(109, 234);
+            textBox_username.Name = "textBox_username";
+            textBox_username.Size = new Size(259, 23);
+            textBox_username.TabIndex = 10;
             // 
-            // textBox3
+            // textBox_lastName
             // 
-            textBox3.Location = new Point(449, 136);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(259, 23);
-            textBox3.TabIndex = 11;
+            textBox_lastName.Location = new Point(449, 136);
+            textBox_lastName.Name = "textBox_lastName";
+            textBox_lastName.Size = new Size(259, 23);
+            textBox_lastName.TabIndex = 11;
             // 
-            // textBox4
+            // textBox_password
             // 
-            textBox4.Location = new Point(109, 336);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(259, 23);
-            textBox4.TabIndex = 12;
+            textBox_password.Location = new Point(109, 336);
+            textBox_password.Name = "textBox_password";
+            textBox_password.Size = new Size(259, 23);
+            textBox_password.TabIndex = 12;
             // 
             // btn_Save
             // 
-            btn_Save.Location = new Point(673, 47);
+            btn_Save.Location = new Point(671, 47);
             btn_Save.Name = "btn_Save";
             btn_Save.Size = new Size(75, 23);
             btn_Save.TabIndex = 13;
             btn_Save.Text = "Save";
             btn_Save.UseVisualStyleBackColor = true;
+            btn_Save.Click += btn_Save_Click;
             // 
             // btn_Cancel
             // 
@@ -147,19 +148,19 @@
             label5.TabIndex = 15;
             label5.Text = "Email";
             // 
-            // textBox5
+            // textBox_email
             // 
-            textBox5.Location = new Point(449, 234);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(259, 23);
-            textBox5.TabIndex = 16;
+            textBox_email.Location = new Point(449, 234);
+            textBox_email.Name = "textBox_email";
+            textBox_email.Size = new Size(259, 23);
+            textBox_email.TabIndex = 16;
             // 
-            // textBox6
+            // textBox_confirmPW
             // 
-            textBox6.Location = new Point(449, 336);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(259, 23);
-            textBox6.TabIndex = 17;
+            textBox_confirmPW.Location = new Point(449, 336);
+            textBox_confirmPW.Name = "textBox_confirmPW";
+            textBox_confirmPW.Size = new Size(259, 23);
+            textBox_confirmPW.TabIndex = 17;
             // 
             // label6
             // 
@@ -176,15 +177,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label6);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
+            Controls.Add(textBox_confirmPW);
+            Controls.Add(textBox_email);
             Controls.Add(label5);
             Controls.Add(btn_Cancel);
             Controls.Add(btn_Save);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(textBox_password);
+            Controls.Add(textBox_lastName);
+            Controls.Add(textBox_username);
+            Controls.Add(textBox_firstName);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -203,15 +204,15 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox textBox_firstName;
+        private TextBox textBox_username;
+        private TextBox textBox_lastName;
+        private TextBox textBox_password;
         private Button btn_Save;
         private Button btn_Cancel;
         private Label label5;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private TextBox textBox_email;
+        private TextBox textBox_confirmPW;
         private Label label6;
     }
 }
