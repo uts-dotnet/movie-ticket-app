@@ -12,7 +12,6 @@ namespace MovieTicketApp.src.Managers
         {
             LoadSessions(false);
             LoadMovies(false);
-            LoadUserBookings(false);
             LoadUserData(true);
             LoadBookings(false);
         }
@@ -22,7 +21,6 @@ namespace MovieTicketApp.src.Managers
         {
             SaveMovies();
             SaveSessions();
-            SaveUserBookings();
             SaveUserData();
             SaveBookings();
         }
@@ -183,63 +181,6 @@ namespace MovieTicketApp.src.Managers
         }
 
 
-        /* USER BOOKING HANDLING */
-        public static void LoadUserBookings(bool skipHeaders = true)
-        {
-            string filePath = "user-bookings.txt";
-
-            if (File.Exists(filePath))
-            {
-                var lines = File.ReadAllLines(filePath);
-
-                if (skipHeaders && lines.Length > 0)
-                {
-                    lines = lines.Skip(1).ToArray(); // Skip the headers
-                }
-
-                foreach (var line in lines)
-                {
-                    var parts = line.Split(','); // Split the line into parts based on the delimiter (',')
-
-                    if (parts.Length == 2)
-                    {
-                        if (int.TryParse(parts[0], out int userID))
-                        {
-                            string bookings = parts[1];
-
-                            // Create a UserBookings object and add it to the UserBookings list
-                            UserBookings userBookings = new UserBookings(userID, bookings);
-
-                            // Initialize GlobalData.UserBookings as a list (if not already done)
-                            if (GlobalData.UserBookingsList == null)
-                            {
-                                GlobalData.UserBookingsList = new List<UserBookings>();
-                            }
-
-                            GlobalData.UserBookingsList.Add(userBookings);
-                        }
-                    }
-                }
-            }
-        }
-
-        public static void SaveUserBookings()
-        {
-            using (StreamWriter writer = new StreamWriter("user-bookings.txt", false))
-            {
-                // Write headers
-                writer.WriteLine("userID,bookings");
-
-                // Write user bookings
-                foreach (var booking in GlobalData.UserBookingsList)
-                {
-                    string line = $"{booking.UserId},{booking.Bookings}";
-                    writer.WriteLine(line);
-                }
-            }
-        }
-
-
         /* USER CREDENTIALS DATA HANDLING */
         public static void LoadUserData(bool skipHeaders = true)
         {
@@ -312,23 +253,27 @@ namespace MovieTicketApp.src.Managers
                 {
                     var parts = line.Split(','); // Split the line into parts based on the delimiter (',')
 
-                    if (parts.Length == 5)
+                    if (parts.Length == 8) // Update the length to match the new format
                     {
                         if (int.TryParse(parts[0], out int bookingID) &&
                             int.TryParse(parts[1], out int movieID) &&
                             DateTime.TryParse(parts[2], out DateTime session) &&
-                            int.TryParse(parts[3], out int numOfAttendees))
+                            int.TryParse(parts[3], out int numOfTickets) &&
+                            double.TryParse(parts[5], out double subtotal)) // Parse the new subtotal field
                         {
                             string seatsBooked = parts[4];
+                            string ticketType = parts[6];
+                            int userID = int.Parse(parts[7]); // Parse the user ID
 
                             // Create a Booking object and add it to the GlobalData.Bookings list
-                            Booking booking = new Booking(bookingID, movieID, session, numOfAttendees, seatsBooked);
+                            Booking booking = new Booking(bookingID, movieID, session, numOfTickets, seatsBooked, subtotal, ticketType, userID);
                             GlobalData.Bookings.Add(booking);
                         }
                     }
                 }
             }
         }
+
 
         public static void SaveBookings()
         {
@@ -342,7 +287,7 @@ namespace MovieTicketApp.src.Managers
                 // Write all booking data in GlobalData
                 foreach (Booking booking in GlobalData.Bookings)
                 {
-                    string line = $"{booking.BookingID},{booking.MovieID},{booking.Session},{booking.NumOfAttendees},{booking.SeatsBooked}";
+                    string line = $"{booking.BookingID},{booking.MovieID},{booking.Session},{booking.NumOfTickets},{booking.SeatsBooked}";
                     writer.WriteLine(line);
                 }
             }

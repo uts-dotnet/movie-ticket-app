@@ -17,8 +17,6 @@ namespace MovieTicketApp.src.Managers
         public static List<Booking> Bookings { get; set; } = new List<Booking>();
         public static List<MovieSession> Sessions { get; set; } = new List<MovieSession>();
         public static List<UserData> UserData { get; set; } = new List<UserData>();
-        public static List<UserBookings> UserBookingsList { get; set; } = new List<UserBookings>();
-
 
         // Clear or reset the data in the global lists
         public static void Clear()
@@ -27,7 +25,6 @@ namespace MovieTicketApp.src.Managers
             Bookings.Clear();
             Sessions.Clear();
             UserData.Clear();
-            UserBookingsList.Clear();
         }
 
     }

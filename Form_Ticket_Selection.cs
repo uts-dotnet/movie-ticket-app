@@ -20,7 +20,7 @@ namespace MovieTicketApp
 
             TicketInfo = new TicketInfo(selectedMovie, selectedSession, 0, 0, 0);
 
-            this.TicketInfo.TicketSelected = string.Empty;
+            this.TicketInfo.TicketType = string.Empty;
 
             lbl_Movie_Title.Text = TicketInfo.SelectedMovie.Title;
             lbl_Session_Time_Fomatted.Text = TicketInfo.SelectedSession.Time.ToString("HH:mm");
@@ -71,7 +71,7 @@ namespace MovieTicketApp
             {
                 ListViewItem selectedItem = listView_Session_Tickets.SelectedItems[0];
                 lbl_Ticket_Selected.Text = $"{selectedItem.Text} Ticket";
-                this.TicketInfo.TicketSelected = lbl_Ticket_Selected.Text;
+                this.TicketInfo.TicketType = lbl_Ticket_Selected.Text;
 
                 string priceString = selectedItem.SubItems[1].Text;
 
@@ -211,7 +211,7 @@ namespace MovieTicketApp
                             $"{this.TicketInfo.Price:F2}," + // two decimal digits without the $ sign
                             $"{this.TicketInfo.SubTotal:F2}," +
                             $"{this.TicketInfo.Quantity}," +
-                            $"{this.TicketInfo.TicketSelected}," +
+                            $"{this.TicketInfo.TicketType}," +
                             $"{this.TicketInfo.MovieId}," +
                             $"{currentUser.Id}"
                         );
@@ -234,7 +234,7 @@ namespace MovieTicketApp
 
         private void btn_Continue_Click(object sender, EventArgs e)
         {
-            SaveTicketToFile();
+            //SaveTicketToFile();
             Form_Seat_Selection form = new Form_Seat_Selection(this.TicketInfo);
             form.Show();
             this.Close();
