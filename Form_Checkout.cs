@@ -28,6 +28,20 @@ namespace MovieTicketApp
             txt_CardNumber.TextChanged += TextFields_TextChanged;
             txt_ExpiryDate.TextChanged += TextFields_TextChanged;
             txt_CVV.TextChanged += TextFields_TextChanged;
+
+            btn_Pay.Enabled = false;
+            btn_Pay.BackColor = Color.White;
+            btn_Pay.ForeColor = Color.Gray;
+
+            txt_CardName.Enter += TextField_Enter;
+            txt_CardNumber.Enter += TextField_Enter;
+            txt_ExpiryDate.Enter += TextField_Enter;
+            txt_CVV.Enter += TextField_Enter;
+        }
+
+        private void TextField_Enter(object sender, EventArgs e)
+        {
+            btn_Pay.Enabled = true;
         }
 
         private void TextFields_TextChanged(object sender, EventArgs e)
@@ -37,10 +51,10 @@ namespace MovieTicketApp
             _expiryDate = txt_ExpiryDate.Text;
             _cvv = txt_CVV.Text;
 
-            EnablePayButton();
+            EnablePayment();
         }
 
-        private void EnablePayButton()
+        private void EnablePayment()
         {
             bool cardNameValid = Validators.ValidateCardName(_cardName);
             bool cardNumberValid = Validators.ValidateCardNumber(_cardNumber);
@@ -48,6 +62,14 @@ namespace MovieTicketApp
             bool cvvValid = Validators.ValidateCVV(_cvv);
 
             if (cardNameValid && cardNumberValid && expiryDateValid && cvvValid)
+                SetPayButton(true);
+            else
+                SetPayButton(false);
+        }
+
+        private void SetPayButton(bool value)
+        {
+            if (value)
             {
                 btn_Pay.Enabled = true;
                 btn_Pay.BackColor = Color.Firebrick;
