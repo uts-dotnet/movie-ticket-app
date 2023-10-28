@@ -19,5 +19,15 @@ namespace MovieTicketApp
 
             Application.Run(new frm_Login());
         }
+
+        // Handle the application exit event
+        private static void OnApplicationExit(object sender, EventArgs e)
+        {
+            //Save all the data to .txt files
+            GlobalData.SaveData();
+
+            // Clear all data
+            GlobalData.Clear(); 
+        }
     }
 }

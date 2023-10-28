@@ -17,7 +17,6 @@ namespace MovieTicketApp.src.Managers
         public static List<Booking> Bookings { get; set; } = new List<Booking>();
         public static List<MovieSession> Sessions { get; set; } = new List<MovieSession>();
         public static List<UserData> UserData { get; set; } = new List<UserData>();
-        public static List<MovieTicketApp.User> Users { get; set; } = new List<MovieTicketApp.User>();
         public static List<UserBookings> UserBookingsList { get; set; } = new List<UserBookings>();
 
 
@@ -28,7 +27,6 @@ namespace MovieTicketApp.src.Managers
             Bookings.Clear();
             Sessions.Clear();
             UserData.Clear();
-            Users.Clear();
             UserBookingsList.Clear();
         }
 
@@ -56,6 +54,50 @@ namespace MovieTicketApp.src.Managers
             UserBookingsList = userBookingsFileManager.Load();
         }
 
+        // Save data to the corresponding text files
+        public static void SaveData()
+        {
+            SaveMovies();
+            SaveBookings();
+            SaveSessions();
+            SaveUserData();
+            SaveUserBookings();
+        }
+
+        // Save movies data to "movies.txt"
+        public static void SaveMovies()
+        {
+            FileManager<Movie> movieFileManager = new FileManager<Movie>("movies.txt");
+            movieFileManager.Save(Movies);
+        }
+
+        // Save bookings data to "bookings.txt"
+        public static void SaveBookings()
+        {
+            FileManager<Booking> bookingFileManager = new FileManager<Booking>("bookings.txt");
+            bookingFileManager.Save(Bookings);
+        }
+
+        // Save sessions data to "Sessions.txt"
+        public static void SaveSessions()
+        {
+            FileManager<MovieSession> sessionFileManager = new FileManager<MovieSession>("Sessions.txt");
+            sessionFileManager.Save(Sessions);
+        }
+
+        // Save user data to "login-credentials.txt"
+        public static void SaveUserData()
+        {
+            FileManager<UserData> userDataFileManager = new FileManager<UserData>("login-credentials.txt");
+            userDataFileManager.Save(UserData);
+        }
+
+        // Save user bookings data to "user-bookings.txt"
+        public static void SaveUserBookings()
+        {
+            FileManager<UserBookings> userBookingsFileManager = new FileManager<UserBookings>("user-bookings.txt");
+            userBookingsFileManager.Save(UserBookingsList);
+        }
 
     }
 }
