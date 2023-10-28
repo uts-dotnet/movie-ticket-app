@@ -77,6 +77,7 @@
             btn_EditUser.TabIndex = 6;
             btn_EditUser.Text = "Edit or Delete User";
             btn_EditUser.UseVisualStyleBackColor = true;
+            btn_EditUser.Click += btn_EditUser_Click_1;
             // 
             // btn_AddMovie
             // 

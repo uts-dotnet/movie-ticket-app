@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {
@@ -15,21 +16,7 @@ namespace MovieTicketApp
         public Form_UpdateUser()
         {
             InitializeComponent();
-
-            // Create a list of available security levels.
-            List<string> securityLevels = new List<string>
-        {
-            "Admin",
-            "User"
-        };
-
-            // Set the data source for the ComboBox column.
-            (dataGridView1.Columns["SecurityLevel"] as DataGridViewComboBoxColumn).DataSource = securityLevels;
-
-
-            List<User> users = new List<User>();
-            //populate the list to show the content in the Data grid
-
+            userGrid.DataSource = GlobalData.UserData;
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -37,6 +24,18 @@ namespace MovieTicketApp
             Form_AdminView admin = new Form_AdminView();
             admin.Show();
             this.Close();
+        }
+
+        private void userGrid_CelLClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            DataGridViewRow selectedRow = userGrid.Rows[index];
+            textBox_UserId.Text = selectedRow.Cells[0].Value.ToString();
+            textBox_Username.Text = selectedRow.Cells[1].Value.ToString();
+            textBox_Password.Text = selectedRow.Cells[2].Value.ToString();
+            textBox_firstName.Text = selectedRow.Cells[3].Value.ToString();
+            textBox_lastName.Text = selectedRow.Cells[4].Value.ToString();
+
         }
     }
 }
