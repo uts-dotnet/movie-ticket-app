@@ -39,6 +39,7 @@
             lbl_MovieTitle = new Label();
             lbl_SessionTime = new Label();
             lbl_SessionTime_Value = new Label();
+            btn_Save = new Button();
             SuspendLayout();
             // 
             // lbl_ReceiptTitle
@@ -48,12 +49,13 @@
             lbl_ReceiptTitle.ForeColor = Color.Firebrick;
             lbl_ReceiptTitle.Location = new Point(24, 38);
             lbl_ReceiptTitle.Name = "lbl_ReceiptTitle";
-            lbl_ReceiptTitle.Size = new Size(255, 40);
+            lbl_ReceiptTitle.Size = new Size(118, 40);
             lbl_ReceiptTitle.TabIndex = 6;
-            lbl_ReceiptTitle.Text = "DOTNET Cinemas";
+            lbl_ReceiptTitle.Text = "Receipt";
             // 
             // listview_Receipt
             // 
+            listview_Receipt.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             listview_Receipt.Location = new Point(24, 232);
             listview_Receipt.Name = "listview_Receipt";
             listview_Receipt.Size = new Size(403, 159);
@@ -155,11 +157,25 @@
             lbl_SessionTime_Value.TabIndex = 16;
             lbl_SessionTime_Value.Text = "HH:mm";
             // 
+            // btn_Save
+            // 
+            btn_Save.BackColor = Color.Firebrick;
+            btn_Save.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Save.ForeColor = Color.White;
+            btn_Save.Location = new Point(254, 48);
+            btn_Save.Name = "btn_Save";
+            btn_Save.Size = new Size(173, 32);
+            btn_Save.TabIndex = 18;
+            btn_Save.Text = "Save Receipt";
+            btn_Save.UseVisualStyleBackColor = false;
+            btn_Save.Click += btn_Save_Click;
+            // 
             // Form_Receipt
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(451, 583);
+            ClientSize = new Size(451, 568);
+            Controls.Add(btn_Save);
             Controls.Add(lbl_SessionTime_Value);
             Controls.Add(lbl_SessionTime);
             Controls.Add(lbl_MovieTitle);
@@ -191,5 +207,6 @@
         private Label lbl_MovieTitle;
         private Label lbl_SessionTime;
         private Label lbl_SessionTime_Value;
+        private Button btn_Save;
     }
 }

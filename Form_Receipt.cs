@@ -48,5 +48,41 @@ namespace MovieTicketApp
 
             listview_Receipt.Items.Add(item);
         }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            User user = CurrentUserManager.Instance.CurrentUser;
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+            saveFileDialog.FileName = "receipt.txt";
+            saveFileDialog.DefaultExt = "txt";
+            saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+
+            string seats = string.Join(", ", TicketInfo.BookedSeats.Select(seat => seat.Name));
+
+            DialogResult result = saveFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                string file = saveFileDialog.FileName;
+
+                string content =
+                    $"---- DOTNET Cinemas ----\n\n" +
+                    $"Receipt for {user.FullName}\n\n" +
+                    $"Movie: {TicketInfo.SelectedMovie.Title}\n" +
+                    $"Session Time: {TicketInfo.SelectedSession.Time:HH:mm}\n" +
+                    $"{TicketInfo.TicketType}\n" +
+                    $"Price: {TicketInfo.Price:C}\n" +
+                    $"Quantity: {TicketInfo.Quantity}\n" +
+                    $"Subtotal: {TicketInfo.SubTotal}\n" +
+                    $"Seats: {seats}\n" +
+                    $"Booking Fee: {_bookingFee:C}\n" +
+                    $"Total: {_total}\n"
+                ;
+
+                File.WriteAllText(file, content);
+            }
+        }
     }
 }
