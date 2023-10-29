@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {
@@ -15,6 +16,7 @@ namespace MovieTicketApp
         public Form_UpdateMovie()
         {
             InitializeComponent();
+            userGrid.DataSource = GlobalData.Movies;
         }
 
         private void Form_UpdateMovie_Load(object sender, EventArgs e)
