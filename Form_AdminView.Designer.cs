@@ -32,6 +32,7 @@
             btn_EditUser = new Button();
             btn_EditMovie = new Button();
             btn_Log_Out = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // lbl_Title_SignUp
@@ -48,7 +49,7 @@
             // btn_EditUser
             // 
             btn_EditUser.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_EditUser.Location = new Point(294, 160);
+            btn_EditUser.Location = new Point(290, 143);
             btn_EditUser.Name = "btn_EditUser";
             btn_EditUser.Size = new Size(219, 39);
             btn_EditUser.TabIndex = 6;
@@ -59,7 +60,7 @@
             // btn_EditMovie
             // 
             btn_EditMovie.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_EditMovie.Location = new Point(294, 217);
+            btn_EditMovie.Location = new Point(290, 200);
             btn_EditMovie.Name = "btn_EditMovie";
             btn_EditMovie.Size = new Size(219, 40);
             btn_EditMovie.TabIndex = 9;
@@ -71,18 +72,29 @@
             // 
             btn_Log_Out.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_Log_Out.ForeColor = Color.Firebrick;
-            btn_Log_Out.Location = new Point(360, 295);
+            btn_Log_Out.Location = new Point(351, 341);
             btn_Log_Out.Name = "btn_Log_Out";
             btn_Log_Out.Size = new Size(87, 33);
             btn_Log_Out.TabIndex = 18;
             btn_Log_Out.Text = "Log Out";
             btn_Log_Out.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(264, 257);
+            button1.Name = "button1";
+            button1.Size = new Size(274, 40);
+            button1.TabIndex = 19;
+            button1.Text = "Manage Movie Sessions";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Form_AdminView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(btn_Log_Out);
             Controls.Add(btn_EditMovie);
             Controls.Add(btn_EditUser);
@@ -104,5 +116,6 @@
         private Label label5;
         private Label label1;
         private Button btn_Log_Out;
+        private Button button1;
     }
 }

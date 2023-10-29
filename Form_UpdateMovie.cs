@@ -25,6 +25,13 @@ namespace MovieTicketApp
 
         }
 
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            Form_AdminView admin = new Form_AdminView();
+            admin.Show();
+            this.Close();
+        }
+
         private void movieGrid_CelLClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
@@ -35,7 +42,7 @@ namespace MovieTicketApp
             textBox_Hours.Text = selectedRow.Cells[3].Value.ToString();
             textBox_Minutes.Text = selectedRow.Cells[4].Value.ToString();
             textBox_Description.Text = selectedRow.Cells[8].Value.ToString();
-            textBox_Poster.Text = selectedRow.Cells[11].Value.ToString();
+            textBox_Poster.Text = selectedRow.Cells[9].Value.ToString();
 
             int year = int.Parse(selectedRow.Cells[5].Value.ToString());
             int month = int.Parse(selectedRow.Cells[6].Value.ToString());

@@ -65,6 +65,7 @@
             btn_DeleteMovie.Text = "Delete Selected Movie";
             btn_DeleteMovie.TextImageRelation = TextImageRelation.TextBeforeImage;
             btn_DeleteMovie.UseVisualStyleBackColor = true;
+            btn_DeleteMovie.Click += btn_DeleteMovie_Click;
             // 
             // label7
             // 
@@ -94,6 +95,7 @@
             btn_CreateMovie.Text = "Create New Movie";
             btn_CreateMovie.TextImageRelation = TextImageRelation.TextBeforeImage;
             btn_CreateMovie.UseVisualStyleBackColor = true;
+            btn_CreateMovie.Click += btn_CreateNewMovie_Click;
             // 
             // textBox_Description
             // 
@@ -187,6 +189,7 @@
             btn_UpdateMovie.Text = "Update Movie Data";
             btn_UpdateMovie.TextImageRelation = TextImageRelation.TextBeforeImage;
             btn_UpdateMovie.UseVisualStyleBackColor = true;
+            btn_UpdateMovie.Click += btn_UpdateMovie_Click;
             // 
             // button1
             // 
@@ -197,6 +200,7 @@
             button1.Text = "Cancel";
             button1.TextImageRelation = TextImageRelation.TextAboveImage;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += btn_Cancel_Click;
             // 
             // movieGrid
             // 
