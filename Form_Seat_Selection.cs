@@ -5,40 +5,44 @@ namespace MovieTicketApp
 {
     public partial class Form_Seat_Selection : Form
     {
-        public TicketInfo TicketInfo { get; set; }
-        private int _availableSeats;
-        private int _ticketsRemaining;
+        private static int seatsRemaining = TicketInfo.Quantity;
         private int _totalSeatsSelected = 0;
-        private List<Seat> _bookedSeats = new List<Seat>();
 
-        public Form_Seat_Selection(TicketInfo ticket)
+        public Form_Seat_Selection()
         {
             InitializeComponent();
-
-            TicketInfo = new TicketInfo(ticket.SelectedMovie, ticket.SelectedSession, ticket.Price, ticket.SubTotal, ticket.Quantity, ticket.TicketType);
-
-            this._availableSeats = this.TicketInfo.SelectedSession.AvailableSeats;
-            this._ticketsRemaining = this.TicketInfo.Quantity;
-
+            SetContinueButton(false);
             LoadSeats();
+
+            if (seatsRemaining == 0)
+            {
+                listBox_Seats.Enabled = false;
+            }
         }
 
         private void Form_Seat_Selection_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Close(); // if the form is not closed it'll cause a conflict between Visual Studio and the executable file
+            this.Close();
         }
 
         private void LoadSeats()
         {
-            lbl_Seats_Available_Value.Text = this._availableSeats.ToString();
-            lbl_Total_Seats_Remaining_Value.Text = this.TicketInfo.Quantity.ToString();
+            lbl_Seats_Available_Value.Text = TicketInfo.SelectedSession.AvailableSeats.ToString();
+            lbl_Total_Seats_Remaining_Value.Text = seatsRemaining.ToString();
 
             listBox_Seats.Items.Clear();
 
-            for (int i = 0; i < this._availableSeats; i++)
+            for (int i = 0; i < TicketInfo.SelectedSession.AvailableSeats; i++)
             {
                 string seat = $"Seat {i + 1}";
                 listBox_Seats.Items.Add(seat);
+            }
+
+            foreach (var seat in TicketInfo.BookedSeats)
+            {
+                // add selected seats to the corresponding listbox and remove them from the list of available seats
+                listBox_Selected_Seats.Items.Add(seat.Name);
+                listBox_Seats.Items.Remove(seat.Name);
             }
         }
 
@@ -48,27 +52,46 @@ namespace MovieTicketApp
             {
                 string seat = listBox_Seats.SelectedItem.ToString();
                 listBox_Selected_Seats.Items.Add(seat);
-                _bookedSeats.Add(new Seat(seat));
+                TicketInfo.AddSeat(new Seat(seat));
 
                 _totalSeatsSelected++;
 
-                UpdateLabels();
+                TicketInfo.SelectedSession.AvailableSeats--;
+                lbl_Seats_Available_Value.Text = TicketInfo.SelectedSession.AvailableSeats.ToString();
+
+                seatsRemaining--;
+                lbl_Total_Seats_Remaining_Value.Text = seatsRemaining.ToString();
 
                 // disable the list box if the user can't select any more seats
-                if (_totalSeatsSelected == this.TicketInfo.Quantity)
+                if (_totalSeatsSelected == TicketInfo.Quantity)
                 {
                     listBox_Seats.Enabled = false;
                 }
+
+                if (seatsRemaining == 0)
+                {
+                    SetContinueButton(true);
+                }
+
+                // Remove the selected seat from the list after selecting it
+                listBox_Seats.Items.Remove(seat);
             }
         }
 
-        private void UpdateLabels()
+        private void SetContinueButton(bool value)
         {
-            this._availableSeats--;
-            lbl_Seats_Available_Value.Text = this._availableSeats.ToString();
-
-            this._ticketsRemaining--;
-            lbl_Total_Seats_Remaining_Value.Text = _ticketsRemaining.ToString();
+            if (value)
+            {
+                btn_Continue.Enabled = true;
+                btn_Continue.BackColor = Color.Firebrick;
+                btn_Continue.ForeColor = Color.White;
+            }
+            else
+            {
+                btn_Continue.Enabled = false;
+                btn_Continue.BackColor = Color.White;
+                btn_Continue.ForeColor = Color.Gray;
+            }
         }
 
         private void btn_Logout_Click(object sender, EventArgs e)
@@ -83,20 +106,20 @@ namespace MovieTicketApp
             User currentUser = CurrentUserManager.Instance.CurrentUser;
 
             // Format booked seats
-            string seatsBooked = string.Join("-", _bookedSeats.Select(seat => seat.Name.Split().Last()));
+            string seatsBooked = string.Join("-", TicketInfo.BookedSeats.Select(seat => seat.Name.Split().Last()));
 
             //Create a new booking object
             Booking newBooking = Booking.CreateNewBooking(
-            this.TicketInfo.MovieId,  // Use your movie ID here
-            this.TicketInfo.SelectedSession.Time,
-            this.TicketInfo.Quantity,
-            seatsBooked,
-            this.TicketInfo.SubTotal,
-            this.TicketInfo.TicketType,
-            currentUser.Id
-        );
+                TicketInfo.MovieId,
+                TicketInfo.SelectedSession.Time,
+                TicketInfo.Quantity,
+                seatsBooked,
+                TicketInfo.SubTotal,
+                TicketInfo.TicketType,
+                currentUser.Id
+            );
 
-            Form_Confirm_Booking form = new Form_Confirm_Booking(TicketInfo, _bookedSeats);
+            Form_Confirm_Booking form = new Form_Confirm_Booking();
             form.Show();
             this.Close();
         }

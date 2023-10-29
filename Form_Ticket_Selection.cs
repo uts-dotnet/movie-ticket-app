@@ -6,21 +6,25 @@ namespace MovieTicketApp
 {
     public partial class Form_Ticket_Selection : Form
     {
-        private string _ticketInfoFile = ".\\ticket-info.txt";
-        public TicketInfo TicketInfo { get; private set; }
-
-        private void Form_Ticket_Selection_FormClosed(object sender, FormClosedEventArgs e)
+        public Form_Ticket_Selection()
         {
-            this.Close();
+            InitializeComponent();
+            InitializeLabels();
+
+            LoadListView();
+            PopulateListView();
+
+            EnableQuantityButtons(true);
+            EnableContinueButton(true);
         }
 
         public Form_Ticket_Selection(Movie selectedMovie, MovieSession selectedSession)
         {
             InitializeComponent();
 
-            TicketInfo = new TicketInfo(selectedMovie, selectedSession, 0, 0, 0);
+            TicketInfo.SetTicket(selectedMovie, selectedSession, 0, 0, 0, string.Empty);
 
-            this.TicketInfo.TicketType = string.Empty;
+            TicketInfo.TicketType = string.Empty;
 
             lbl_Movie_Title.Text = TicketInfo.SelectedMovie.Title;
             lbl_Session_Time_Fomatted.Text = TicketInfo.SelectedSession.Time.ToString("HH:mm");
@@ -32,9 +36,19 @@ namespace MovieTicketApp
             EnableContinueButton(false);
         }
 
-        public void Form_Movie_Session_FormClosed(object sender, FormClosedEventArgs e)
+        private void Form_Ticket_Selection_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
+        }
+
+        private void InitializeLabels()
+        {
+            lbl_Movie_Title.Text = TicketInfo.SelectedMovie.Title;
+            lbl_Session_Time_Fomatted.Text = TicketInfo.SelectedSession.Time.ToString("HH:mm");
+            lbl_Ticket_Price_Value.Text = TicketInfo.Price.ToString("C");
+            lbl_Ticket_Selected.Text = TicketInfo.TicketType;
+            lbl_Quantity_Value.Text = TicketInfo.Quantity.ToString();
+            lbl_Sub_Total_Value.Text = TicketInfo.SubTotal.ToString("C");
         }
 
         private void LoadListView()
@@ -71,18 +85,18 @@ namespace MovieTicketApp
             {
                 ListViewItem selectedItem = listView_Session_Tickets.SelectedItems[0];
                 lbl_Ticket_Selected.Text = $"{selectedItem.Text} Ticket";
-                this.TicketInfo.TicketType = lbl_Ticket_Selected.Text;
+                TicketInfo.TicketType = lbl_Ticket_Selected.Text;
 
                 string priceString = selectedItem.SubItems[1].Text;
 
-                this.TicketInfo.Price = double.Parse(priceString, NumberStyles.Currency);
-                this.TicketInfo.SubTotal = this.TicketInfo.Price;
+                TicketInfo.Price = double.Parse(priceString, NumberStyles.Currency);
+                TicketInfo.SubTotal = TicketInfo.Price;
 
-                lbl_Ticket_Price_Value.Text = this.TicketInfo.Price.ToString("C");
-                lbl_Sub_Total_Value.Text = this.TicketInfo.Price.ToString("C");
+                lbl_Ticket_Price_Value.Text = TicketInfo.Price.ToString("C");
+                lbl_Sub_Total_Value.Text = TicketInfo.Price.ToString("C");
                 lbl_Quantity_Value.Text = "1";
 
-                this.TicketInfo.Quantity = Convert.ToInt32(lbl_Quantity_Value.Text);
+                TicketInfo.Quantity = Convert.ToInt32(lbl_Quantity_Value.Text);
             }
 
             if (listView_Session_Tickets.SelectedItems.Count == 0)
@@ -126,116 +140,48 @@ namespace MovieTicketApp
 
         private void btn_Increment_Click(object sender, EventArgs e)
         {
-            int quantity = Convert.ToInt32(lbl_Quantity_Value.Text);
-            this.TicketInfo.Price = Convert.ToDouble(lbl_Ticket_Price_Value.Text.Trim('$'));
-            this.TicketInfo.SubTotal = Convert.ToDouble(lbl_Sub_Total_Value.Text.Trim('$'));
+            TicketInfo.Quantity = Convert.ToInt32(lbl_Quantity_Value.Text);
+            TicketInfo.Price = Convert.ToDouble(lbl_Ticket_Price_Value.Text.Trim('$'));
+            TicketInfo.SubTotal = Convert.ToDouble(lbl_Sub_Total_Value.Text.Trim('$'));
 
-            if (quantity < 10)
+            if (TicketInfo.Quantity < 10)
             {
-                quantity++;
+                TicketInfo.Quantity++;
+                lbl_Quantity_Value.Text = TicketInfo.Quantity.ToString();
+
                 TicketInfo.SubTotal += TicketInfo.Price;
                 lbl_Sub_Total_Value.Text = TicketInfo.SubTotal.ToString("C");
 
                 EnableContinueButton(true);
-
-                this.TicketInfo.Quantity = quantity;
             }
             else
             {
                 MessageBox.Show($"You can only purchase 10 {lbl_Ticket_Selected.Text} tickets");
             }
-
-            lbl_Quantity_Value.Text = quantity.ToString();
         }
 
         private void btn_Decrement_Click(object sender, EventArgs e)
         {
-            int quantity = Convert.ToInt32(lbl_Quantity_Value.Text);
-            this.TicketInfo.Price = Convert.ToDouble(lbl_Ticket_Price_Value.Text.Trim('$'));
-            this.TicketInfo.SubTotal = Convert.ToDouble(lbl_Sub_Total_Value.Text.Trim('$'));
+            TicketInfo.Quantity = Convert.ToInt32(lbl_Quantity_Value.Text);
+            TicketInfo.Price = Convert.ToDouble(lbl_Ticket_Price_Value.Text.Trim('$'));
+            TicketInfo.SubTotal = Convert.ToDouble(lbl_Sub_Total_Value.Text.Trim('$'));
 
-            if (quantity > 0)
+            if (TicketInfo.Quantity > 0)
             {
-                quantity--;
+                TicketInfo.Quantity--;
+                lbl_Quantity_Value.Text = TicketInfo.Quantity.ToString();
 
-                this.TicketInfo.SubTotal -= this.TicketInfo.Price;
-                lbl_Sub_Total_Value.Text = $"{this.TicketInfo.SubTotal:C}";
-                lbl_Quantity_Value.Text = quantity.ToString();
+                TicketInfo.SubTotal -= TicketInfo.Price;
+                lbl_Sub_Total_Value.Text = TicketInfo.SubTotal.ToString("C");
 
-                if (quantity == 0)
+                if (TicketInfo.Quantity == 0)
                     EnableContinueButton(false);
-
-                this.TicketInfo.Quantity = quantity;
             }
         }
-
-        private void SaveTicketToFile()
-        {
-            User currentUser = CurrentUserManager.Instance.CurrentUser;
-
-            if (currentUser != null)
-            {
-                int newTicketId;
-
-                try
-                {
-                    string[] lines = File.ReadAllLines(_ticketInfoFile);
-
-                    if (lines.Length > 0 && !string.IsNullOrEmpty(lines[0]))
-                    {
-                        string lastLine = lines[lines.Length - 1];
-                        string[] lastLineData = lastLine.Split(',');
-
-                        if (lastLineData.Length > 0)
-                        {
-                            int lastTicketId = int.Parse(lastLineData[0]);
-                            newTicketId = lastTicketId + 1;
-                        }
-                        else
-                        {
-                            newTicketId = 90001;
-                        }
-                    }
-                    else
-                    {
-                        newTicketId = 90001;
-                    }
-
-                    // setting StreamWriter to true appends a new line instead of overwriting existing lines
-                    using (StreamWriter writer = new StreamWriter(_ticketInfoFile, true))
-                    {
-                        writer.WriteLine(
-                            $"{newTicketId}," +
-                            $"{this.TicketInfo.SelectedMovie.Title}," +
-                            $"{this.TicketInfo.SelectedSession.Time.ToString("HH:mm")}," +
-                            $"{this.TicketInfo.Price:F2}," + // two decimal digits without the $ sign
-                            $"{this.TicketInfo.SubTotal:F2}," +
-                            $"{this.TicketInfo.Quantity}," +
-                            $"{this.TicketInfo.TicketType}," +
-                            $"{this.TicketInfo.MovieId}," +
-                            $"{currentUser.Id}"
-                        );
-                    }
-                }
-                catch (FileNotFoundException ex)
-                {
-                    Debug.WriteLine(ex.Message);
-                    Debug.WriteLine(Directory.GetCurrentDirectory());
-                    return;
-                }  
-            }
-            else
-            {
-                MessageBox.Show("There is no user currently logged in!");
-            }
-        }
-
-
 
         private void btn_Continue_Click(object sender, EventArgs e)
         {
-            //SaveTicketToFile();
-            Form_Seat_Selection form = new Form_Seat_Selection(this.TicketInfo);
+            Form_Seat_Selection form = new Form_Seat_Selection();
             form.Show();
             this.Close();
         }
