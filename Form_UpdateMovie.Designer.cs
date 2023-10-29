@@ -210,6 +210,7 @@
             movieGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             movieGrid.Size = new Size(742, 200);
             movieGrid.TabIndex = 24;
+            movieGrid.CellClick += movieGrid_CelLClick;
             // 
             // label8
             // 
