@@ -34,7 +34,7 @@ namespace MovieTicketApp
             textBox_Hours.Text = selectedRow.Cells[3].Value.ToString();
             textBox_Minutes.Text = selectedRow.Cells[4].Value.ToString();
             textBox_Description.Text = selectedRow.Cells[8].Value.ToString();
-            textBox_Poster.Text = selectedRow.Cells[10].Value.ToString();
+            textBox_Poster.Text = selectedRow.Cells[11].Value.ToString();
 
             int year = int.Parse(selectedRow.Cells[5].Value.ToString());
             int month = int.Parse(selectedRow.Cells[6].Value.ToString());
