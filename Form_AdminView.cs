@@ -37,10 +37,16 @@ namespace MovieTicketApp
 
             frm_Login login = new frm_Login();
             login.Show();
-            this.Close();
+            this.Hide();
 
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form_UpdateSessions form = new Form_UpdateSessions();
+            form.Show();
+            this.Hide();
+        }
     }
 }
