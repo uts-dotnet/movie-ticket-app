@@ -24,6 +24,9 @@ namespace MovieTicketApp
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
+            //Save changes
+            FileManager.SaveUserData();
+
             Form_AdminView admin = new Form_AdminView();
             admin.Show();
             this.Close();
@@ -140,7 +143,6 @@ namespace MovieTicketApp
             }
         }
 
-
         private bool ValidateUserData(int userId, string username, string password, string firstName, string lastName)
         {
             // Check if all fields are filled out
@@ -162,6 +164,15 @@ namespace MovieTicketApp
             if (password.Length < 4)
             {
                 MessageBox.Show("Password must be at least 4 characters long.");
+                return false;
+            }
+
+            // Check for duplicate users
+            bool isDuplicateUser = GlobalData.UserData.Any(user => user.Username == username);
+
+            if (isDuplicateUser)
+            {
+                MessageBox.Show("User with the same username already exists.");
                 return false;
             }
 

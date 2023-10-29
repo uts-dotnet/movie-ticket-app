@@ -197,6 +197,7 @@
             button1.Text = "Exit";
             button1.TextImageRelation = TextImageRelation.TextAboveImage;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // bookingGrid
             // 

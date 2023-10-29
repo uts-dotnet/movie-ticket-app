@@ -50,9 +50,9 @@ namespace MovieTicketApp
             {
                 string[] lines = File.ReadAllLines(_loginFile);
 
-                foreach (string line in lines)
+                for (int i = 1; i < lines.Length; i++) // Start at index 1 to skip the header
                 {
-                    string[] data = line.Split(",");
+                    string[] data = lines[i].Split(",");
 
                     int storedId = Convert.ToInt32(data[0]);
                     string storedUsername = data[1];
@@ -77,6 +77,7 @@ namespace MovieTicketApp
                 return false;
             }
         }
+
 
         private void lbl_SignUp_Click(object sender, EventArgs e)
         {

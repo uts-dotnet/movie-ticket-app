@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MovieTicketApp.src.Managers;
 using MovieTicketApp.src.User;
 
 namespace MovieTicketApp
@@ -59,6 +60,8 @@ namespace MovieTicketApp
             Form_UserProfile form = new Form_UserProfile();
             form.Show();
             this.Close();
+
+            FileManager.SaveUserData();
             MessageBox.Show("Password changed successfully.");
         }
 

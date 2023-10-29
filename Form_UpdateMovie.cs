@@ -27,6 +27,7 @@ namespace MovieTicketApp
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
+            FileManager.SaveMovies();
             Form_AdminView admin = new Form_AdminView();
             admin.Show();
             this.Close();
@@ -194,6 +195,15 @@ namespace MovieTicketApp
             if (string.IsNullOrWhiteSpace(poster) || !allowedExtensions.Contains(fileExtension, StringComparer.OrdinalIgnoreCase))
             {
                 MessageBox.Show("Please provide a valid poster file with a .png or .jpg extension.");
+                return false;
+            }
+
+            // Check for duplicate movies
+            bool isDuplicateMovie = GlobalData.Movies.Any(movie => movie.Title == title);
+
+            if (isDuplicateMovie)
+            {
+                MessageBox.Show("Movie with the same title already exists.");
                 return false;
             }
 

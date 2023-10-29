@@ -195,9 +195,9 @@
             // 
             button1.Location = new Point(37, 25);
             button1.Name = "button1";
-            button1.Size = new Size(100, 23);
+            button1.Size = new Size(136, 23);
             button1.TabIndex = 25;
-            button1.Text = "Exit";
+            button1.Text = "Exit and Save Changes";
             button1.TextImageRelation = TextImageRelation.TextAboveImage;
             button1.UseVisualStyleBackColor = true;
             button1.Click += btn_Cancel_Click;
