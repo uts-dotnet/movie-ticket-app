@@ -55,6 +55,7 @@ namespace MovieTicketApp
         {
             TextBox[] textBoxes = { txt_Email, txt_Password, txt_FirstName, txt_LastName };
 
+            // Only save credentials if all input fields are filled in and not blank
             if (textBoxes.All(txt => !string.IsNullOrWhiteSpace(txt.Text)))
             {
                 email = txt_Email.Text;
@@ -65,7 +66,7 @@ namespace MovieTicketApp
                 SaveCredentialsToFile();
                 MessageBox.Show("Sign up successfull!");
 
-                frm_Login login = new frm_Login();
+                Form_Login login = new Form_Login();
                 login.Show();
                 this.Close();
             }
@@ -77,7 +78,7 @@ namespace MovieTicketApp
 
         private void lbl_LogIn_Click(object sender, EventArgs e)
         {
-            frm_Login loginForm = new frm_Login();
+            Form_Login loginForm = new Form_Login();
             loginForm.Show();
             this.Hide();
         }

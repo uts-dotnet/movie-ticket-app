@@ -5,6 +5,7 @@ namespace MovieTicketApp
 {
     public partial class Form_Checkout : Form
     {
+        // the fields are written with an underscore to comply with the format recommended by Microsoft
         private string _cardName = "";
         private string _cardNumber = "";
         private string _expiryDate = "";
@@ -24,9 +25,11 @@ namespace MovieTicketApp
             lbl_BookingFee_Value.Text = _bookingFee.ToString("C");
             lbl_Total_Value.Text = _total.ToString("C");
 
+            // Set an input limit
             txt_CardNumber.MaxLength = 16;
             txt_ExpiryDate.MaxLength = 5;
             txt_CVV.MaxLength = 3;
+
             txt_CardName.TextChanged += TextFields_TextChanged;
             txt_CardNumber.TextChanged += TextFields_TextChanged;
             txt_ExpiryDate.TextChanged += TextFields_TextChanged;
@@ -44,6 +47,11 @@ namespace MovieTicketApp
 
         private void TextFields_TextChanged(object sender, EventArgs e)
         {
+            /*
+             * This method keeps track of the state of each input field.
+             * If all of them end up matching the expected format, the "Pay" button is enabled,
+             * otherwise it remains disabled.
+             */
             _cardName = txt_CardName.Text;
             _cardNumber = txt_CardNumber.Text;
             _expiryDate = txt_ExpiryDate.Text;
@@ -92,7 +100,9 @@ namespace MovieTicketApp
         {
             User user = CurrentUserManager.Instance.CurrentUser;
             txt_CardName.Text = user.FullName;
-            txt_CardNumber.Text = string.Concat(Enumerable.Repeat("1234", 4)); // just to make sure that there are 16 numbers
+
+            // just to make sure that there are 16 numbers for safety instead of hardcoding all of them
+            txt_CardNumber.Text = string.Concat(Enumerable.Repeat("1234", 4));
             txt_ExpiryDate.Text = "01/25";
             txt_CVV.Text = "444";
 

@@ -12,6 +12,9 @@ namespace MovieTicketApp
 {
     public partial class Form_Receipt : Form
     {
+        // These fields are named with an underscore to comply with the format recommended by Microsoft
+        // https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/fields
+
         private double _bookingFee = 1.63;
         private double _total;
 
@@ -25,9 +28,9 @@ namespace MovieTicketApp
         private void InitializeLabels()
         {
             lbl_MovieTitle.Text = TicketInfo.SelectedMovie.Title;
-            lbl_SessionTime_Value.Text = TicketInfo.SelectedSession.Time.ToString("HH:mm");
-            lbl_Subtotal_Value.Text = TicketInfo.SubTotal.ToString("C");
-            lbl_BookingFee_Value.Text = _bookingFee.ToString("C");
+            lbl_SessionTime_Value.Text = TicketInfo.SelectedSession.Time.ToString("HH:mm"); // format to print the time in 24h notation
+            lbl_Subtotal_Value.Text = TicketInfo.SubTotal.ToString("C"); // format to print the subtotal as a currency value, with the $ sign included
+            lbl_BookingFee_Value.Text = _bookingFee.ToString("C"); // same as the format of subtotal
 
             _total = TicketInfo.SubTotal + _bookingFee;
             lbl_Total_Value.Text = _total.ToString("C");
@@ -51,6 +54,12 @@ namespace MovieTicketApp
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
+            /*
+             * This method saves the data stored in TicketInfo to a .txt file.
+             * The file can be saved anywhere in the user's computer.    
+             */
+
+            // user is the current logged in user
             User user = CurrentUserManager.Instance.CurrentUser;
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -87,7 +96,7 @@ namespace MovieTicketApp
 
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            frm_Login form = new frm_Login();
+            Form_Login form = new Form_Login();
             form.Show();
             this.Close();
         }

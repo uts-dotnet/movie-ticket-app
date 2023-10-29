@@ -4,6 +4,11 @@ namespace MovieTicketApp
 {
     public static class TicketInfo
     {
+        /*
+         * This static class stores data related to a movie ticket in order to allow for reusability of data across the app.
+         * Since we are not using databases, this seemed like a suitable alternative.
+         * Please note that not every field is initialised in the constructor, but instead reserved for when they are truly needed.
+         */
         public static int MovieId { get; private set;  }
         public static Movie SelectedMovie { get; set; }
         public static MovieSession SelectedSession { get; set; }
@@ -34,6 +39,7 @@ namespace MovieTicketApp
 
         private static int CompareSeats(string s1, string s2)
         {
+            // Compare the seat number before sorting
             int seatNum1 = int.Parse(s1.Split(" ")[1]);
             int seatNum2 = int.Parse(s2.Split(" ")[1]);
 

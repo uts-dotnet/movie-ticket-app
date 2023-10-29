@@ -22,14 +22,13 @@ namespace MovieTicketApp
         {
             InitializeComponent();
 
+            // This is the entry point for setting the data into TicketInfo.
             TicketInfo.SetTicket(selectedMovie, selectedSession, 0, 0, 0, string.Empty);
-
-            TicketInfo.TicketType = string.Empty;
 
             lbl_Movie_Title.Text = TicketInfo.SelectedMovie.Title;
             lbl_Session_Time_Fomatted.Text = TicketInfo.SelectedSession.Time.ToString("HH:mm");
 
-            LoadListView();
+            LoadListViewColumns();
             PopulateListView();
 
             EnableQuantityButtons(false);
@@ -51,7 +50,7 @@ namespace MovieTicketApp
             lbl_Sub_Total_Value.Text = TicketInfo.SubTotal.ToString("C");
         }
 
-        private void LoadListView()
+        private void LoadListViewColumns()
         {
             listView_Session_Tickets.View = View.Details;
             listView_Session_Tickets.Columns.Add("Ticket Type", 150);
@@ -76,6 +75,7 @@ namespace MovieTicketApp
             }
         }
 
+        // This method keeps track of the state of the list view, and performs actions when the state changes
         private void listView_Session_Tickets_SelectedIndexChanged(object sender, EventArgs e)
         {
             EnableQuantityButtons(true);
@@ -90,6 +90,9 @@ namespace MovieTicketApp
                 string priceString = selectedItem.SubItems[1].Text;
 
                 TicketInfo.Price = double.Parse(priceString, NumberStyles.Currency);
+
+                // When users click on a ticket type, the program automatically sets the quantity to be 1 by default,
+                // which is why, at this stage, the sub total is the same as the price of a single ticket.
                 TicketInfo.SubTotal = TicketInfo.Price;
 
                 lbl_Ticket_Price_Value.Text = TicketInfo.Price.ToString("C");
@@ -144,6 +147,7 @@ namespace MovieTicketApp
             TicketInfo.Price = Convert.ToDouble(lbl_Ticket_Price_Value.Text.Trim('$'));
             TicketInfo.SubTotal = Convert.ToDouble(lbl_Sub_Total_Value.Text.Trim('$'));
 
+            // Ensure that only a max of 10 tickets can be selected at a time
             if (TicketInfo.Quantity < 10)
             {
                 TicketInfo.Quantity++;
@@ -195,7 +199,7 @@ namespace MovieTicketApp
 
         private void btn_Log_Out_Click(object sender, EventArgs e)
         {
-            frm_Login form = new frm_Login();
+            Form_Login form = new Form_Login();
             form.Show();
             this.Close();
         }

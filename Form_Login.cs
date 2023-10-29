@@ -3,11 +3,11 @@ using System.Diagnostics;
 
 namespace MovieTicketApp
 {
-    public partial class frm_Login : Form
+    public partial class Form_Login : Form
     {
-        string _loginFile = ".\\login-credentials.txt";
+        private string _loginFile = ".\\login-credentials.txt";
 
-        public frm_Login()
+        public Form_Login()
         {
             InitializeComponent();
         }
@@ -24,18 +24,17 @@ namespace MovieTicketApp
 
             if (ValidateCredentials(enteredUsername, enteredPassword))
             {
-                if(enteredUsername == "admin")
+                if (enteredUsername == "admin")
                 {
-                    Form_AdminView adminView = new Form_AdminView();
-                    adminView.Show();
-                    this.Hide();
+                    Form_AdminView form = new Form_AdminView();
+                    form.Show();
+                    this.Close();
                 }
                 else
                 {
-                    //MessageBox.Show("Login Successful!");
-                    Form_Movies frm_Movies = new Form_Movies();
-                    frm_Movies.Show();
-                    this.Hide();
+                    Form_Movies form = new Form_Movies();
+                    form.Show();
+                    this.Close();
                 }
             }
             else
@@ -50,7 +49,8 @@ namespace MovieTicketApp
             {
                 string[] lines = File.ReadAllLines(_loginFile);
 
-                for (int i = 1; i < lines.Length; i++) // Start at index 1 to skip the header
+                // Start at index 1 to skip the header
+                for (int i = 1; i < lines.Length; i++)
                 {
                     string[] data = lines[i].Split(",");
 
@@ -73,7 +73,6 @@ namespace MovieTicketApp
             catch (FileNotFoundException e)
             {
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine(Directory.GetCurrentDirectory());
                 return false;
             }
         }

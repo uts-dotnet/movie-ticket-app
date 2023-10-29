@@ -50,8 +50,9 @@ namespace MovieTicketApp
                 foreach (string line in lines.Skip(1))
                 {
                     string[] data = line.Split(',');
-
                     int movieId = Convert.ToInt32(data[0]);
+
+                    // the poster file is written as name.jpg and is the last part of each line of the the movies file
                     string posterFile = data[data.Length - 1];
 
                     if (TicketInfo.SelectedMovie.Id == movieId)
@@ -77,17 +78,17 @@ namespace MovieTicketApp
 
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            frm_Login form = new frm_Login();
+            Form_Login form = new Form_Login();
             form.Show();
             this.Close();
         }
 
         private void btn_Checkout_Click(object sender, EventArgs e)
         {
-      
+            // Getting the details of the currently logged in user
             User currentUser = CurrentUserManager.Instance.CurrentUser;
 
-            // Format booked seats
+            // When seats are selected they are formatted as "Seat 1". This extracts only the seat number
             string seatsBooked = string.Join("-", TicketInfo.BookedSeats.Select(seat => seat.Name.Split().Last()));
 
             //Create a new booking object
