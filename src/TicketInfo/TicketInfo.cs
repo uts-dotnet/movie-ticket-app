@@ -29,6 +29,15 @@ namespace MovieTicketApp
         public static void AddSeat(Seat seat)
         {
             BookedSeats.Add(seat);
+            BookedSeats.Sort((s1, s2) => CompareSeats(s1.Name, s2.Name));
+        }
+
+        private static int CompareSeats(string s1, string s2)
+        {
+            int seatNum1 = int.Parse(s1.Split(" ")[1]);
+            int seatNum2 = int.Parse(s2.Split(" ")[1]);
+
+            return seatNum1.CompareTo(seatNum2);
         }
     }
 }
