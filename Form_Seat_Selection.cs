@@ -5,7 +5,7 @@ namespace MovieTicketApp
 {
     public partial class Form_Seat_Selection : Form
     {
-        private static int seatsRemaining = TicketInfo.Quantity;
+        private static int _seatsRemaining = TicketInfo.Quantity;
         private int _totalSeatsSelected = 0;
 
         public Form_Seat_Selection()
@@ -14,7 +14,7 @@ namespace MovieTicketApp
             SetContinueButton(false);
             LoadSeats();
 
-            if (seatsRemaining == 0)
+            if (_seatsRemaining == 0)
             {
                 listBox_Seats.Enabled = false;
             }
@@ -28,7 +28,7 @@ namespace MovieTicketApp
         private void LoadSeats()
         {
             lbl_Seats_Available_Value.Text = TicketInfo.SelectedSession.AvailableSeats.ToString();
-            lbl_Total_Seats_Remaining_Value.Text = seatsRemaining.ToString();
+            lbl_Total_Seats_Remaining_Value.Text = _seatsRemaining.ToString();
 
             listBox_Seats.Items.Clear();
 
@@ -59,8 +59,8 @@ namespace MovieTicketApp
                 TicketInfo.SelectedSession.AvailableSeats--;
                 lbl_Seats_Available_Value.Text = TicketInfo.SelectedSession.AvailableSeats.ToString();
 
-                seatsRemaining--;
-                lbl_Total_Seats_Remaining_Value.Text = seatsRemaining.ToString();
+                _seatsRemaining--;
+                lbl_Total_Seats_Remaining_Value.Text = _seatsRemaining.ToString();
 
                 // disable the list box if the user can't select any more seats
                 if (_totalSeatsSelected == TicketInfo.Quantity)
@@ -68,7 +68,7 @@ namespace MovieTicketApp
                     listBox_Seats.Enabled = false;
                 }
 
-                if (seatsRemaining == 0)
+                if (_seatsRemaining == 0)
                 {
                     SetContinueButton(true);
                 }

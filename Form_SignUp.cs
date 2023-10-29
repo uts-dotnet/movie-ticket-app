@@ -55,6 +55,7 @@ namespace MovieTicketApp
         {
             TextBox[] textBoxes = { txt_Email, txt_Password, txt_FirstName, txt_LastName };
 
+            // Only save credentials if all input fields are filled in and not blank
             if (textBoxes.All(txt => !string.IsNullOrWhiteSpace(txt.Text)))
             {
                 email = txt_Email.Text;
