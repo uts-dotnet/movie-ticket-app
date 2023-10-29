@@ -33,7 +33,6 @@
             btn_EditMovie = new Button();
             btn_Log_Out = new Button();
             button1 = new Button();
-            button2 = new Button();
             SuspendLayout();
             // 
             // lbl_Title_SignUp
@@ -50,7 +49,7 @@
             // btn_EditUser
             // 
             btn_EditUser.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_EditUser.Location = new Point(289, 111);
+            btn_EditUser.Location = new Point(289, 130);
             btn_EditUser.Name = "btn_EditUser";
             btn_EditUser.Size = new Size(219, 39);
             btn_EditUser.TabIndex = 6;
@@ -61,7 +60,7 @@
             // btn_EditMovie
             // 
             btn_EditMovie.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_EditMovie.Location = new Point(289, 168);
+            btn_EditMovie.Location = new Point(289, 187);
             btn_EditMovie.Name = "btn_EditMovie";
             btn_EditMovie.Size = new Size(219, 40);
             btn_EditMovie.TabIndex = 9;
@@ -73,17 +72,18 @@
             // 
             btn_Log_Out.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_Log_Out.ForeColor = Color.Firebrick;
-            btn_Log_Out.Location = new Point(351, 352);
+            btn_Log_Out.Location = new Point(348, 342);
             btn_Log_Out.Name = "btn_Log_Out";
             btn_Log_Out.Size = new Size(87, 33);
             btn_Log_Out.TabIndex = 18;
             btn_Log_Out.Text = "Log Out";
             btn_Log_Out.UseVisualStyleBackColor = true;
+            btn_Log_Out.Click += btn_Log_Out_Click;
             // 
             // button1
             // 
             button1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(263, 231);
+            button1.Location = new Point(263, 250);
             button1.Name = "button1";
             button1.Size = new Size(274, 40);
             button1.TabIndex = 19;
@@ -91,22 +91,11 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(263, 290);
-            button2.Name = "button2";
-            button2.Size = new Size(274, 40);
-            button2.TabIndex = 20;
-            button2.Text = "Manage Bookings";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // Form_AdminView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(btn_Log_Out);
             Controls.Add(btn_EditMovie);
@@ -130,6 +119,5 @@
         private Label label1;
         private Button btn_Log_Out;
         private Button button1;
-        private Button button2;
     }
 }

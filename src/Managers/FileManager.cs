@@ -20,9 +20,9 @@ namespace MovieTicketApp.src.Managers
         public static void Save()
         {
             SaveMovies();
-            SaveSessions();
-            SaveUserData();
-            SaveBookings();
+            //SaveSessions();
+            //SaveUserData();
+            //SaveBookings();
         }
 
         /* MOVIE HANDLING */
