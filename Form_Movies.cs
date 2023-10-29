@@ -91,6 +91,7 @@ namespace MovieTicketApp
 
         private void btn_Log_Out_Click(object sender, EventArgs e)
         {
+            FileManager.Save();
             frm_Login login = new frm_Login();
             login.Show();
             this.Close();

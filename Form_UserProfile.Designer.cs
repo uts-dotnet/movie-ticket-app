@@ -33,7 +33,6 @@
             listBox_Bookings = new ListBox();
             pic_Ticket = new PictureBox();
             label2 = new Label();
-            label3 = new Label();
             btn_GoToChangePW = new Button();
             btn_BackToMovies = new Button();
             lbl_MovieName = new Label();
@@ -90,35 +89,30 @@
             label2.TabIndex = 17;
             label2.Text = "View Bookings";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(364, 66);
-            label3.Name = "label3";
-            label3.Size = new Size(53, 21);
-            label3.TabIndex = 20;
-            label3.Text = "Name";
-            label3.TextAlign = ContentAlignment.TopCenter;
-            // 
             // btn_GoToChangePW
             // 
-            btn_GoToChangePW.Location = new Point(633, 30);
+            btn_GoToChangePW.BackColor = Color.Firebrick;
+            btn_GoToChangePW.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_GoToChangePW.ForeColor = Color.White;
+            btn_GoToChangePW.Location = new Point(610, 30);
             btn_GoToChangePW.Name = "btn_GoToChangePW";
-            btn_GoToChangePW.Size = new Size(143, 23);
+            btn_GoToChangePW.Size = new Size(166, 36);
             btn_GoToChangePW.TabIndex = 21;
             btn_GoToChangePW.Text = "Change Password";
-            btn_GoToChangePW.UseVisualStyleBackColor = true;
+            btn_GoToChangePW.UseVisualStyleBackColor = false;
             btn_GoToChangePW.Click += btn_GoToChangePW_Click;
             // 
             // btn_BackToMovies
             // 
+            btn_BackToMovies.BackColor = Color.Firebrick;
+            btn_BackToMovies.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_BackToMovies.ForeColor = Color.White;
             btn_BackToMovies.Location = new Point(45, 30);
             btn_BackToMovies.Name = "btn_BackToMovies";
-            btn_BackToMovies.Size = new Size(75, 23);
+            btn_BackToMovies.Size = new Size(111, 36);
             btn_BackToMovies.TabIndex = 22;
             btn_BackToMovies.Text = "Go Back";
-            btn_BackToMovies.UseVisualStyleBackColor = true;
+            btn_BackToMovies.UseVisualStyleBackColor = false;
             btn_BackToMovies.Click += btn_BackToMovies_Click;
             // 
             // lbl_MovieName
@@ -165,14 +159,14 @@
             Controls.Add(lbl_MovieName);
             Controls.Add(btn_BackToMovies);
             Controls.Add(btn_GoToChangePW);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(pic_Ticket);
             Controls.Add(listBox_Bookings);
             Controls.Add(label1);
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_UserProfile";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "User Profile";
             Load += Form_UserProfile_Load;
             ((System.ComponentModel.ISupportInitialize)pic_Ticket).EndInit();
             ResumeLayout(false);
@@ -187,7 +181,6 @@
         private PictureBox pic_Ticket;
         private Label label2;
         private Label btn_ChangePW;
-        private Label label3;
         private Button btn_GoToChangePW;
         private Button btn_BackToMovies;
         private Label lbl_MovieName;

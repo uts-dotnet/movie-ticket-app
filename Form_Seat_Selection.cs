@@ -103,23 +103,7 @@ namespace MovieTicketApp
 
         private void btn_Confirm_Click(object sender, EventArgs e)
         {
-            User currentUser = CurrentUserManager.Instance.CurrentUser;
-
-            // Format booked seats
-            string seatsBooked = string.Join("-", TicketInfo.BookedSeats.Select(seat => seat.Name.Split().Last()));
-
-            //Create a new booking object
-            Booking newBooking = Booking.CreateNewBooking(
-                TicketInfo.MovieId,
-                TicketInfo.SelectedSession.Time,
-                TicketInfo.Quantity,
-                seatsBooked,
-                TicketInfo.SubTotal,
-                TicketInfo.TicketType,
-                currentUser.Id
-            );
-
-            Form_Confirm_Booking form = new Form_Confirm_Booking();
+                        Form_Confirm_Booking form = new Form_Confirm_Booking();
             form.Show();
             this.Close();
         }
