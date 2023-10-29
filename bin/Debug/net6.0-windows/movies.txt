@@ -1,5 +1,4 @@
 id,title,genre,hours,minutes,year,month,day,description,poster
 40001,Expand4bles,Action,1,43,2023,10,5,"The Expendables will square up against an arms dealer who commands the might of a massive private army.",expandables.jpg
-40002,Borbies,Adventure,1,54,2023,7,20,"Eccentric and individualistic, Barbie is exiled from Barbieland because of her imperfections. When her home world is in peril, Barbie returns.",barbie.jpg
+40002,Barbie,Adventure,1,54,2023,7,20,"Eccentric and individualistic, Barbie is exiled from Barbieland because of her imperfections. When her home world is in peril, Barbie returns.",barbie.jpg
 40003,Saw X,Horror,1,58,2023,9,28,"John Kramer (Tobin Bell) is back. The most disturbing installment of the Saw franchise yet explores the untold chapter of Jigsaw’s most personal game.",saw.jpg
-40004,Blobbies,Adventure,1,54,2023,7,20,"Eccentric and individualistic, Barbie is exiled from Barbieland because of her imperfections. When her home world is in peril, Barbie returns.",barbie.jpg
