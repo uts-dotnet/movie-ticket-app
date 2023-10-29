@@ -44,7 +44,7 @@
             label1 = new Label();
             btn_UpdateMovie = new Button();
             button1 = new Button();
-            movieGrid = new DataGridView();
+            bookingGrid = new DataGridView();
             label8 = new Label();
             textBox1 = new TextBox();
             label11 = new Label();
@@ -52,7 +52,7 @@
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             label5 = new Label();
-            ((System.ComponentModel.ISupportInitialize)movieGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bookingGrid).BeginInit();
             SuspendLayout();
             // 
             // textBox_Poster
@@ -198,18 +198,18 @@
             button1.TextImageRelation = TextImageRelation.TextAboveImage;
             button1.UseVisualStyleBackColor = true;
             // 
-            // movieGrid
+            // bookingGrid
             // 
-            movieGrid.AllowUserToAddRows = false;
-            movieGrid.AllowUserToDeleteRows = false;
-            movieGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            movieGrid.Location = new Point(29, 240);
-            movieGrid.Name = "movieGrid";
-            movieGrid.ReadOnly = true;
-            movieGrid.RowTemplate.Height = 25;
-            movieGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            movieGrid.Size = new Size(742, 200);
-            movieGrid.TabIndex = 49;
+            bookingGrid.AllowUserToAddRows = false;
+            bookingGrid.AllowUserToDeleteRows = false;
+            bookingGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            bookingGrid.Location = new Point(29, 240);
+            bookingGrid.Name = "bookingGrid";
+            bookingGrid.ReadOnly = true;
+            bookingGrid.RowTemplate.Height = 25;
+            bookingGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            bookingGrid.Size = new Size(742, 200);
+            bookingGrid.TabIndex = 49;
             // 
             // label8
             // 
@@ -297,11 +297,11 @@
             Controls.Add(label1);
             Controls.Add(btn_UpdateMovie);
             Controls.Add(button1);
-            Controls.Add(movieGrid);
+            Controls.Add(bookingGrid);
             Controls.Add(label8);
             Name = "Form_UpdateBookings";
             Text = "Form_UpdateBookings";
-            ((System.ComponentModel.ISupportInitialize)movieGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bookingGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -324,7 +324,7 @@
         private Label label1;
         private Button btn_UpdateMovie;
         private Button button1;
-        private DataGridView movieGrid;
+        private DataGridView bookingGrid;
         private Label label8;
         private TextBox textBox1;
         private Label label11;
