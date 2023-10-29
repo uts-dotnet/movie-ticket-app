@@ -106,7 +106,6 @@
             btn_TEST.Text = "TEST";
             btn_TEST.UseVisualStyleBackColor = true;
             btn_TEST.Visible = false;
-            btn_TEST.Click += btn_TEST_Click;
             // 
             // Form_AdminView
             // 

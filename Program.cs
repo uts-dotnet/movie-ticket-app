@@ -28,7 +28,7 @@ namespace MovieTicketApp
         // Handle the application exit event
         private static void OnApplicationExit(object sender, EventArgs e)
         {
-            MessageBox.Show("OnApplicationExit hit ");
+            //MessageBox.Show("OnApplicationExit hit ");
 
             Debug.WriteLine("Application is exiting. Saving data...");
 
