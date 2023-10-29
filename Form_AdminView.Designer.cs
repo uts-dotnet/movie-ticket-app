@@ -50,6 +50,7 @@
             // btn_EditUser
             // 
             btn_EditUser.BackColor = Color.Firebrick;
+            btn_EditUser.Cursor = Cursors.Hand;
             btn_EditUser.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btn_EditUser.ForeColor = Color.White;
             btn_EditUser.Location = new Point(289, 146);
@@ -63,6 +64,7 @@
             // btn_EditMovie
             // 
             btn_EditMovie.BackColor = Color.Firebrick;
+            btn_EditMovie.Cursor = Cursors.Hand;
             btn_EditMovie.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btn_EditMovie.ForeColor = Color.White;
             btn_EditMovie.Location = new Point(289, 227);
@@ -75,6 +77,7 @@
             // 
             // btn_Log_Out
             // 
+            btn_Log_Out.Cursor = Cursors.Hand;
             btn_Log_Out.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_Log_Out.ForeColor = Color.Firebrick;
             btn_Log_Out.Location = new Point(358, 342);

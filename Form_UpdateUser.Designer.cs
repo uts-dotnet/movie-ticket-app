@@ -133,6 +133,7 @@
             // btn_Cancel
             // 
             btn_Cancel.BackColor = Color.Firebrick;
+            btn_Cancel.Cursor = Cursors.Hand;
             btn_Cancel.ForeColor = Color.White;
             btn_Cancel.Location = new Point(23, 25);
             btn_Cancel.Name = "btn_Cancel";
@@ -146,6 +147,7 @@
             // btn_UpdateData
             // 
             btn_UpdateData.BackColor = Color.Firebrick;
+            btn_UpdateData.Cursor = Cursors.Hand;
             btn_UpdateData.ForeColor = Color.White;
             btn_UpdateData.Location = new Point(316, 159);
             btn_UpdateData.Name = "btn_UpdateData";
@@ -223,6 +225,7 @@
             // btn_CreateNewUser
             // 
             btn_CreateNewUser.BackColor = Color.Firebrick;
+            btn_CreateNewUser.Cursor = Cursors.Hand;
             btn_CreateNewUser.ForeColor = Color.White;
             btn_CreateNewUser.Location = new Point(148, 159);
             btn_CreateNewUser.Name = "btn_CreateNewUser";
@@ -274,6 +277,7 @@
             // btn_DeleteUser
             // 
             btn_DeleteUser.BackColor = Color.Firebrick;
+            btn_DeleteUser.Cursor = Cursors.Hand;
             btn_DeleteUser.ForeColor = Color.White;
             btn_DeleteUser.Location = new Point(489, 159);
             btn_DeleteUser.Name = "btn_DeleteUser";
