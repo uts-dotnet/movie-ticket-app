@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {
@@ -19,6 +20,8 @@ namespace MovieTicketApp
             {
                 listBox_Seats.Items.Add(seat.Name);
             }
+
+            FileManager.Save();
         }
 
         private void Form_Confirm_Booking_FormClosed(object sender, FormClosedEventArgs e)
@@ -81,6 +84,25 @@ namespace MovieTicketApp
 
         private void btn_Checkout_Click(object sender, EventArgs e)
         {
+      
+            User currentUser = CurrentUserManager.Instance.CurrentUser;
+
+            // Format booked seats
+            string seatsBooked = string.Join("-", TicketInfo.BookedSeats.Select(seat => seat.Name.Split().Last()));
+
+            //Create a new booking object
+            Booking newBooking = Booking.CreateNewBooking(
+                TicketInfo.MovieId,
+                TicketInfo.SelectedSession.Time,
+                TicketInfo.Quantity,
+                seatsBooked,
+                TicketInfo.SubTotal,
+                TicketInfo.TicketType,
+                currentUser.Id
+            );
+
+            FileManager.SaveBookings();
+
             Form_Checkout form = new Form_Checkout();
             form.Show();
             this.Close();

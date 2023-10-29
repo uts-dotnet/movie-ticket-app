@@ -58,13 +58,15 @@
             // 
             // btn_DeleteMovie
             // 
+            btn_DeleteMovie.BackColor = Color.Firebrick;
+            btn_DeleteMovie.ForeColor = Color.White;
             btn_DeleteMovie.Location = new Point(479, 203);
             btn_DeleteMovie.Name = "btn_DeleteMovie";
             btn_DeleteMovie.Size = new Size(140, 23);
             btn_DeleteMovie.TabIndex = 40;
             btn_DeleteMovie.Text = "Delete Selected Movie";
             btn_DeleteMovie.TextImageRelation = TextImageRelation.TextBeforeImage;
-            btn_DeleteMovie.UseVisualStyleBackColor = true;
+            btn_DeleteMovie.UseVisualStyleBackColor = false;
             btn_DeleteMovie.Click += btn_DeleteMovie_Click;
             // 
             // label7
@@ -88,13 +90,15 @@
             // 
             // btn_CreateMovie
             // 
+            btn_CreateMovie.BackColor = Color.Firebrick;
+            btn_CreateMovie.ForeColor = Color.White;
             btn_CreateMovie.Location = new Point(168, 203);
             btn_CreateMovie.Name = "btn_CreateMovie";
             btn_CreateMovie.Size = new Size(114, 23);
             btn_CreateMovie.TabIndex = 37;
             btn_CreateMovie.Text = "Create New Movie";
             btn_CreateMovie.TextImageRelation = TextImageRelation.TextBeforeImage;
-            btn_CreateMovie.UseVisualStyleBackColor = true;
+            btn_CreateMovie.UseVisualStyleBackColor = false;
             btn_CreateMovie.Click += btn_CreateNewMovie_Click;
             // 
             // textBox_Description
@@ -182,24 +186,28 @@
             // 
             // btn_UpdateMovie
             // 
+            btn_UpdateMovie.BackColor = Color.Firebrick;
+            btn_UpdateMovie.ForeColor = Color.White;
             btn_UpdateMovie.Location = new Point(319, 203);
             btn_UpdateMovie.Name = "btn_UpdateMovie";
             btn_UpdateMovie.Size = new Size(129, 23);
             btn_UpdateMovie.TabIndex = 26;
             btn_UpdateMovie.Text = "Update Movie Data";
             btn_UpdateMovie.TextImageRelation = TextImageRelation.TextBeforeImage;
-            btn_UpdateMovie.UseVisualStyleBackColor = true;
+            btn_UpdateMovie.UseVisualStyleBackColor = false;
             btn_UpdateMovie.Click += btn_UpdateMovie_Click;
             // 
             // button1
             // 
+            button1.BackColor = Color.Firebrick;
+            button1.ForeColor = Color.White;
             button1.Location = new Point(37, 25);
             button1.Name = "button1";
             button1.Size = new Size(136, 23);
             button1.TabIndex = 25;
             button1.Text = "Exit and Save Changes";
             button1.TextImageRelation = TextImageRelation.TextAboveImage;
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += btn_Cancel_Click;
             // 
             // movieGrid
@@ -318,7 +326,8 @@
             Controls.Add(movieGrid);
             Controls.Add(label8);
             Name = "Form_UpdateMovie";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Manage Movies";
             Load += Form_UpdateMovie_Load;
             ((System.ComponentModel.ISupportInitialize)movieGrid).EndInit();
             ResumeLayout(false);

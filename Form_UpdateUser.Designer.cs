@@ -132,24 +132,28 @@
             // 
             // btn_Cancel
             // 
-            btn_Cancel.Location = new Point(37, 25);
+            btn_Cancel.BackColor = Color.Firebrick;
+            btn_Cancel.ForeColor = Color.White;
+            btn_Cancel.Location = new Point(23, 25);
             btn_Cancel.Name = "btn_Cancel";
             btn_Cancel.Size = new Size(148, 23);
             btn_Cancel.TabIndex = 7;
             btn_Cancel.Text = "Exit and Save Changes";
             btn_Cancel.TextImageRelation = TextImageRelation.TextAboveImage;
-            btn_Cancel.UseVisualStyleBackColor = true;
+            btn_Cancel.UseVisualStyleBackColor = false;
             btn_Cancel.Click += btn_Cancel_Click;
             // 
             // btn_UpdateData
             // 
+            btn_UpdateData.BackColor = Color.Firebrick;
+            btn_UpdateData.ForeColor = Color.White;
             btn_UpdateData.Location = new Point(316, 159);
             btn_UpdateData.Name = "btn_UpdateData";
             btn_UpdateData.Size = new Size(129, 23);
             btn_UpdateData.TabIndex = 8;
             btn_UpdateData.Text = "Update User Data";
             btn_UpdateData.TextImageRelation = TextImageRelation.TextBeforeImage;
-            btn_UpdateData.UseVisualStyleBackColor = true;
+            btn_UpdateData.UseVisualStyleBackColor = false;
             btn_UpdateData.Click += btn_UpdateData_Click;
             // 
             // label2
@@ -218,13 +222,15 @@
             // 
             // btn_CreateNewUser
             // 
+            btn_CreateNewUser.BackColor = Color.Firebrick;
+            btn_CreateNewUser.ForeColor = Color.White;
             btn_CreateNewUser.Location = new Point(148, 159);
             btn_CreateNewUser.Name = "btn_CreateNewUser";
             btn_CreateNewUser.Size = new Size(114, 23);
             btn_CreateNewUser.TabIndex = 19;
             btn_CreateNewUser.Text = "Create New User";
             btn_CreateNewUser.TextImageRelation = TextImageRelation.TextBeforeImage;
-            btn_CreateNewUser.UseVisualStyleBackColor = true;
+            btn_CreateNewUser.UseVisualStyleBackColor = false;
             btn_CreateNewUser.Click += btn_CreateNewUser_Click;
             // 
             // label1
@@ -267,13 +273,15 @@
             // 
             // btn_DeleteUser
             // 
+            btn_DeleteUser.BackColor = Color.Firebrick;
+            btn_DeleteUser.ForeColor = Color.White;
             btn_DeleteUser.Location = new Point(489, 159);
             btn_DeleteUser.Name = "btn_DeleteUser";
             btn_DeleteUser.Size = new Size(140, 23);
             btn_DeleteUser.TabIndex = 22;
             btn_DeleteUser.Text = "Delete Selected User";
             btn_DeleteUser.TextImageRelation = TextImageRelation.TextBeforeImage;
-            btn_DeleteUser.UseVisualStyleBackColor = true;
+            btn_DeleteUser.UseVisualStyleBackColor = false;
             btn_DeleteUser.Click += btn_DeleteUser_Click;
             // 
             // Form_UpdateUser
@@ -300,7 +308,8 @@
             Controls.Add(userGrid);
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_UpdateUser";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Manage Users";
             ((System.ComponentModel.ISupportInitialize)userGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)userDataBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();

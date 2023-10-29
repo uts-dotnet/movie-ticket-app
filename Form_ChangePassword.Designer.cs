@@ -117,22 +117,28 @@
             // 
             // btn_ChangePW
             // 
-            btn_ChangePW.Location = new Point(349, 356);
+            btn_ChangePW.BackColor = Color.Firebrick;
+            btn_ChangePW.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ChangePW.ForeColor = Color.White;
+            btn_ChangePW.Location = new Point(338, 355);
             btn_ChangePW.Name = "btn_ChangePW";
-            btn_ChangePW.Size = new Size(75, 23);
+            btn_ChangePW.Size = new Size(93, 34);
             btn_ChangePW.TabIndex = 28;
             btn_ChangePW.Text = "Submit";
-            btn_ChangePW.UseVisualStyleBackColor = true;
+            btn_ChangePW.UseVisualStyleBackColor = false;
             btn_ChangePW.Click += btn_ChangePW_Click;
             // 
             // btn_BackToMovies
             // 
+            btn_BackToMovies.BackColor = Color.Firebrick;
+            btn_BackToMovies.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_BackToMovies.ForeColor = Color.White;
             btn_BackToMovies.Location = new Point(51, 22);
             btn_BackToMovies.Name = "btn_BackToMovies";
-            btn_BackToMovies.Size = new Size(75, 23);
+            btn_BackToMovies.Size = new Size(106, 40);
             btn_BackToMovies.TabIndex = 29;
             btn_BackToMovies.Text = "Go Back";
-            btn_BackToMovies.UseVisualStyleBackColor = true;
+            btn_BackToMovies.UseVisualStyleBackColor = false;
             btn_BackToMovies.Click += btn_BackToMovies_Click;
             // 
             // frm_ChangePassword
@@ -151,6 +157,7 @@
             Controls.Add(label1);
             Controls.Add(lbl_Title_SignUp);
             Name = "frm_ChangePassword";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
