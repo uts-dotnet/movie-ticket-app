@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MovieTicketApp.src.User;
 
 namespace MovieTicketApp
 {
@@ -21,7 +22,6 @@ namespace MovieTicketApp
 
         private void btn_ChangePW_Click(object sender, EventArgs e)
         {
-            string currentPassword = textBox_currentPW.Text;
             string newPassword = textBox_newPW.Text;
             string confirmNewPassword = textBox_confirmPW.Text;
 
@@ -48,9 +48,17 @@ namespace MovieTicketApp
             }
 
             // If input is valid, update the password and perform any necessary actions
-            // (e.g., update the user's password in your data store)
+            User currentUser = CurrentUserManager.Instance.CurrentUser;
+
+            if (currentUser != null)
+            {
+                UserData.ChangePassword(currentUser.Id, newPassword);
+            }
 
             // Provide feedback to the user (e.g., show a success message)
+            Form_UserProfile form = new Form_UserProfile();
+            form.Show();
+            this.Close();
             MessageBox.Show("Password changed successfully.");
         }
 

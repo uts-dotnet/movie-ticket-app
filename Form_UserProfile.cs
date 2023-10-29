@@ -37,6 +37,12 @@ namespace MovieTicketApp
 
             pic_Ticket.SizeMode = PictureBoxSizeMode.StretchImage;
             pic_Ticket.Image = Image.FromFile("ticket.png");
+            pic_Ticket.Visible = false;
+            lbl_MovieName.Visible = false;
+            lbl_MovieTime.Visible = false;
+            lbl_Seats.Visible = false;
+
+
         }
 
         private void Button_Click(object sender, EventArgs e)
@@ -90,16 +96,52 @@ namespace MovieTicketApp
                 // Split the selected booking information into parts
                 string[] parts = selectedBookingInfo.Split(new[] { ", " }, StringSplitOptions.None);
 
-                // Assuming that the title, session, and seats are displayed in this order in the string
-                if (parts.Length >= 3)
+                if (parts.Length >= 2)
                 {
-                    // Update the labels with the selected booking information
-                    lbl_MovieName.Text = "";
-                    lbl_MovieTime.Text = "";
-                    lbl_Seats.Text = "";
+                    string part = parts[1]; // Assuming it's "Booking ID: 3"
+                    string[] splitParts = part.Split(':');
+                    if (splitParts.Length == 2)
+                    {
+                        if (int.TryParse(splitParts[1].Trim(), out int bookingID))
+                        {
+                            // Use LINQ to find the Booking object by bookingID
+                            Booking? selectedBooking = GlobalData.Bookings.FirstOrDefault(booking => booking.BookingID == bookingID);
+
+                            if (selectedBooking != null)
+                            {
+                                // Find the associated Movie based on Movie ID
+                                Movie? movie = GlobalData.Movies.FirstOrDefault(m => m.Id == selectedBooking.MovieID);
+
+                                // Get the movie title using LINQ
+                                string movieTitle = movie != null ? movie.Title : "Movie Not Found";
+
+                                // Now you have the selected Booking object, and you can access its properties
+                                lbl_MovieName.Text = "Movie Title: " + movieTitle;
+                                lbl_MovieTime.Text = "Time: " + selectedBooking.Session.ToString("HH:mm");
+                                lbl_Seats.Text = "Seats: " + selectedBooking.SeatsBooked.Replace('-', ',');
+
+                                pic_Ticket.Visible = true;
+                                lbl_MovieName.Visible = true;
+                                lbl_MovieTime.Visible = true;
+                                lbl_Seats.Visible = true;
+                                lbl_Seats.BackColor = Color.Transparent;
+                                lbl_MovieTime.BackColor = Color.Transparent;
+                                lbl_Seats.BackColor = Color.Transparent;
+                            }
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
             }
         }
+
 
         private void btn_BackToMovies_Click(object sender, EventArgs e)
         {
@@ -108,5 +150,16 @@ namespace MovieTicketApp
             this.Close();
         }
 
+        private void btn_GoToChangePW_Click(object sender, EventArgs e)
+        {
+            frm_ChangePassword form = new frm_ChangePassword();
+            form.Show();
+            this.Close();
+        }
+
+        private void lbl_MovieName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -24,10 +24,19 @@ namespace MovieTicketApp
 
             if (ValidateCredentials(enteredUsername, enteredPassword))
             {
-                //MessageBox.Show("Login Successful!");
-                Form_Movies frm_Movies = new Form_Movies();
-                frm_Movies.Show();
-                this.Hide();
+                if(enteredUsername == "admin")
+                {
+                    Form_AdminView adminView = new Form_AdminView();
+                    adminView.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    //MessageBox.Show("Login Successful!");
+                    Form_Movies frm_Movies = new Form_Movies();
+                    frm_Movies.Show();
+                    this.Hide();
+                }
             }
             else
             {

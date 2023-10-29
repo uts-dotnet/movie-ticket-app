@@ -7,8 +7,6 @@ using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp.src.User
 {
-    [Serializable]
-
     public class UserData
     {
         public int UserId { get; set; }
@@ -44,6 +42,52 @@ namespace MovieTicketApp.src.User
         public override string ToString()
         {
             return $"User ID: {UserId}, Username: {Username}, First Name: {FirstName}, Last Name: {LastName}";
+        }
+
+        public static bool ChangePassword(int userID, string newPassword)
+        {
+            UserData? user = GlobalData.UserData.FirstOrDefault(u => u.UserId == userID);
+
+            if (user != null)
+            {
+                // Update the user's password
+                user.Password = newPassword;
+
+                // Save the updated user information (e.g., in your database)
+                bool success = ChangePasswordInFile(user.Username, newPassword);
+
+                if (success)
+                {
+                    return true; // Password changed successfully
+                }
+            }
+
+            return false; // User not found
+        }
+
+        public static bool ChangePasswordInFile(string username, string newPassword)
+        {
+            string filePath = "login-credentials.txt";
+            string[] lines = File.ReadAllLines(filePath);
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string[] parts = lines[i].Split(',');
+
+                if (parts.Length >= 2 && parts[0] == username)
+                {
+                    // Update the password
+                    parts[1] = newPassword;
+
+                    // Reconstruct the line with updated password
+                    lines[i] = string.Join(",", parts);
+                    File.WriteAllLines(filePath, lines);
+
+                    return true; // Password changed successfully
+                }
+            }
+
+            return false; // User not found
         }
     }
 

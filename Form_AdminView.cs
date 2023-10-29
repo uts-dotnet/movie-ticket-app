@@ -17,18 +17,30 @@ namespace MovieTicketApp
             InitializeComponent();
         }
 
-        private void btn_Back_Click(object sender, EventArgs e)
+        private void btn_EditMovie_Click(object sender, EventArgs e)
         {
-            Form_UserProfile form = new Form_UserProfile();
+            Form_UpdateMovie form = new Form_UpdateMovie();
             form.Show();
-            this.Close();
+            this.Hide();
+
         }
 
-        private void btn_EditUser_Click(object sender, EventArgs e)
+        private void btn_EditUser_Click_1(object sender, EventArgs e)
         {
             Form_UpdateUser form = new Form_UpdateUser();
             form.Show();
-            this.Close();
+            this.Hide();
         }
+
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+
+            frm_Login login = new frm_Login();
+            login.Show();
+            this.Close();
+
+
+        }
+
     }
 }

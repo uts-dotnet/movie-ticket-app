@@ -1,0 +1,4 @@
+bookingID,movieID,session,numberOfTickets,seatsBooked,subtotal,ticketType,userID
+1,40001,10:00,1,5,17.55,Child Ticket,10002
+2,40002,11:00,2,6-7,38.70,Concession Ticket,10002
+3,40003,11:30,3,8-9-10,58.05,Concession Ticket,10002

@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             lbl_Title_SignUp = new Label();
-            label2 = new Label();
             label1 = new Label();
             label3 = new Label();
-            textBox_currentPW = new TextBox();
             textBox_newPW = new TextBox();
             textBox_confirmPW = new TextBox();
             label5 = new Label();
@@ -53,21 +51,11 @@
             lbl_Title_SignUp.TabIndex = 2;
             lbl_Title_SignUp.Text = "Change Password";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(244, 120);
-            label2.Name = "label2";
-            label2.Size = new Size(138, 21);
-            label2.TabIndex = 18;
-            label2.Text = "Current Password";
-            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(244, 205);
+            label1.Location = new Point(244, 151);
             label1.Name = "label1";
             label1.Size = new Size(116, 21);
             label1.TabIndex = 19;
@@ -77,29 +65,22 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(244, 288);
+            label3.Location = new Point(244, 234);
             label3.Name = "label3";
             label3.Size = new Size(142, 21);
             label3.TabIndex = 20;
             label3.Text = "Confirm Password";
             // 
-            // textBox_currentPW
-            // 
-            textBox_currentPW.Location = new Point(244, 144);
-            textBox_currentPW.Name = "textBox_currentPW";
-            textBox_currentPW.Size = new Size(298, 23);
-            textBox_currentPW.TabIndex = 21;
-            // 
             // textBox_newPW
             // 
-            textBox_newPW.Location = new Point(244, 229);
+            textBox_newPW.Location = new Point(244, 175);
             textBox_newPW.Name = "textBox_newPW";
             textBox_newPW.Size = new Size(298, 23);
             textBox_newPW.TabIndex = 22;
             // 
             // textBox_confirmPW
             // 
-            textBox_confirmPW.Location = new Point(244, 312);
+            textBox_confirmPW.Location = new Point(244, 258);
             textBox_confirmPW.Name = "textBox_confirmPW";
             textBox_confirmPW.Size = new Size(298, 23);
             textBox_confirmPW.TabIndex = 23;
@@ -118,7 +99,7 @@
             // 
             lbl_PWLengthWarning.AutoSize = true;
             lbl_PWLengthWarning.ForeColor = Color.Firebrick;
-            lbl_PWLengthWarning.Location = new Point(316, 255);
+            lbl_PWLengthWarning.Location = new Point(316, 201);
             lbl_PWLengthWarning.Name = "lbl_PWLengthWarning";
             lbl_PWLengthWarning.Size = new Size(226, 15);
             lbl_PWLengthWarning.TabIndex = 26;
@@ -128,7 +109,7 @@
             // 
             lbl_PWMatchWarning.AutoSize = true;
             lbl_PWMatchWarning.ForeColor = Color.Firebrick;
-            lbl_PWMatchWarning.Location = new Point(405, 338);
+            lbl_PWMatchWarning.Location = new Point(405, 284);
             lbl_PWMatchWarning.Name = "lbl_PWMatchWarning";
             lbl_PWMatchWarning.Size = new Size(137, 15);
             lbl_PWMatchWarning.TabIndex = 27;
@@ -136,7 +117,7 @@
             // 
             // btn_ChangePW
             // 
-            btn_ChangePW.Location = new Point(349, 387);
+            btn_ChangePW.Location = new Point(349, 356);
             btn_ChangePW.Name = "btn_ChangePW";
             btn_ChangePW.Size = new Size(75, 23);
             btn_ChangePW.TabIndex = 28;
@@ -166,10 +147,8 @@
             Controls.Add(label5);
             Controls.Add(textBox_confirmPW);
             Controls.Add(textBox_newPW);
-            Controls.Add(textBox_currentPW);
             Controls.Add(label3);
             Controls.Add(label1);
-            Controls.Add(label2);
             Controls.Add(lbl_Title_SignUp);
             Name = "frm_ChangePassword";
             Text = "Form1";
@@ -180,10 +159,8 @@
         #endregion
 
         private Label lbl_Title_SignUp;
-        private Label label2;
         private Label label1;
         private Label label3;
-        private TextBox textBox_currentPW;
         private TextBox textBox_newPW;
         private TextBox textBox_confirmPW;
         private Label label5;

@@ -31,7 +31,7 @@ namespace MovieTicketApp
             Debug.WriteLine("Application is exiting. Saving data...");
 
             //Save all the data to .txt files
-            FileManager.Save();
+            //FileManager.Save();
 
             Debug.WriteLine("Data saved successfully.");
 
