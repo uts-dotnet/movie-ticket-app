@@ -118,6 +118,7 @@
             // btn_ChangePW
             // 
             btn_ChangePW.BackColor = Color.Firebrick;
+            btn_ChangePW.Cursor = Cursors.Hand;
             btn_ChangePW.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_ChangePW.ForeColor = Color.White;
             btn_ChangePW.Location = new Point(338, 355);
@@ -131,6 +132,7 @@
             // btn_BackToMovies
             // 
             btn_BackToMovies.BackColor = Color.Firebrick;
+            btn_BackToMovies.Cursor = Cursors.Hand;
             btn_BackToMovies.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_BackToMovies.ForeColor = Color.White;
             btn_BackToMovies.Location = new Point(51, 22);

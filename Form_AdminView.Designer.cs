@@ -50,6 +50,7 @@
             // btn_EditUser
             // 
             btn_EditUser.BackColor = Color.Firebrick;
+            btn_EditUser.Cursor = Cursors.Hand;
             btn_EditUser.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btn_EditUser.ForeColor = Color.White;
             btn_EditUser.Location = new Point(289, 146);
@@ -63,6 +64,7 @@
             // btn_EditMovie
             // 
             btn_EditMovie.BackColor = Color.Firebrick;
+            btn_EditMovie.Cursor = Cursors.Hand;
             btn_EditMovie.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btn_EditMovie.ForeColor = Color.White;
             btn_EditMovie.Location = new Point(289, 227);
@@ -75,6 +77,7 @@
             // 
             // btn_Log_Out
             // 
+            btn_Log_Out.Cursor = Cursors.Hand;
             btn_Log_Out.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_Log_Out.ForeColor = Color.Firebrick;
             btn_Log_Out.Location = new Point(358, 342);
@@ -87,6 +90,7 @@
             // 
             // button1
             // 
+            button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             button1.Location = new Point(514, 398);
             button1.Name = "button1";
@@ -99,6 +103,7 @@
             // 
             // btn_TEST
             // 
+            btn_TEST.Cursor = Cursors.Hand;
             btn_TEST.Location = new Point(701, 352);
             btn_TEST.Name = "btn_TEST";
             btn_TEST.Size = new Size(75, 23);
