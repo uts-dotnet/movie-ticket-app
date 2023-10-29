@@ -47,13 +47,5 @@ namespace MovieTicketApp
             logout.Show();
             this.Hide();
         }
-
-        private void btn_TEST_Click(object sender, EventArgs e)
-        {
-            Form_TESTING form = new Form_TESTING();
-            form.Show();
-            this.Hide();
-
-        }
     }
 }
