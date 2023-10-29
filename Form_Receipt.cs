@@ -78,7 +78,7 @@ namespace MovieTicketApp
                     $"Seats: {seats}\n" +
                     $"Sub Total: {TicketInfo.SubTotal:C}\n" +
                     $"Booking Fee: {_bookingFee:C}\n" +
-                    $"Total: {_total}\n"
+                    $"Total: {_total:C}\n"
                 ;
 
                 File.WriteAllText(file, content);
