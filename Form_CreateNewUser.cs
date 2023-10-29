@@ -54,10 +54,10 @@ namespace MovieTicketApp
 
             UserData.CreateNewUser(username, password, firstName, lastName);
 
-            Form_AdminView form= new Form_AdminView();
+            Form_AdminView form = new Form_AdminView();
             form.Show();
             MessageBox.Show("User created successfully.");
-            this.Close();
+            this.Hide();
 
         }
 
@@ -66,6 +66,13 @@ namespace MovieTicketApp
         {
             string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             return Regex.IsMatch(email, pattern);
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            Form_AdminView form = new Form_AdminView();
+            form.Show();
+            this.Hide();
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MovieTicketApp
 {
-    public partial class UpdateMovie : Form
+    public partial class Form_UpdateBookings : Form
     {
-        public UpdateMovie()
+        public Form_UpdateBookings()
         {
             InitializeComponent();
         }
