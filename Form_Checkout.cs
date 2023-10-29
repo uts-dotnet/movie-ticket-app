@@ -94,5 +94,16 @@ namespace MovieTicketApp
             form.Show();
             this.Close();
         }
+
+        private void btn_AutoFill_Click(object sender, EventArgs e)
+        {
+            User user = CurrentUserManager.Instance.CurrentUser;
+            txt_CardName.Text = user.FullName;
+            txt_CardNumber.Text = string.Concat(Enumerable.Repeat("1234", 4)); // just to make sure that there are 16 numbers
+            txt_ExpiryDate.Text = "01/25";
+            txt_CVV.Text = "444";
+
+            EnablePayment();
+        }
     }
 }

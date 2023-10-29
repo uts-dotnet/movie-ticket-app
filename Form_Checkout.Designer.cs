@@ -53,6 +53,7 @@
             btn_Pay = new Button();
             txt_CVV = new TextBox();
             btn_Back = new Button();
+            btn_AutoFill = new Button();
             panel_YourOrder.SuspendLayout();
             SuspendLayout();
             // 
@@ -329,11 +330,24 @@
             btn_Back.UseVisualStyleBackColor = true;
             btn_Back.Click += btn_Back_Click;
             // 
+            // btn_AutoFill
+            // 
+            btn_AutoFill.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_AutoFill.ForeColor = Color.Firebrick;
+            btn_AutoFill.Location = new Point(469, 143);
+            btn_AutoFill.Name = "btn_AutoFill";
+            btn_AutoFill.Size = new Size(89, 32);
+            btn_AutoFill.TabIndex = 38;
+            btn_AutoFill.Text = "Auto Fill";
+            btn_AutoFill.UseVisualStyleBackColor = true;
+            btn_AutoFill.Click += btn_AutoFill_Click;
+            // 
             // Form_Checkout
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(586, 518);
+            Controls.Add(btn_AutoFill);
             Controls.Add(btn_Back);
             Controls.Add(txt_CVV);
             Controls.Add(btn_Pay);
@@ -385,5 +399,6 @@
         private Label lbl_Subtotal;
         private Label lbl_Subtotal_Value;
         private Button btn_Back;
+        private Button btn_AutoFill;
     }
 }
