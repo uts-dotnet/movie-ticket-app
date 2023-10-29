@@ -136,5 +136,10 @@ namespace MovieTicketApp
             // Display all the data in a MessageBox
             MessageBox.Show(allData, "All Data");
         }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

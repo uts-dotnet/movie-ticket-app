@@ -128,12 +128,14 @@ namespace MovieTicketApp
 
         private void btn_DeleteSession_Click(object sender, EventArgs e)
         {
-            // Find the session in the data source (e.g., a list or database)
-            // Note: You may need to replace "Session" with the appropriate session class name
-            MovieSession? sessionToDelete = GlobalData.Sessions.FirstOrDefault(session =>
-                session.MovieID == int.Parse(textBox_MovieID.Text) && session.Time == dateTimePicker_SessionTime.Value);
+            int movieIDToDelete = int.Parse(textBox_MovieID.Text);
+            DateTime sessionTimeToDelete = dateTimePicker_SessionTime.Value;
 
-            if (sessionToDelete == null)
+            // Find the index of the session to delete using FindIndex method
+            int sessionIndexToDelete = GlobalData.Sessions.FindIndex(session =>
+                session.MovieID == movieIDToDelete && session.Time == sessionTimeToDelete);
+
+            if (sessionIndexToDelete == -1)
             {
                 MessageBox.Show("Session not found.");
                 return;
@@ -146,15 +148,18 @@ namespace MovieTicketApp
             {
                 // Session confirmed for deletion
                 // Delete the session from the data source
-                GlobalData.Sessions.Remove(sessionToDelete);
+                GlobalData.Sessions.RemoveAt(sessionIndexToDelete);
 
                 // Refresh the DataGridView to reflect the changes
+                sessionGrid.DataSource = null;
+                sessionGrid.DataSource = GlobalData.Sessions;
                 sessionGrid.Refresh();
 
                 // Notify the user of the successful deletion
                 MessageBox.Show("Session deleted successfully.");
             }
         }
+
 
 
         private bool ValidateSessionData()
@@ -178,6 +183,7 @@ namespace MovieTicketApp
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
+            FileManager.SaveSessions();
             Form_AdminView form = new Form_AdminView();
             form.Show();
             this.Hide();

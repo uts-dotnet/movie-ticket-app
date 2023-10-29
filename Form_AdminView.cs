@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {
@@ -41,9 +42,18 @@ namespace MovieTicketApp
 
         private void btn_Log_Out_Click(object sender, EventArgs e)
         {
+            FileManager.Save();
             frm_Login logout = new frm_Login();
             logout.Show();
             this.Hide();
+        }
+
+        private void btn_TEST_Click(object sender, EventArgs e)
+        {
+            Form_TESTING form = new Form_TESTING();
+            form.Show();
+            this.Hide();
+
         }
     }
 }

@@ -19,8 +19,8 @@ namespace MovieTicketApp
             FileManager.Load();
 
             // Subscribe the OnApplicationExit method to the ApplicationExit event
-            AppDomain.CurrentDomain.ProcessExit += OnApplicationExit;
             Application.ApplicationExit += OnApplicationExit;
+            AppDomain.CurrentDomain.ProcessExit += OnApplicationExit;
 
             Application.Run(new frm_Login());
         }
@@ -28,6 +28,8 @@ namespace MovieTicketApp
         // Handle the application exit event
         private static void OnApplicationExit(object sender, EventArgs e)
         {
+            MessageBox.Show("OnApplicationExit hit ");
+
             Debug.WriteLine("Application is exiting. Saving data...");
 
             //Save all the data to .txt files

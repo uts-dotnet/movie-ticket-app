@@ -44,6 +44,7 @@
             btn_Log_Out = new Button();
             btn_UserProfile = new Button();
             btn_TestDisplayGlobalData = new Button();
+            Exit = new Button();
             ((System.ComponentModel.ISupportInitialize)picbox_Movie_Poster).BeginInit();
             SuspendLayout();
             // 
@@ -207,19 +208,32 @@
             // 
             // btn_TestDisplayGlobalData
             // 
-            btn_TestDisplayGlobalData.Location = new Point(327, 54);
+            btn_TestDisplayGlobalData.Location = new Point(256, 55);
             btn_TestDisplayGlobalData.Name = "btn_TestDisplayGlobalData";
             btn_TestDisplayGlobalData.Size = new Size(130, 23);
             btn_TestDisplayGlobalData.TabIndex = 19;
             btn_TestDisplayGlobalData.Text = "display global data";
             btn_TestDisplayGlobalData.UseVisualStyleBackColor = true;
+            btn_TestDisplayGlobalData.Visible = false;
             btn_TestDisplayGlobalData.Click += btn_TestDisplayGlobalData_Click;
+            // 
+            // Exit
+            // 
+            Exit.Location = new Point(595, 93);
+            Exit.Name = "Exit";
+            Exit.Size = new Size(170, 23);
+            Exit.TabIndex = 20;
+            Exit.Text = "Exit and Save Changes";
+            Exit.UseVisualStyleBackColor = true;
+            Exit.Visible = false;
+            Exit.Click += Exit_Click;
             // 
             // Form_Movies
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 464);
+            Controls.Add(Exit);
             Controls.Add(btn_TestDisplayGlobalData);
             Controls.Add(btn_UserProfile);
             Controls.Add(btn_Log_Out);
@@ -260,7 +274,7 @@
         private Button btn_Session_Time_4;
         private Button btn_Session_Time_5;
         private Button btn_Log_Out;
-        private Button button1;
+        private Button Exit;
         private Button btn_UserProfile;
         private Button btn_TestDisplayGlobalData;
     }
