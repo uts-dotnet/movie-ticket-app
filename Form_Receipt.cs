@@ -36,8 +36,8 @@ namespace MovieTicketApp
         private void PopulateListView()
         {
             listview_Receipt.View = View.Details;
-            listview_Receipt.Columns.Add("Item", 100);
-            listview_Receipt.Columns.Add("Qty", 100);
+            listview_Receipt.Columns.Add("Item", 150);
+            listview_Receipt.Columns.Add("Qty", 50);
             listview_Receipt.Columns.Add("Price", 100);
             listview_Receipt.Columns.Add("Amount", 100);
 
@@ -75,14 +75,21 @@ namespace MovieTicketApp
                     $"{TicketInfo.TicketType}\n" +
                     $"Price: {TicketInfo.Price:C}\n" +
                     $"Quantity: {TicketInfo.Quantity}\n" +
-                    $"Subtotal: {TicketInfo.SubTotal}\n" +
                     $"Seats: {seats}\n" +
+                    $"Sub Total: {TicketInfo.SubTotal:C}\n" +
                     $"Booking Fee: {_bookingFee:C}\n" +
                     $"Total: {_total}\n"
                 ;
 
                 File.WriteAllText(file, content);
             }
+        }
+
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            frm_Login form = new frm_Login();
+            form.Show();
+            this.Close();
         }
     }
 }

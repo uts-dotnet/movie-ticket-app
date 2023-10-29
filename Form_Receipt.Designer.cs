@@ -40,6 +40,7 @@
             lbl_SessionTime = new Label();
             lbl_SessionTime_Value = new Label();
             btn_Save = new Button();
+            btn_Logout = new Button();
             SuspendLayout();
             // 
             // lbl_ReceiptTitle
@@ -160,21 +161,35 @@
             // btn_Save
             // 
             btn_Save.BackColor = Color.Firebrick;
-            btn_Save.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Save.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_Save.ForeColor = Color.White;
-            btn_Save.Location = new Point(254, 48);
+            btn_Save.Location = new Point(223, 569);
             btn_Save.Name = "btn_Save";
-            btn_Save.Size = new Size(173, 32);
+            btn_Save.Size = new Size(204, 39);
             btn_Save.TabIndex = 18;
             btn_Save.Text = "Save Receipt";
             btn_Save.UseVisualStyleBackColor = false;
             btn_Save.Click += btn_Save_Click;
             // 
+            // btn_Logout
+            // 
+            btn_Logout.Cursor = Cursors.Hand;
+            btn_Logout.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Logout.ForeColor = Color.Firebrick;
+            btn_Logout.Location = new Point(338, 43);
+            btn_Logout.Name = "btn_Logout";
+            btn_Logout.Size = new Size(89, 35);
+            btn_Logout.TabIndex = 23;
+            btn_Logout.Text = "Log Out";
+            btn_Logout.UseVisualStyleBackColor = true;
+            btn_Logout.Click += btn_Logout_Click;
+            // 
             // Form_Receipt
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(451, 568);
+            ClientSize = new Size(451, 635);
+            Controls.Add(btn_Logout);
             Controls.Add(btn_Save);
             Controls.Add(lbl_SessionTime_Value);
             Controls.Add(lbl_SessionTime);
@@ -208,5 +223,6 @@
         private Label lbl_SessionTime;
         private Label lbl_SessionTime_Value;
         private Button btn_Save;
+        private Button btn_Logout;
     }
 }
