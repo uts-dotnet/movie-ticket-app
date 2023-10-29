@@ -34,5 +34,3 @@ $RECYCLE.BIN/
 
 # Ignore Visual Studio Code directories
 .vscode/
-/bin/Debug/net6.0-windows/MovieTicketApp.dll
-/bin/Debug/net6.0-windows/MovieTicketApp.pdb
