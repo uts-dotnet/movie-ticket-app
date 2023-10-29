@@ -36,7 +36,6 @@
             passwordDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            Delete = new DataGridViewButtonColumn();
             userDataBindingSource = new BindingSource(components);
             userBindingSource = new BindingSource(components);
             btn_Cancel = new Button();
@@ -77,10 +76,11 @@
             userGrid.AllowUserToDeleteRows = false;
             userGrid.AutoGenerateColumns = false;
             userGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            userGrid.Columns.AddRange(new DataGridViewColumn[] { userIdDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, Delete });
+            userGrid.Columns.AddRange(new DataGridViewColumn[] { userIdDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn });
             userGrid.DataSource = userDataBindingSource;
             userGrid.Location = new Point(37, 203);
             userGrid.Name = "userGrid";
+            userGrid.ReadOnly = true;
             userGrid.RowTemplate.Height = 25;
             userGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             userGrid.Size = new Size(742, 235);
@@ -92,37 +92,35 @@
             userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
             userIdDataGridViewTextBoxColumn.HeaderText = "UserId";
             userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
+            userIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // usernameDataGridViewTextBoxColumn
             // 
             usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
             usernameDataGridViewTextBoxColumn.HeaderText = "Username";
             usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            usernameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // passwordDataGridViewTextBoxColumn
             // 
             passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
             passwordDataGridViewTextBoxColumn.HeaderText = "Password";
             passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            passwordDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
             firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
             firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
             firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            firstNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
             lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
             lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
             lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            // 
-            // Delete
-            // 
-            Delete.HeaderText = "Delete";
-            Delete.Name = "Delete";
-            Delete.Resizable = DataGridViewTriState.True;
-            Delete.SortMode = DataGridViewColumnSortMode.Automatic;
+            lastNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // userDataBindingSource
             // 
@@ -138,7 +136,7 @@
             btn_Cancel.Name = "btn_Cancel";
             btn_Cancel.Size = new Size(100, 23);
             btn_Cancel.TabIndex = 7;
-            btn_Cancel.Text = "Cancel";
+            btn_Cancel.Text = "Exit";
             btn_Cancel.TextImageRelation = TextImageRelation.TextAboveImage;
             btn_Cancel.UseVisualStyleBackColor = true;
             btn_Cancel.Click += btn_Cancel_Click;
@@ -318,11 +316,6 @@
         private Button button1;
         private BindingSource userBindingSource;
         private BindingSource userDataBindingSource;
-        private DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private Label label1;
         private Label label2;
         private Label label3;
@@ -334,7 +327,6 @@
         private TextBox textBox_firstName;
         private TextBox textBox_lastName;
         private DataGridView userGrid;
-        private DataGridViewButtonColumn Delete;
         private Button btn_UpdateData;
         private Button button2;
         private Button btn_CreateNewUser;
@@ -342,5 +334,10 @@
         private Label label7;
         private Button button3;
         private Button btn_DeleteUser;
+        private DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
     }
 }
