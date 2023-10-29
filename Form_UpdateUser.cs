@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.ApplicationServices;
-using MovieTicketApp.src.Managers;
-using MovieTicketApp.src.User;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MovieTicketApp

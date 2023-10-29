@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MovieTicketApp.src.Managers;
 using static System.Collections.Specialized.BitVector32;
 
 namespace MovieTicketApp

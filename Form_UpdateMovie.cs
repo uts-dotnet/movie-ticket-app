@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MovieTicketApp.src.Managers;
-using MovieTicketApp.src.User;
 
 namespace MovieTicketApp
 {

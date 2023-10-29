@@ -92,6 +92,7 @@
             // btn_GoToChangePW
             // 
             btn_GoToChangePW.BackColor = Color.Firebrick;
+            btn_GoToChangePW.Cursor = Cursors.Hand;
             btn_GoToChangePW.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_GoToChangePW.ForeColor = Color.White;
             btn_GoToChangePW.Location = new Point(610, 30);
@@ -105,6 +106,7 @@
             // btn_BackToMovies
             // 
             btn_BackToMovies.BackColor = Color.Firebrick;
+            btn_BackToMovies.Cursor = Cursors.Hand;
             btn_BackToMovies.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_BackToMovies.ForeColor = Color.White;
             btn_BackToMovies.Location = new Point(45, 30);
@@ -165,7 +167,7 @@
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_UserProfile";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "User Profile";
+            Text = "User Profile | DOTNET Cinemas";
             Load += Form_UserProfile_Load;
             ((System.ComponentModel.ISupportInitialize)pic_Ticket).EndInit();
             ResumeLayout(false);

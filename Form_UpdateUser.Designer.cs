@@ -31,11 +31,6 @@
             components = new System.ComponentModel.Container();
             lbl_Title_SignUp = new Label();
             userGrid = new DataGridView();
-            userIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            usernameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            passwordDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             userDataBindingSource = new BindingSource(components);
             userBindingSource = new BindingSource(components);
             btn_Cancel = new Button();
@@ -76,7 +71,6 @@
             userGrid.AllowUserToDeleteRows = false;
             userGrid.AutoGenerateColumns = false;
             userGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            userGrid.Columns.AddRange(new DataGridViewColumn[] { userIdDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn });
             userGrid.DataSource = userDataBindingSource;
             userGrid.Location = new Point(37, 203);
             userGrid.Name = "userGrid";
@@ -87,45 +81,6 @@
             userGrid.TabIndex = 5;
             userGrid.CellClick += userGrid_CelLClick;
             // 
-            // userIdDataGridViewTextBoxColumn
-            // 
-            userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
-            userIdDataGridViewTextBoxColumn.HeaderText = "UserId";
-            userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
-            userIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
-            usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            firstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            lastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // userDataBindingSource
-            // 
-            userDataBindingSource.DataSource = typeof(src.User.UserData);
-            // 
             // userBindingSource
             // 
             userBindingSource.DataSource = typeof(User);
@@ -133,6 +88,7 @@
             // btn_Cancel
             // 
             btn_Cancel.BackColor = Color.Firebrick;
+            btn_Cancel.Cursor = Cursors.Hand;
             btn_Cancel.ForeColor = Color.White;
             btn_Cancel.Location = new Point(23, 25);
             btn_Cancel.Name = "btn_Cancel";
@@ -146,6 +102,7 @@
             // btn_UpdateData
             // 
             btn_UpdateData.BackColor = Color.Firebrick;
+            btn_UpdateData.Cursor = Cursors.Hand;
             btn_UpdateData.ForeColor = Color.White;
             btn_UpdateData.Location = new Point(316, 159);
             btn_UpdateData.Name = "btn_UpdateData";
@@ -223,6 +180,7 @@
             // btn_CreateNewUser
             // 
             btn_CreateNewUser.BackColor = Color.Firebrick;
+            btn_CreateNewUser.Cursor = Cursors.Hand;
             btn_CreateNewUser.ForeColor = Color.White;
             btn_CreateNewUser.Location = new Point(148, 159);
             btn_CreateNewUser.Name = "btn_CreateNewUser";
@@ -274,6 +232,7 @@
             // btn_DeleteUser
             // 
             btn_DeleteUser.BackColor = Color.Firebrick;
+            btn_DeleteUser.Cursor = Cursors.Hand;
             btn_DeleteUser.ForeColor = Color.White;
             btn_DeleteUser.Location = new Point(489, 159);
             btn_DeleteUser.Name = "btn_DeleteUser";
@@ -309,7 +268,7 @@
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_UpdateUser";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Manage Users";
+            Text = "Manage Users | DOTNET Cinemas";
             ((System.ComponentModel.ISupportInitialize)userGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)userDataBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();

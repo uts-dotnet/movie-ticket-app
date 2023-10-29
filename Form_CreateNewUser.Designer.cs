@@ -122,6 +122,7 @@
             // 
             // btn_Save
             // 
+            btn_Save.Cursor = Cursors.Hand;
             btn_Save.Location = new Point(671, 47);
             btn_Save.Name = "btn_Save";
             btn_Save.Size = new Size(75, 23);
@@ -132,6 +133,7 @@
             // 
             // btn_Cancel
             // 
+            btn_Cancel.Cursor = Cursors.Hand;
             btn_Cancel.Location = new Point(54, 47);
             btn_Cancel.Name = "btn_Cancel";
             btn_Cancel.Size = new Size(75, 23);
@@ -193,7 +195,8 @@
             Controls.Add(label1);
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_CreateNewUser";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Create User | DOTNET Cinemas";
             ResumeLayout(false);
             PerformLayout();
         }

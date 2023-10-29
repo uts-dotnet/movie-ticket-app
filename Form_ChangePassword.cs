@@ -7,17 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MovieTicketApp.src.Managers;
-using MovieTicketApp.src.User;
 
 namespace MovieTicketApp
 {
 
     // Change password form accessible from user profile
 
-    public partial class frm_ChangePassword : Form
+    public partial class Form_ChangePassword : Form
     {
-        public frm_ChangePassword()
+        public Form_ChangePassword()
         {
             InitializeComponent();
 

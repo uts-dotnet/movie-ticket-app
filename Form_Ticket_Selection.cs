@@ -11,7 +11,7 @@ namespace MovieTicketApp
             InitializeComponent();
             InitializeLabels();
 
-            LoadListView();
+            LoadListViewColumns();
             PopulateListView();
 
             EnableQuantityButtons(true);

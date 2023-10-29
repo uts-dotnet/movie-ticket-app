@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MovieTicketApp.src.User;
 
-namespace MovieTicketApp.src.Managers
+namespace MovieTicketApp
 {
     // A utility class responsible for loading and saving data to/from files
 

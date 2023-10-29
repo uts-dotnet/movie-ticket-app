@@ -1,6 +1,6 @@
 ﻿namespace MovieTicketApp
 {
-    partial class frm_ChangePassword
+    partial class Form_ChangePassword
     {
         /// <summary>
         /// Required designer variable.
@@ -141,7 +141,7 @@
             btn_BackToMovies.UseVisualStyleBackColor = false;
             btn_BackToMovies.Click += btn_BackToMovies_Click;
             // 
-            // frm_ChangePassword
+            // Form_ChangePassword
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -156,9 +156,9 @@
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(lbl_Title_SignUp);
-            Name = "frm_ChangePassword";
+            Name = "Form_ChangePassword";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Change Password | DOTNET Cinemas";
             ResumeLayout(false);
             PerformLayout();
         }

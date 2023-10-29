@@ -350,7 +350,7 @@
             Controls.Add(lbl_Checkout);
             Name = "Form_Checkout";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Checkout";
+            Text = "Checkout | DOTNET Cinemas";
             panel_YourOrder.ResumeLayout(false);
             panel_YourOrder.PerformLayout();
             ResumeLayout(false);

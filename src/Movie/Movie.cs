@@ -1,5 +1,4 @@
-﻿using MovieTicketApp.src.Managers;
-using MovieTicketApp;
+﻿using MovieTicketApp;
 using Microsoft.VisualBasic.Devices;
 
 // Class representing a movie and its details

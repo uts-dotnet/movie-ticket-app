@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Text.RegularExpressions;
-using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {
@@ -90,7 +89,7 @@ namespace MovieTicketApp
         private void btn_Log_Out_Click(object sender, EventArgs e)
         {
             FileManager.Save();
-            frm_Login login = new frm_Login();
+            Form_Login login = new Form_Login();
             login.Show();
             this.Close();
         }

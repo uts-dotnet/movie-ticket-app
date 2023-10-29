@@ -1,6 +1,6 @@
 ﻿namespace MovieTicketApp
 {
-    partial class frm_SignUp
+    partial class Form_SignUp
     {
         /// <summary>
         /// Required designer variable.
@@ -180,7 +180,7 @@
             txt_Password.Size = new Size(260, 23);
             txt_Password.TabIndex = 19;
             // 
-            // frm_SignUp
+            // Form_SignUp
             // 
             AcceptButton = btn_SignUp;
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -200,7 +200,7 @@
             Controls.Add(lbl_Username);
             Controls.Add(lbl_Become_Member);
             Controls.Add(lbl_Title_SignUp);
-            Name = "frm_SignUp";
+            Name = "Form_SignUp";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sign Up | DOTNET Cinemas";
             ResumeLayout(false);

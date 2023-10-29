@@ -1,5 +1,4 @@
 ﻿using System;
-using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {

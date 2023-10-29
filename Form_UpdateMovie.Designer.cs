@@ -59,6 +59,7 @@
             // btn_DeleteMovie
             // 
             btn_DeleteMovie.BackColor = Color.Firebrick;
+            btn_DeleteMovie.Cursor = Cursors.Hand;
             btn_DeleteMovie.ForeColor = Color.White;
             btn_DeleteMovie.Location = new Point(479, 203);
             btn_DeleteMovie.Name = "btn_DeleteMovie";
@@ -91,6 +92,7 @@
             // btn_CreateMovie
             // 
             btn_CreateMovie.BackColor = Color.Firebrick;
+            btn_CreateMovie.Cursor = Cursors.Hand;
             btn_CreateMovie.ForeColor = Color.White;
             btn_CreateMovie.Location = new Point(168, 203);
             btn_CreateMovie.Name = "btn_CreateMovie";
@@ -187,6 +189,7 @@
             // btn_UpdateMovie
             // 
             btn_UpdateMovie.BackColor = Color.Firebrick;
+            btn_UpdateMovie.Cursor = Cursors.Hand;
             btn_UpdateMovie.ForeColor = Color.White;
             btn_UpdateMovie.Location = new Point(319, 203);
             btn_UpdateMovie.Name = "btn_UpdateMovie";
@@ -200,6 +203,7 @@
             // button1
             // 
             button1.BackColor = Color.Firebrick;
+            button1.Cursor = Cursors.Hand;
             button1.ForeColor = Color.White;
             button1.Location = new Point(37, 25);
             button1.Name = "button1";
@@ -327,7 +331,7 @@
             Controls.Add(label8);
             Name = "Form_UpdateMovie";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Manage Movies";
+            Text = "Manage Movies | DOTNET Cinemas";
             Load += Form_UpdateMovie_Load;
             ((System.ComponentModel.ISupportInitialize)movieGrid).EndInit();
             ResumeLayout(false);

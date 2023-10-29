@@ -5,9 +5,8 @@ using System.Net;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using MovieTicketApp.src.User;
 
-namespace MovieTicketApp.src.Managers
+namespace MovieTicketApp
 {
     /* Global Data variables are stored within this class */
 

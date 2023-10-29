@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {
@@ -125,7 +124,7 @@ namespace MovieTicketApp
         private void btn_GoToChangePW_Click(object sender, EventArgs e)
         {
             // Open the change password form
-            frm_ChangePassword form = new frm_ChangePassword();
+            Form_ChangePassword form = new Form_ChangePassword();
             form.Show();
             this.Close();
         }

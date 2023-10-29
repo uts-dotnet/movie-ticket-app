@@ -12,7 +12,7 @@ namespace MovieTicketApp
             InitializeComponent();
         }
 
-        private void frm_Login_FormClosed(object sender, FormClosedEventArgs e)
+        private void Form_Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close(); // if the form is not closed it'll cause a conflict between Visual Studio and the executable file
         }
@@ -80,7 +80,7 @@ namespace MovieTicketApp
 
         private void lbl_SignUp_Click(object sender, EventArgs e)
         {
-            frm_SignUp signUpForm = new frm_SignUp();
+            Form_SignUp signUpForm = new Form_SignUp();
             signUpForm.Show();
             this.Hide();
         }

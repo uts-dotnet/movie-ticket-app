@@ -48,6 +48,7 @@
             // 
             // btn_DeleteUser
             // 
+            btn_DeleteUser.Cursor = Cursors.Hand;
             btn_DeleteUser.Location = new Point(495, 163);
             btn_DeleteUser.Name = "btn_DeleteUser";
             btn_DeleteUser.Size = new Size(140, 23);
@@ -67,6 +68,7 @@
             // 
             // btn_CreateNewUser
             // 
+            btn_CreateNewUser.Cursor = Cursors.Hand;
             btn_CreateNewUser.Location = new Point(140, 163);
             btn_CreateNewUser.Name = "btn_CreateNewUser";
             btn_CreateNewUser.Size = new Size(128, 23);
@@ -114,6 +116,7 @@
             // 
             // btn_UpdateData
             // 
+            btn_UpdateData.Cursor = Cursors.Hand;
             btn_UpdateData.Location = new Point(322, 163);
             btn_UpdateData.Name = "btn_UpdateData";
             btn_UpdateData.Size = new Size(129, 23);
@@ -125,6 +128,7 @@
             // 
             // btn_Cancel
             // 
+            btn_Cancel.Cursor = Cursors.Hand;
             btn_Cancel.Location = new Point(29, 27);
             btn_Cancel.Name = "btn_Cancel";
             btn_Cancel.Size = new Size(154, 23);
@@ -208,7 +212,8 @@
             Controls.Add(sessionGrid);
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_UpdateSessions";
-            Text = "Form_UpdateSessions";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Update Sessions | DOTNET Cinemas";
             ((System.ComponentModel.ISupportInitialize)sessionGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown_seats).EndInit();
             ResumeLayout(false);

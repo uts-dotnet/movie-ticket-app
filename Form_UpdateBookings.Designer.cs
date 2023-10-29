@@ -82,6 +82,7 @@
             // 
             // btn_DeleteMovie
             // 
+            btn_DeleteMovie.Cursor = Cursors.Hand;
             btn_DeleteMovie.Location = new Point(485, 200);
             btn_DeleteMovie.Name = "btn_DeleteMovie";
             btn_DeleteMovie.Size = new Size(161, 23);
@@ -111,6 +112,7 @@
             // 
             // btn_CreateMovie
             // 
+            btn_CreateMovie.Cursor = Cursors.Hand;
             btn_CreateMovie.Location = new Point(159, 200);
             btn_CreateMovie.Name = "btn_CreateMovie";
             btn_CreateMovie.Size = new Size(129, 23);
@@ -179,6 +181,7 @@
             // 
             // btn_UpdateMovie
             // 
+            btn_UpdateMovie.Cursor = Cursors.Hand;
             btn_UpdateMovie.Location = new Point(325, 200);
             btn_UpdateMovie.Name = "btn_UpdateMovie";
             btn_UpdateMovie.RightToLeft = RightToLeft.Yes;
@@ -190,6 +193,7 @@
             // 
             // button1
             // 
+            button1.Cursor = Cursors.Hand;
             button1.Location = new Point(29, 27);
             button1.Name = "button1";
             button1.Size = new Size(100, 23);
@@ -301,7 +305,8 @@
             Controls.Add(bookingGrid);
             Controls.Add(label8);
             Name = "Form_UpdateBookings";
-            Text = "Form_UpdateBookings";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Update Bookings | DOTNET CInemas";
             ((System.ComponentModel.ISupportInitialize)bookingGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();

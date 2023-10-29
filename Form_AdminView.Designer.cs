@@ -106,7 +106,6 @@
             btn_TEST.Text = "TEST";
             btn_TEST.UseVisualStyleBackColor = true;
             btn_TEST.Visible = false;
-            btn_TEST.Click += btn_TEST_Click;
             // 
             // Form_AdminView
             // 
@@ -121,7 +120,7 @@
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_AdminView";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Admin View";
+            Text = "Admin View | DOTNET Cinemas";
             ResumeLayout(false);
             PerformLayout();
         }

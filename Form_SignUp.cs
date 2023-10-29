@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace MovieTicketApp
 {
-    public partial class frm_SignUp : Form
+    public partial class Form_SignUp : Form
     {
         private string loginCredentialsFile = ".\\login-credentials.txt";
         private string email = "";
@@ -13,12 +13,12 @@ namespace MovieTicketApp
         private string firstName = "";
         private string lastName = "";
 
-        public frm_SignUp()
+        public Form_SignUp()
         {
             InitializeComponent();
         }
 
-        private void frm_SignUp_FormClosed(object sender, FormClosedEventArgs e)
+        private void Form_SignUp_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close(); // if the form is not closed it'll cause a conflict between Visual Studio and the executable file
         }
