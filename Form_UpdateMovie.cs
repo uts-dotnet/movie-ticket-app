@@ -14,6 +14,7 @@ namespace MovieTicketApp
 {
     public partial class Form_UpdateMovie : Form
     {
+        // Initializes the form and sets the data source for the movieGrid.
         public Form_UpdateMovie()
         {
             InitializeComponent();
@@ -22,9 +23,10 @@ namespace MovieTicketApp
 
         private void Form_UpdateMovie_Load(object sender, EventArgs e)
         {
-
+            // No specific actions needed on form load
         }
 
+        // Handles the "Exit and Save Changes" button click event. Saves changes and closes the form.
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             FileManager.SaveMovies();
@@ -33,6 +35,7 @@ namespace MovieTicketApp
             this.Close();
         }
 
+        // Handles the cell click event in the movieGrid. Populates text boxes with movie data from the selected row.
         private void movieGrid_CelLClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
@@ -53,6 +56,7 @@ namespace MovieTicketApp
             dateTimePicker_ReleaseDate.Value = selectedDate;
         }
 
+        // Handles the "Update Movie" button click event. Validates and updates movie data in the data source.
         private void btn_UpdateMovie_Click(object sender, EventArgs e)
         {
             // Find the movie in the data source (e.g., a list or database)
@@ -104,7 +108,7 @@ namespace MovieTicketApp
             MessageBox.Show("Movie data updated successfully.");
         }
 
-        // Create a new movie
+        // Handles the "Create New Movie" button click event. Validates and adds a new movie to the data source.
         private void btn_CreateNewMovie_Click(object sender, EventArgs e)
         {
             // Parse and validate the input data
@@ -136,7 +140,7 @@ namespace MovieTicketApp
             MessageBox.Show("Movie added successfully.");
         }
 
-        // Delete a movie
+        // Handles the "Delete Movie" button click event. Validates and deletes a movie from the data source.
         private void btn_DeleteMovie_Click(object sender, EventArgs e)
         {
             // Find the movie in the data source (e.g., a list or database)
@@ -166,7 +170,6 @@ namespace MovieTicketApp
                 // Delete the movie from the data source
                 GlobalData.Movies.Remove(movieToDelete);
 
-                // Rebind data because refresh does not work
                 movieGrid.DataSource = null; // Unbind the data source
                 movieGrid.DataSource = GlobalData.Movies; // Rebind to the data source
 
@@ -180,7 +183,7 @@ namespace MovieTicketApp
         }
 
 
-
+        // Validates movie data. Checks for empty or invalid fields, valid duration, poster file, and duplicate titles.
         private bool ValidateMovieData(string title, string genre, int hours, int minutes, DateTime releaseDate, string description, string poster)
         {
             if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(genre) || hours < 0 || hours >= 10 || minutes < 0 || minutes >= 60 || releaseDate == DateTime.MinValue)

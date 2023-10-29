@@ -12,15 +12,21 @@ using MovieTicketApp.src.User;
 
 namespace MovieTicketApp
 {
+
+    // Change password form accessible from user profile
+
     public partial class frm_ChangePassword : Form
     {
         public frm_ChangePassword()
         {
             InitializeComponent();
+
+            //Hide warning labels on form load
             lbl_PWLengthWarning.Visible = false;
             lbl_PWMatchWarning.Visible = false;
         }
 
+        // "Submit" button event handling. Validates and changes the password.
         private void btn_ChangePW_Click(object sender, EventArgs e)
         {
             string newPassword = textBox_newPW.Text;

@@ -352,7 +352,6 @@
         private Label label1;
         private Button btn_UpdateMovie;
         private Button button1;
-        private DataGridView userGrid;
         private Label label8;
         private TextBox textBox_Minutes;
         private DateTimePicker dateTimePicker_ReleaseDate;

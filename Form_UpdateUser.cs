@@ -16,22 +16,27 @@ namespace MovieTicketApp
 {
     public partial class Form_UpdateUser : Form
     {
+
+        //Initialize form and set datasource to UserData global
         public Form_UpdateUser()
         {
             InitializeComponent();
             userGrid.DataSource = GlobalData.UserData;
         }
 
+        //Exit and save changes
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             //Save changes
             FileManager.SaveUserData();
 
+            //Return to Admin View
             Form_AdminView admin = new Form_AdminView();
             admin.Show();
             this.Close();
         }
 
+        //Handles the cell click event in the userGrid. Populates text boxes with user data from the selected row.
         private void userGrid_CelLClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
@@ -43,6 +48,7 @@ namespace MovieTicketApp
             textBox_lastName.Text = selectedRow.Cells[4].Value.ToString();
         }
 
+        //Handles the "Update Data" button click event. Validates and updates user data in the data source.
         private void btn_UpdateData_Click(object sender, EventArgs e)
         {
             if (!ValidateUserData(int.Parse(textBox_UserId.Text), textBox_Username.Text, textBox_Password.Text, textBox_firstName.Text, textBox_lastName.Text))
@@ -72,6 +78,7 @@ namespace MovieTicketApp
             MessageBox.Show("User data updated successfully.");
         }
 
+        // Handles the "Create New User" button click event. Validates and adds a new user to the data source.
         private void btn_CreateNewUser_Click(object sender, EventArgs e)
         {
             if (!ValidateUserData(int.Parse(textBox_UserId.Text), textBox_Username.Text, textBox_Password.Text, textBox_firstName.Text, textBox_lastName.Text))
@@ -91,6 +98,7 @@ namespace MovieTicketApp
 
         }
 
+        // Handles the "Delete User" button click event. Validates and deletes a user from the data source.
         private void btn_DeleteUser_Click(object sender, EventArgs e)
         {
             // Find the user in the data source (e.g., a list or database)
@@ -129,7 +137,6 @@ namespace MovieTicketApp
                     // Delete the user from the data source
                     GlobalData.UserData.Remove(userToDelete);
 
-                    // Rebind data because refresh does not work
                     userGrid.DataSource = null; // Unbind the data source
                     userGrid.DataSource = GlobalData.UserData; // Rebind to the data source
 
@@ -143,6 +150,7 @@ namespace MovieTicketApp
             }
         }
 
+        // Validates user data. Checks for empty fields, valid user ID, password length, and duplicate usernames.
         private bool ValidateUserData(int userId, string username, string password, string firstName, string lastName)
         {
             // Check if all fields are filled out

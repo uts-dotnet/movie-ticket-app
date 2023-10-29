@@ -6,8 +6,11 @@ using MovieTicketApp.src.User;
 
 namespace MovieTicketApp.src.Managers
 {
+    // A utility class responsible for loading and saving data to/from files
+
     public class FileManager
     {
+        // Load data from all relevant files
         public static void Load()
         {
             LoadSessions(false);
@@ -16,7 +19,7 @@ namespace MovieTicketApp.src.Managers
             LoadBookings(false);
         }
 
-        // Implement the Save method similarly
+        // Save data to all relevant files
         public static void Save()
         {
             SaveMovies();
@@ -26,6 +29,8 @@ namespace MovieTicketApp.src.Managers
         }
 
         /* MOVIE HANDLING */
+
+        // Load movie data from a file
         public static void LoadMovies(bool skipHeaders = true)
         {
             string filePath = "movies.txt";
@@ -83,6 +88,7 @@ namespace MovieTicketApp.src.Managers
             }
         }
 
+        // Save movie data to a file
         public static void SaveMovies()
         {
             using (StreamWriter writer = new StreamWriter("movies.txt", false))
@@ -129,6 +135,8 @@ namespace MovieTicketApp.src.Managers
 
 
         /* MOVIE SESSION HANDLING */
+
+        // Load movie session data from a file
         public static void LoadSessions(bool skipHeaders = true)
         {
             string filePath = "Sessions.txt";
@@ -164,6 +172,7 @@ namespace MovieTicketApp.src.Managers
 
         }
 
+        // Save movie session data to a file
         public static void SaveSessions()
         {
             using (StreamWriter writer = new StreamWriter("Sessions.txt", false))
@@ -182,6 +191,8 @@ namespace MovieTicketApp.src.Managers
 
 
         /* USER CREDENTIALS DATA HANDLING */
+
+        // Load user data from a file
         public static void LoadUserData(bool skipHeaders = true)
         {
             string filePath = "login-credentials.txt";
@@ -217,6 +228,7 @@ namespace MovieTicketApp.src.Managers
             }
         }
 
+        // Save user data to a file
         public static void SaveUserData()
         {
             string filePath = "login-credentials.txt";
@@ -236,6 +248,8 @@ namespace MovieTicketApp.src.Managers
         }
 
         /* BOOKING DETAILS HANDLING */
+
+        // Load booking data from a file
         public static void LoadBookings(bool skipHeaders = true)
         {
             string filePath = "bookings.txt";
@@ -274,7 +288,7 @@ namespace MovieTicketApp.src.Managers
             }
         }
 
-
+        // Save booking data to a file
         public static void SaveBookings()
         {
             string filePath = "bookings.txt";

@@ -11,56 +11,24 @@ using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {
+    //Form that displays for regular users when they access their profile. Allows users to see bookings and change their password.
     public partial class Form_UserProfile : Form
     {
-
-        string[] dataArray = { "Button 1", "Button 2", "Button 3", "Button 4", "Button 5" };
-
-
         public Form_UserProfile()
         {
-
-            foreach (string item in dataArray)
-            {
-                Button button = new Button
-                {
-                    Text = item,
-                    Width = 100, // Set the width as per your preference
-                    Height = 30   // Set the height as per your preference
-                };
-
-                button.Click += Button_Click; // Add a click event handler for each butt
-                //panel_MovieButtons.Controls.Add(button); // Add the button to the FlowLayoutPanel
-            }
-
             InitializeComponent();
 
+            //Initialize ticket image
             pic_Ticket.SizeMode = PictureBoxSizeMode.StretchImage;
             pic_Ticket.Image = Image.FromFile("ticket.png");
             pic_Ticket.Visible = false;
+
+            //Set ticket labels to not be visible at first
             lbl_MovieName.Visible = false;
             lbl_MovieTime.Visible = false;
             lbl_Seats.Visible = false;
 
 
-        }
-
-        private void Button_Click(object sender, EventArgs e)
-        {
-            //Add code to open the movie ticket view here!
-
-            // Handle the button click event here
-            // You can access the button's Text property to identify which button was clicked
-            Button clickedButton = (Button)sender;
-            MessageBox.Show("You clicked: " + clickedButton.Text);
-        }
-
-
-        private void btn_ChangePassword_Click(object sender, EventArgs e)
-        {
-            frm_ChangePassword changePasswordForm = new frm_ChangePassword();
-            changePasswordForm.Show();
-            this.Hide();
         }
 
         private void Form_UserProfile_Load(object sender, EventArgs e)
@@ -69,6 +37,7 @@ namespace MovieTicketApp
             PopulateListBox();
         }
 
+        //Code that populates bookings into the list box
         private void PopulateListBox()
         {
             listBox_Bookings.Items.Clear(); // Clear the list before populating
@@ -85,6 +54,7 @@ namespace MovieTicketApp
             }
         }
 
+        //Runs everytime someone selects a booking in the list box to update the ticket
         private void listBox_Bookings_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Check if an item is selected in the ListBox
@@ -120,6 +90,7 @@ namespace MovieTicketApp
                                 lbl_MovieTime.Text = "Time: " + selectedBooking.Session.ToString("HH:mm");
                                 lbl_Seats.Text = "Seats: " + selectedBooking.SeatsBooked.Replace('-', ',');
 
+                                // Initialize and hide PictureBox and labels
                                 pic_Ticket.Visible = true;
                                 lbl_MovieName.Visible = true;
                                 lbl_MovieTime.Visible = true;
@@ -145,6 +116,7 @@ namespace MovieTicketApp
 
         private void btn_BackToMovies_Click(object sender, EventArgs e)
         {
+            // Return to the movies form
             Form_Movies movies = new Form_Movies();
             movies.Show();
             this.Close();
@@ -152,14 +124,11 @@ namespace MovieTicketApp
 
         private void btn_GoToChangePW_Click(object sender, EventArgs e)
         {
+            // Open the change password form
             frm_ChangePassword form = new frm_ChangePassword();
             form.Show();
             this.Close();
         }
 
-        private void lbl_MovieName_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

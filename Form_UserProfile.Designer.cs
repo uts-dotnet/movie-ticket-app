@@ -126,7 +126,6 @@
             lbl_MovieName.TabIndex = 23;
             lbl_MovieName.Text = "Movie Name";
             lbl_MovieName.TextAlign = ContentAlignment.TopCenter;
-            lbl_MovieName.Click += lbl_MovieName_Click;
             // 
             // lbl_MovieTime
             // 
@@ -177,10 +176,8 @@
 
         private Label lbl_Title_SignUp;
         private Label label1;
-        private ListBox listBox1;
         private PictureBox pic_Ticket;
         private Label label2;
-        private Label btn_ChangePW;
         private Button btn_GoToChangePW;
         private Button btn_BackToMovies;
         private Label lbl_MovieName;

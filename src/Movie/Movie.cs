@@ -2,23 +2,25 @@
 using MovieTicketApp;
 using Microsoft.VisualBasic.Devices;
 
+// Class representing a movie and its details
 public class Movie
 {
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public string Genre { get; set; }
-    public int Hours { get; set; }
-    public int Minutes { get; set; }
-    public int Year { get; set; }
-    public int Month { get; set; }
-    public int Day { get; set; }
-    public string Description { get; set; }
-    public string Poster { get; set; }
+    public int Id { get; set; }       // Unique identifier for the movie
+    public string Title { get; set; }  // Title of the movie
+    public string Genre { get; set; }  // Genre of the movie
+    public int Hours { get; set; }     // Duration in hours
+    public int Minutes { get; set; }   // Duration in minutes
+    public int Year { get; set; }      // Release year
+    public int Month { get; set; }     // Release month
+    public int Day { get; set; }       // Release day
+    public string Description { get; set; } // Movie description
+    public string Poster { get; set; }     // File path to the movie poster
 
-    public Duration Duration { get; set; }
-    public DateTime ReleaseDate { get; set; }
-    public List<MovieSession> Sessions = new List<MovieSession>();
+    public Duration Duration { get; set; }     // Represents movie duration
+    public DateTime ReleaseDate { get; set; }  // Release date
+    public List<MovieSession> Sessions = new List<MovieSession>(); // List of sessions for this movie
 
+    // Constructor to initialize a movie object with provided details
     public Movie(int movieID, string title, string genre, int hours, int minutes, int year, int month, int day, string description, string poster)
     {
         this.Id = movieID;
@@ -37,7 +39,7 @@ public class Movie
         LoadSessionsFromFile("sessions.txt");
     }
 
-    // Must use this method to create movies or else it won't increment ID or add to global
+    // Method to create a new movie instance and add it to the global list
     public static Movie CreateNewMovie(string title, string genre, int hours, int minutes, int year, int month, int day, string description, string poster)
     {
         int newMovieId = GenerateNewMovieId();
@@ -46,6 +48,7 @@ public class Movie
         return movie;
     }
 
+    // Generate a new unique movie ID based on existing IDs
     private static int GenerateNewMovieId()
     {
         int maxId = GlobalData.Movies.Max(m => m.Id);
@@ -82,12 +85,14 @@ public class Movie
         }
     }
 
+    // Method to add a new session to the Sessions list
     public void AddSession(int movieID, DateTime date, int availableSeats)
     {
         MovieSession session = new MovieSession(movieID, date, availableSeats);
         this.Sessions.Add(session);
     }
 
+    // Override the ToString method to provide a user-friendly string representation
     public override string ToString()
     {
         return $"Movie: {this.Title}, Genre: {this.Genre}, Duration: {this.Hours}:{this.Minutes}, Description: {this.Description}";

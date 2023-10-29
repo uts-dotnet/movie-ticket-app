@@ -320,9 +320,7 @@
         #endregion
 
         private Label lbl_Title_SignUp;
-        private DataGridView dataGridView1;
         private Button btn_Cancel;
-        private Button button1;
         private BindingSource userBindingSource;
         private BindingSource userDataBindingSource;
         private Label label1;
@@ -337,11 +335,9 @@
         private TextBox textBox_lastName;
         private DataGridView userGrid;
         private Button btn_UpdateData;
-        private Button button2;
         private Button btn_CreateNewUser;
         private Label label6;
         private Label label7;
-        private Button button3;
         private Button btn_DeleteUser;
         private DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;

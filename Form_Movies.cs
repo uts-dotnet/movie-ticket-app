@@ -8,9 +8,6 @@ namespace MovieTicketApp
 {
     public partial class Form_Movies : Form
     {
-        private string _moviesFile = ".\\movies.txt";
-        private string _sessionsFile = ".\\sessions.txt";
-
         List<Movie> movies = GlobalData.Movies;
 
         public Form_Movies()

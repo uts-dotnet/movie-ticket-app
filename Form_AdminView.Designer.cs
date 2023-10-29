@@ -121,7 +121,7 @@
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_AdminView";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Admin View";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,13 +129,8 @@
         #endregion
 
         private Label lbl_Title_SignUp;
-        private Button btn_Back;
-        private Button btn_AddUser;
         private Button btn_EditUser;
-        private Button btn_AddMovie;
         private Button btn_EditMovie;
-        private Label label5;
-        private Label label1;
         private Button btn_Log_Out;
         private Button button1;
         private Button btn_TEST;

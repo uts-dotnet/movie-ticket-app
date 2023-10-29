@@ -9,12 +9,13 @@ namespace MovieTicketApp.src.User
 {
     public class UserData
     {
-        public int UserId { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public int UserId { get; set; }       // Unique identifier for the user
+        public string Username { get; set; }  // Username of the user
+        public string Password { get; set; }  // Password of the user
+        public string FirstName { get; set; } // First name of the user
+        public string LastName { get; set; }  // Last name of the user
 
+        // Constructor to initialize user data with provided details
         public UserData(int userId, string username, string password, string firstName, string lastName)
         {
             UserId = userId;
@@ -24,7 +25,7 @@ namespace MovieTicketApp.src.User
             LastName = lastName;
         }
 
-        // Must use this method to create movies or else it won't increment ID or add to global
+        // Method to create a new user instance and add it to the global list
         public static UserData CreateNewUser(string username, string password, string firstName, string lastName)
         {
             int newUserId = GenerateNewUserDataId();
@@ -33,17 +34,20 @@ namespace MovieTicketApp.src.User
             return user;
         }
 
+        // Generate a new unique user data ID based on existing IDs
         private static int GenerateNewUserDataId()
         {
             int maxId = GlobalData.UserData.Max(u => u.UserId); // Find the maximum Id among existing UserData
             return maxId + 1;
         }
 
+        // Override the ToString method to provide a user-friendly string representation
         public override string ToString()
         {
             return $"User ID: {UserId}, Username: {Username}, First Name: {FirstName}, Last Name: {LastName}";
         }
 
+        // Method to change the password of a user with a specified user ID
         public static bool ChangePassword(int userID, string newPassword)
         {
             UserData? user = GlobalData.UserData.FirstOrDefault(u => u.UserId == userID);
@@ -65,6 +69,7 @@ namespace MovieTicketApp.src.User
             return false; // User not found
         }
 
+        // Method to change a user's password in a file (e.g., a credentials file)
         public static bool ChangePasswordInFile(string username, string newPassword)
         {
             string filePath = "login-credentials.txt";
