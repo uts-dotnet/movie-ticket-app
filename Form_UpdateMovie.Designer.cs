@@ -44,14 +44,16 @@
             label1 = new Label();
             btn_UpdateMovie = new Button();
             button1 = new Button();
-            userGrid = new DataGridView();
+            movieGrid = new DataGridView();
             label8 = new Label();
             textBox_Minutes = new TextBox();
             dateTimePicker_ReleaseDate = new DateTimePicker();
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
-            ((System.ComponentModel.ISupportInitialize)userGrid).BeginInit();
+            label12 = new Label();
+            textBox_Poster = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)movieGrid).BeginInit();
             SuspendLayout();
             // 
             // btn_DeleteMovie
@@ -97,7 +99,7 @@
             // 
             textBox_Description.Location = new Point(143, 114);
             textBox_Description.Name = "textBox_Description";
-            textBox_Description.Size = new Size(581, 23);
+            textBox_Description.Size = new Size(369, 23);
             textBox_Description.TabIndex = 36;
             // 
             // textBox_Genre
@@ -196,17 +198,18 @@
             button1.TextImageRelation = TextImageRelation.TextAboveImage;
             button1.UseVisualStyleBackColor = true;
             // 
-            // userGrid
+            // movieGrid
             // 
-            userGrid.AllowUserToAddRows = false;
-            userGrid.AllowUserToDeleteRows = false;
-            userGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            userGrid.Location = new Point(37, 238);
-            userGrid.Name = "userGrid";
-            userGrid.RowTemplate.Height = 25;
-            userGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            userGrid.Size = new Size(742, 200);
-            userGrid.TabIndex = 24;
+            movieGrid.AllowUserToAddRows = false;
+            movieGrid.AllowUserToDeleteRows = false;
+            movieGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            movieGrid.Location = new Point(37, 238);
+            movieGrid.Name = "movieGrid";
+            movieGrid.ReadOnly = true;
+            movieGrid.RowTemplate.Height = 25;
+            movieGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            movieGrid.Size = new Size(742, 200);
+            movieGrid.TabIndex = 24;
             // 
             // label8
             // 
@@ -263,11 +266,29 @@
             label11.TabIndex = 45;
             label11.Text = "Movie Length-";
             // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(517, 118);
+            label12.Name = "label12";
+            label12.Size = new Size(40, 15);
+            label12.TabIndex = 46;
+            label12.Text = "Poster";
+            // 
+            // textBox_Poster
+            // 
+            textBox_Poster.Location = new Point(559, 114);
+            textBox_Poster.Name = "textBox_Poster";
+            textBox_Poster.Size = new Size(165, 23);
+            textBox_Poster.TabIndex = 47;
+            // 
             // Form_UpdateMovie
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(textBox_Poster);
+            Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -289,12 +310,12 @@
             Controls.Add(label1);
             Controls.Add(btn_UpdateMovie);
             Controls.Add(button1);
-            Controls.Add(userGrid);
+            Controls.Add(movieGrid);
             Controls.Add(label8);
             Name = "Form_UpdateMovie";
             Text = "Form1";
             Load += Form_UpdateMovie_Load;
-            ((System.ComponentModel.ISupportInitialize)userGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)movieGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -324,5 +345,8 @@
         private Label label9;
         private Label label10;
         private Label label11;
+        private DataGridView movieGrid;
+        private Label label12;
+        private TextBox textBox_Poster;
     }
 }
