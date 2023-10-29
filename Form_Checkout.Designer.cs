@@ -52,7 +52,6 @@
             txt_ExpiryDate = new TextBox();
             btn_Pay = new Button();
             txt_CVV = new TextBox();
-            btn_Back = new Button();
             btn_AutoFill = new Button();
             panel_YourOrder.SuspendLayout();
             SuspendLayout();
@@ -317,19 +316,6 @@
             txt_CVV.Size = new Size(108, 27);
             txt_CVV.TabIndex = 36;
             // 
-            // btn_Back
-            // 
-            btn_Back.Cursor = Cursors.Hand;
-            btn_Back.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Back.ForeColor = Color.Firebrick;
-            btn_Back.Location = new Point(32, 46);
-            btn_Back.Name = "btn_Back";
-            btn_Back.Size = new Size(89, 35);
-            btn_Back.TabIndex = 37;
-            btn_Back.Text = "Back";
-            btn_Back.UseVisualStyleBackColor = true;
-            btn_Back.Click += btn_Back_Click;
-            // 
             // btn_AutoFill
             // 
             btn_AutoFill.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
@@ -348,7 +334,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(586, 518);
             Controls.Add(btn_AutoFill);
-            Controls.Add(btn_Back);
             Controls.Add(txt_CVV);
             Controls.Add(btn_Pay);
             Controls.Add(txt_ExpiryDate);
@@ -398,7 +383,6 @@
         private Label lbl_MovieTitle;
         private Label lbl_Subtotal;
         private Label lbl_Subtotal_Value;
-        private Button btn_Back;
         private Button btn_AutoFill;
     }
 }

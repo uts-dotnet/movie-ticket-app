@@ -11,7 +11,7 @@ namespace MovieTicketApp
         public Form_Seat_Selection()
         {
             InitializeComponent();
-
+            SetContinueButton(false);
             LoadSeats();
 
             if (seatsRemaining == 0)
@@ -68,8 +68,29 @@ namespace MovieTicketApp
                     listBox_Seats.Enabled = false;
                 }
 
+                if (seatsRemaining == 0)
+                {
+                    SetContinueButton(true);
+                }
+
                 // Remove the selected seat from the list after selecting it
                 listBox_Seats.Items.Remove(seat);
+            }
+        }
+
+        private void SetContinueButton(bool value)
+        {
+            if (value)
+            {
+                btn_Continue.Enabled = true;
+                btn_Continue.BackColor = Color.Firebrick;
+                btn_Continue.ForeColor = Color.White;
+            }
+            else
+            {
+                btn_Continue.Enabled = false;
+                btn_Continue.BackColor = Color.White;
+                btn_Continue.ForeColor = Color.Gray;
             }
         }
 
@@ -99,13 +120,6 @@ namespace MovieTicketApp
             );
 
             Form_Confirm_Booking form = new Form_Confirm_Booking();
-            form.Show();
-            this.Close();
-        }
-
-        private void btn_Back_Click(object sender, EventArgs e)
-        {
-            Form_Ticket_Selection form = new Form_Ticket_Selection();
             form.Show();
             this.Close();
         }

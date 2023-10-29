@@ -38,8 +38,7 @@
             listBox_Selected_Seats = new ListBox();
             label1 = new Label();
             lbl_Edit_Seats = new Label();
-            btn_Confirm = new Button();
-            btn_Back = new Button();
+            btn_Continue = new Button();
             SuspendLayout();
             // 
             // lbl_Title_Seat_Selection
@@ -146,40 +145,26 @@
             lbl_Edit_Seats.Size = new Size(100, 23);
             lbl_Edit_Seats.TabIndex = 31;
             // 
-            // btn_Confirm
+            // btn_Continue
             // 
-            btn_Confirm.BackColor = Color.Firebrick;
-            btn_Confirm.Cursor = Cursors.Hand;
-            btn_Confirm.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Confirm.ForeColor = Color.White;
-            btn_Confirm.Location = new Point(256, 378);
-            btn_Confirm.Name = "btn_Confirm";
-            btn_Confirm.Size = new Size(312, 39);
-            btn_Confirm.TabIndex = 30;
-            btn_Confirm.Text = "Confirm";
-            btn_Confirm.UseVisualStyleBackColor = false;
-            btn_Confirm.Click += btn_Confirm_Click;
-            // 
-            // btn_Back
-            // 
-            btn_Back.Cursor = Cursors.Hand;
-            btn_Back.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Back.ForeColor = Color.Firebrick;
-            btn_Back.Location = new Point(17, 43);
-            btn_Back.Name = "btn_Back";
-            btn_Back.Size = new Size(75, 35);
-            btn_Back.TabIndex = 33;
-            btn_Back.Text = "Back";
-            btn_Back.UseVisualStyleBackColor = true;
-            btn_Back.Click += btn_Back_Click;
+            btn_Continue.BackColor = Color.Firebrick;
+            btn_Continue.Cursor = Cursors.Hand;
+            btn_Continue.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Continue.ForeColor = Color.White;
+            btn_Continue.Location = new Point(256, 378);
+            btn_Continue.Name = "btn_Continue";
+            btn_Continue.Size = new Size(312, 39);
+            btn_Continue.TabIndex = 30;
+            btn_Continue.Text = "Continue";
+            btn_Continue.UseVisualStyleBackColor = false;
+            btn_Continue.Click += btn_Confirm_Click;
             // 
             // Form_Seat_Selection
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(586, 434);
-            Controls.Add(btn_Back);
-            Controls.Add(btn_Confirm);
+            Controls.Add(btn_Continue);
             Controls.Add(lbl_Edit_Seats);
             Controls.Add(label1);
             Controls.Add(listBox_Selected_Seats);
@@ -209,7 +194,6 @@
         private ListBox listBox_Selected_Seats;
         private Label label1;
         private Label lbl_Edit_Seats;
-        private Button btn_Confirm;
-        private Button btn_Back;
+        private Button btn_Continue;
     }
 }

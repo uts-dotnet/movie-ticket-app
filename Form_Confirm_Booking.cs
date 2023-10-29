@@ -85,12 +85,5 @@ namespace MovieTicketApp
             form.Show();
             this.Close();
         }
-
-        private void btn_Back_Click(object sender, EventArgs e)
-        {
-            Form_Seat_Selection form = new Form_Seat_Selection();
-            form.Show();
-            this.Close();
-        }
     }
 }

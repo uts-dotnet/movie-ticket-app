@@ -47,7 +47,6 @@
             lbl_Booked_Seats = new Label();
             lbl_Booked_Seats_Value = new Label();
             btn_Logout = new Button();
-            btn_Back = new Button();
             ((System.ComponentModel.ISupportInitialize)picbox_Poster_Booking).BeginInit();
             SuspendLayout();
             // 
@@ -129,7 +128,7 @@
             // 
             lbl_Ticket_Price.AutoSize = true;
             lbl_Ticket_Price.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Ticket_Price.Location = new Point(209, 214);
+            lbl_Ticket_Price.Location = new Point(210, 214);
             lbl_Ticket_Price.Name = "lbl_Ticket_Price";
             lbl_Ticket_Price.Size = new Size(50, 21);
             lbl_Ticket_Price.TabIndex = 12;
@@ -140,7 +139,7 @@
             lbl_Ticket_Price_Value.AutoSize = true;
             lbl_Ticket_Price_Value.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_Ticket_Price_Value.ForeColor = Color.Firebrick;
-            lbl_Ticket_Price_Value.Location = new Point(257, 215);
+            lbl_Ticket_Price_Value.Location = new Point(258, 215);
             lbl_Ticket_Price_Value.Name = "lbl_Ticket_Price_Value";
             lbl_Ticket_Price_Value.Size = new Size(59, 21);
             lbl_Ticket_Price_Value.TabIndex = 13;
@@ -171,7 +170,7 @@
             // 
             lbl_Subtotal.AutoSize = true;
             lbl_Subtotal.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Subtotal.Location = new Point(210, 301);
+            lbl_Subtotal.Location = new Point(209, 301);
             lbl_Subtotal.Name = "lbl_Subtotal";
             lbl_Subtotal.Size = new Size(89, 25);
             lbl_Subtotal.TabIndex = 16;
@@ -182,7 +181,7 @@
             lbl_Subtotal_Value.AutoSize = true;
             lbl_Subtotal_Value.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_Subtotal_Value.ForeColor = Color.Firebrick;
-            lbl_Subtotal_Value.Location = new Point(297, 301);
+            lbl_Subtotal_Value.Location = new Point(296, 301);
             lbl_Subtotal_Value.Name = "lbl_Subtotal_Value";
             lbl_Subtotal_Value.Size = new Size(72, 25);
             lbl_Subtotal_Value.TabIndex = 17;
@@ -194,7 +193,7 @@
             btn_Checkout.Cursor = Cursors.Hand;
             btn_Checkout.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_Checkout.ForeColor = Color.White;
-            btn_Checkout.Location = new Point(178, 379);
+            btn_Checkout.Location = new Point(181, 379);
             btn_Checkout.Name = "btn_Checkout";
             btn_Checkout.Size = new Size(288, 42);
             btn_Checkout.TabIndex = 18;
@@ -254,25 +253,11 @@
             btn_Logout.UseVisualStyleBackColor = true;
             btn_Logout.Click += btn_Logout_Click;
             // 
-            // btn_Back
-            // 
-            btn_Back.Cursor = Cursors.Hand;
-            btn_Back.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Back.ForeColor = Color.Firebrick;
-            btn_Back.Location = new Point(31, 43);
-            btn_Back.Name = "btn_Back";
-            btn_Back.Size = new Size(75, 35);
-            btn_Back.TabIndex = 34;
-            btn_Back.Text = "Back";
-            btn_Back.UseVisualStyleBackColor = true;
-            btn_Back.Click += btn_Back_Click;
-            // 
             // Form_Confirm_Booking
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(651, 447);
-            Controls.Add(btn_Back);
             Controls.Add(btn_Logout);
             Controls.Add(lbl_Booked_Seats_Value);
             Controls.Add(lbl_Booked_Seats);
@@ -321,6 +306,5 @@
         private Label lbl_Booked_Seats;
         private Label lbl_Booked_Seats_Value;
         private Button btn_Logout;
-        private Button btn_Back;
     }
 }

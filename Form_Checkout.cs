@@ -88,13 +88,6 @@ namespace MovieTicketApp
             this.Close();
         }
 
-        private void btn_Back_Click(object sender, EventArgs e)
-        {
-            Form_Confirm_Booking form = new Form_Confirm_Booking();
-            form.Show();
-            this.Close();
-        }
-
         private void btn_AutoFill_Click(object sender, EventArgs e)
         {
             User user = CurrentUserManager.Instance.CurrentUser;
