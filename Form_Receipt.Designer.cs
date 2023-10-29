@@ -161,6 +161,7 @@
             // btn_Save
             // 
             btn_Save.BackColor = Color.Firebrick;
+            btn_Save.Cursor = Cursors.Hand;
             btn_Save.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_Save.ForeColor = Color.White;
             btn_Save.Location = new Point(223, 569);

@@ -22,7 +22,7 @@ namespace MovieTicketApp
             Application.ApplicationExit += OnApplicationExit;
             AppDomain.CurrentDomain.ProcessExit += OnApplicationExit;
 
-            Application.Run(new frm_Login());
+            Application.Run(new Form_Login());
         }
 
         // Handle the application exit event

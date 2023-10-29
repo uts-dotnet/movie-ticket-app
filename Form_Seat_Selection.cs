@@ -96,7 +96,7 @@ namespace MovieTicketApp
 
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            frm_Login login = new frm_Login();
+            Form_Login login = new Form_Login();
             login.Show();
             this.Close();
         }

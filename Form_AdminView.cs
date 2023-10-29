@@ -43,7 +43,7 @@ namespace MovieTicketApp
         private void btn_Log_Out_Click(object sender, EventArgs e)
         {
             FileManager.Save();
-            frm_Login logout = new frm_Login();
+            Form_Login logout = new Form_Login();
             logout.Show();
             this.Hide();
         }

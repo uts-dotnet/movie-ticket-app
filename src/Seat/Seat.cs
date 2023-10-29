@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MovieTicketApp
 {
-    public class Seat
+    public struct Seat
     {
         public string Name { get; set; }
 

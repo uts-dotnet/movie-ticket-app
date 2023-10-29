@@ -8,16 +8,12 @@ namespace MovieTicketApp
 {
     public partial class Form_Movies : Form
     {
-        private string _moviesFile = ".\\movies.txt";
-        private string _sessionsFile = ".\\sessions.txt";
-
         List<Movie> movies = GlobalData.Movies;
 
         public Form_Movies()
         {
             InitializeComponent();
 
-            //movies = LoadMovies(_moviesFile, _sessionsFile);
             // this string needs to match the name of a Movie field (i.e. Title, Genre, etc)
             listbox_Movies.DisplayMember = "Title";
             listbox_Movies.DataSource = movies;
@@ -65,7 +61,7 @@ namespace MovieTicketApp
 
                 for (int i = 0; i < selectedMovie.Sessions.Count && i < sessionBtns.Length; i++)
                 {
-                    sessionBtns[i].Text = selectedMovie.Sessions[i].Time.ToString("HH:mm");
+                    sessionBtns[i].Text = selectedMovie.Sessions[i].Time.ToString("HH:mm"); // format to display the time in 24h notation
                     sessionBtns[i].Tag = selectedMovie.Sessions[i];
                     sessionBtns[i].Cursor = Cursors.Hand;
 
@@ -81,10 +77,12 @@ namespace MovieTicketApp
         {
             Movie selectedMovie = (Movie)listbox_Movies.SelectedItem;
 
+            // only proceed to ticket selection if the session selected is related to the movie itself,
+            // and if the sender is a button
             if (sender is Button button && button.Tag is MovieSession selectedSession)
             {
-                Form_Ticket_Selection sessionForm = new Form_Ticket_Selection(selectedMovie, selectedSession);
-                sessionForm.Show();
+                Form_Ticket_Selection form = new Form_Ticket_Selection(selectedMovie, selectedSession);
+                form.Show();
                 this.Hide();
             }
         }
