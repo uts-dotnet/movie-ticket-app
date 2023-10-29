@@ -126,7 +126,6 @@
             lbl_MovieName.TabIndex = 23;
             lbl_MovieName.Text = "Movie Name";
             lbl_MovieName.TextAlign = ContentAlignment.TopCenter;
-            lbl_MovieName.Click += lbl_MovieName_Click;
             // 
             // lbl_MovieTime
             // 

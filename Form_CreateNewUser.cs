@@ -13,6 +13,8 @@ using MovieTicketApp.src.User;
 
 namespace MovieTicketApp
 {
+    /** THIS SCREEN IS NOT IN USE **/
+
     public partial class Form_CreateNewUser : Form
     {
         public Form_CreateNewUser()

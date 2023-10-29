@@ -121,7 +121,7 @@
             Controls.Add(lbl_Title_SignUp);
             Name = "Form_AdminView";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Admin View";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -9,13 +9,23 @@ using MovieTicketApp.src.User;
 
 namespace MovieTicketApp.src.Managers
 {
+    /* Global Data variables are stored within this class */
+
     internal class GlobalData
     {
 
         //Stores Global List<T> variables for access across the software
+
+        // List to store movie data
         public static List<Movie> Movies{ get; set; } = new List<Movie>();
+
+        // List to store booking data
         public static List<Booking> Bookings { get; set; } = new List<Booking>();
+
+        // List to store movie session data
         public static List<MovieSession> Sessions { get; set; } = new List<MovieSession>();
+
+        // List to store user data
         public static List<UserData> UserData { get; set; } = new List<UserData>();
 
         // Clear or reset the data in the global lists

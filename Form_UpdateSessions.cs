@@ -12,13 +12,20 @@ using static System.Collections.Specialized.BitVector32;
 
 namespace MovieTicketApp
 {
+
+    /* THIS SCREEN IS NOT IN USE NOW --- FUTURE SCOPE */
+
+
     public partial class Form_UpdateSessions : Form
     {
         public Form_UpdateSessions()
         {
             InitializeComponent();
+
+            // Set data source to Sessions global
             sessionGrid.DataSource = GlobalData.Sessions;
 
+            // Customize the format of the DateTimePicker
             dateTimePicker_SessionTime.Format = DateTimePickerFormat.Custom;
             dateTimePicker_SessionTime.CustomFormat = "hh:mm tt";
             dateTimePicker_SessionTime.ShowUpDown = true;

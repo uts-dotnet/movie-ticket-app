@@ -11,6 +11,8 @@ using MovieTicketApp.src.Managers;
 
 namespace MovieTicketApp
 {
+    // Form that admins see upon login
+
     public partial class Form_AdminView : Form
     {
         public Form_AdminView()
@@ -18,6 +20,7 @@ namespace MovieTicketApp
             InitializeComponent();
         }
 
+        // Event handler for the "Edit Movie" button
         private void btn_EditMovie_Click(object sender, EventArgs e)
         {
             Form_UpdateMovie form = new Form_UpdateMovie();
@@ -26,6 +29,7 @@ namespace MovieTicketApp
 
         }
 
+        // Event handler for the "Edit User" button
         private void btn_EditUser_Click_1(object sender, EventArgs e)
         {
             Form_UpdateUser form = new Form_UpdateUser();
@@ -33,6 +37,7 @@ namespace MovieTicketApp
             this.Hide();
         }
 
+        // Event handler for the "Edit Sessions" button
         private void button1_Click(object sender, EventArgs e)
         {
             Form_UpdateSessions form = new Form_UpdateSessions();
@@ -40,6 +45,7 @@ namespace MovieTicketApp
             this.Hide();
         }
 
+        // Event handler for the "Log Out" button
         private void btn_Log_Out_Click(object sender, EventArgs e)
         {
             FileManager.Save();
@@ -48,6 +54,7 @@ namespace MovieTicketApp
             this.Hide();
         }
 
+        // Hidden button for developer use only
         private void btn_TEST_Click(object sender, EventArgs e)
         {
             Form_TESTING form = new Form_TESTING();
