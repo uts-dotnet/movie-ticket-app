@@ -1,14 +1,10 @@
-# [32998] .NET Application Development
+# DOTNET Cinemas
 
-## Assignment 2 - Group Project
+#### Developed by: 
 
-#### Students: 
+- #### [Emily Deng](https://github.com/emxdeng)
 
-- #### Emily Deng, 14087896
-
-- #### Victor Patterson Zottmann, 14226207
-
-
+- #### [Victor Zottmann](https://github.com/victorzottmann)
 
 ## How to run the program
 
